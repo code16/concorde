@@ -32,7 +32,7 @@
         <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml">
         <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
 
-        <link rel="preload" href="{{ Vite::asset('resources/fonts/manrope-variable.woff2') }}" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="{{ Vite::asset('resources/fonts/Manrope-variable.woff2') }}" as="font" type="font/woff2" crossorigin>
 
         @vite([
             'resources/css/app.css',
@@ -44,16 +44,46 @@
         {{ $head ?? null }}
         @stack('head')
     </head>
-    <body class="font-sans antialiased bg-stone-50 text-body-16 {{ $attributes->get('class') }}">
+    <body class="bg-neutral-100 text-eggplant font-sans antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
         <div class="relative flex flex-col min-h-screen">
-            <x-header />
+            @if($home ?? true)
+                <div class="mt-2.5 mb-2 relative z-20 container">
+                    <div class="flex gap-6 py-1.25 px-5 md:px-10 rounded-2xl bg-violet-400">
+                        <p class="text-xs font-semibold">
+                            <span class="md:hidden">
+                                Nos outils sur-mesure
+                            </span>
+                            <span class="max-md:hidden">
+                                Nos outils sur-mesure pour structurer et accélérer vos projets Laravel
+                            </span>
+                        </p>
+                        <div class="ml-auto flex gap-5">
+                            @foreach([
+                                'Sharp' => config('concorde.tools.sharp_url'),
+                                'Ozu' => config('concorde.tools.ozu_url'),
+                            ] as $label => $url)
+                                <a class="flex gap-0.5 items-start font-semibold text-xs" href="{{ $url }}">
+                                    {{ $label }}
+                                    <x-icon-arrow-up-right class="size-4 mt-1" />
+                                </a>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endif
+            <div class="relative">
+                @if($header ?? null)
+                    {{ $header }}
+                @else
+                    <x-header />
+                @endif
 
-            <main id="content" class="flex-1 flex flex-col">
-                {{ $slot }}
-                <x-container class="flex-1"></x-container>
-            </main>
+                <main id="content" class="flex-1 flex flex-col">
+                    {{ $slot }}
+                </main>
 
-            <x-footer />
+                <x-footer />
+            </div>
         </div>
 
         @stack('script')

@@ -40,12 +40,33 @@
   --color-transparent: transparent;
   --color-current: currentColor;
 
+  --text-xs: .8125rem;
+  --text-xs--line-height: 1.375rem;
   --text-sm: .875rem;
+  --text-sm--line-height: 1.1875rem;
   --text-base: .9375rem;
+  --text-base--line-height: 1.25rem;
   --text-xl: 1.25rem;
+  --text-xl--line-height: 1.5rem;
   --text-2xl: 1.4375rem;
+  --text-2xl--line-height: 1.5625rem;
   --text-2\.5xl: 1.5625rem;
+  --text-2\.5xl--line-height: 1.75rem;
   --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.0625rem;
   --text-5xl: 2.8125rem;
+  --text-5xl--line-height: 3rem;
   --text-6xl: 3.4375rem;
+  --text-6xl--line-height: 3.625rem;
+
+
+  --breakpoint-2xl: initial;
+}
+
+@utility container {
+  @apply mx-auto px-2.5;
+}
+
+.\@container-scroll {
+  container-type: scroll-state;
 }
