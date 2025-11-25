@@ -42,6 +42,7 @@
   --color-transparent: transparent;
   --color-current: currentColor;
 
+  --radius-lg: .4375rem;
   --radius-xl: .9375rem;
   --radius-2xl: 1.25rem;
 
@@ -67,6 +68,9 @@
   --text-6xl--line-height: 3.625rem;
 
 
+  --breakpoint-md: 49.5rem;
+  --breakpoint-lg: 64rem;
+  --breakpoint-xl: 75rem;
   --breakpoint-2xl: initial;
 }
 

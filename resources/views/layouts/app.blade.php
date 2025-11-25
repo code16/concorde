@@ -58,12 +58,9 @@
                             </span>
                         </p>
                         <div class="ml-auto flex gap-5">
-                            @foreach([
-                                'Sharp' => config('concorde.tools.sharp_url'),
-                                'Ozu' => config('concorde.tools.ozu_url'),
-                            ] as $label => $url)
-                                <a class="flex gap-0.5 items-start font-semibold text-xs" href="{{ $url }}">
-                                    {{ $label }}
+                            @foreach(\App\Models\Tool::all() as $tool)
+                                <a class="flex gap-0.5 items-start font-semibold text-xs" href="{{ $tool->website_url }}">
+                                    {{ $tool->title }}
                                     <x-icon-arrow-up-right class="size-4 mt-1" />
                                 </a>
                             @endforeach
