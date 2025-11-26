@@ -13,10 +13,10 @@
                         Artisans du web
                     </p>
                     <h1 class="font-heading font-[450] text-4xl md:text-5xl lg:text-6xl text-heading text-white">
-                        Nous développons des projets web fais pour durer.
+                        Nous développons des projets web faits pour durer.
                     </h1>
                     <p class="mt-3.75 text-base font-medium text-neutral-250">
-                        Depuis 2007, nous concevons et maintenons avec rigueur et exigeance des projets web et mobiles, en étroite collaboration avec nos clients.
+                        Depuis 2007, nous concevons et maintenons avec exigence des projets web ou mobiles, en étroite collaboration avec nos clients.
                     </p>
                     <div class="mt-5 flex flex-col md:flex-row flex-wrap gap-y-1.25 gap-x-5">
                         @foreach([
@@ -71,9 +71,9 @@
                 </x-section-header>
                 <div class="mt-10 grid md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5">
                     @foreach([
-                        'Exigeance' => 'Nous concevons chaque projet avec rigueur, pour livrer un code propre, maîtrisé, et capable d’évoluer.',
-                        'Suivi' => 'Nous assurons la maintenance de nos réalisations  et les faisons évoluer au rythme des besoins.',
-                        'Autonomie' => 'Nous gardons la main sur l’ensemble du cycle de production pour être toujours autonome et réactifs. ',
+                        'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer avec ocnfiance un code propre, maîtrisé et capable d’évoluer.',
+                        'Suivi' => 'Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.',
+                        'Autonomie' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
                     ] as $title => $description)
                         <article class="group/item flex flex-row md:flex-col gap-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl bg-white inset-ring inset-ring-neutral-200">
                             <div class="shrink-0 w-25 md:w-full md:h-30 lg:h-40 bg-violet-50 inset-ring inset-ring-violet-100 rounded-xl">
@@ -120,7 +120,7 @@
                             </h2>
                         </div>
                         <p class="max-w-112 font-heading text-2.5xl [&_br]:max-md:hidden lg:text-3xl font-[350]">
-                            Spécialistes de Laravel nous disposons d’outils fiables et de solutions variées qui nous permettent de répondre a tous types de projets.
+                            Nous sommes spécialistes de Laravel, dont l’écosystème auquel nous participons nous offre des solutions variées qui nous permettent de répondre à tous types de projets.
                         </p>
                     </div>
                 </div>
