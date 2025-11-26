@@ -8,7 +8,7 @@
         <div class="rounded-2xl bg-[#0B0617]">
             <div class="relative isolate overflow-clip rounded-b-2xl min-h-[540px] bg-[linear-gradient(180deg,#0A0515,#1C0F36)] px-7.5 md:px-12.5 lg:px-17.5 py-25 md:pt-32.5 md:pb-42.5">
                 <x-icon-bg-grid class="absolute  -z-10 -top-4 -right-103.5 md:-right-40.5 lg:-right-21.5 w-190" />
-                <div class="max-w-110 md:max-w-142 lg:max-w-172">
+                <div class="max-w-110 md:max-w-142 lg:max-w-180">
                     <p class="mb-2.5 font-medium text-violet-400 text-base">
                         Artisans du web
                     </p>
@@ -46,7 +46,8 @@
                         <br>reflet de la diversité de nos missions.
                     </x-slot:title>
                     <x-slot:actions>
-                        <x-button href="{{ route('projects.index') }}" variant="link" cta>
+                        <x-button href="{{ route('projects.index') }}" variant="link">
+                            <x-button-arrow />
                             Explorer nos projets
                         </x-button>
                     </x-slot:actions>
@@ -174,6 +175,62 @@
                         </article>
                     @endforeach
                 </div>
+            </section>
+            <section class="md:px-7.5 lg:px-17.5">
+                <x-section-header vertical>
+                    <x-slot:surtitle>
+                        L’équipe
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Une équipe experte à taille humaine
+                    </x-slot:title>
+                    <x-slot:heading-text>
+                        Pour les projets d’envergure, nous sommes entourés de partenaires de confiance.
+                    </x-slot:heading-text>
+                </x-section-header>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5">
+                    {{-- TeamMember is a Sushi model, edit values in model class --}}
+                    @foreach(\App\Models\TeamMember::all() as $teamMember)
+                        <article class="flex items-center md:items-start md:flex-col bg-white rounded-xl inset-ring inset-ring-neutral-200 md:bg-transparent md:inset-ring-0">
+                            <img class="size-25 inset-ring inset-ring-neutral-200 md:w-full md:h-auto md:aspect-227/270 lg:aspect-332/360 rounded-xl object-cover object-top" src="{{ $teamMember->photo }}" alt="{{ $teamMember->name }}">
+                            <div class="p-4 pl-5 md:p-0 md:mt-3.75 lg:mt-5">
+                                <h3 class="font-heading font-[450] text-xl lg:text-2xl">
+                                    {{ $teamMember->name }}
+                                </h3>
+                                <p class="mt-0.5 text-sm md:text-base text-neutral-600">
+                                    {{ $teamMember->role }}
+                                </p>
+                            </div>
+                        </article>
+                    @endforeach
+                </div>
+            </section>
+            <section class="md:px-7.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        Témoignages
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Ils nous font confiance
+                    </x-slot:title>
+                    <x-slot:actions></x-slot:actions>
+                </x-section-header>
+            </section>
+            <section class="md:px-7.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        Blog
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Nos projets, nos outils, et tout ce qu’on aime partager avec vous.
+                    </x-slot:title>
+                    <x-slot:actions>
+                        <x-button href="{{ route('blog') }}" variant="link">
+                            <x-button-arrow />
+                            Explorer le blog
+                        </x-button>
+                    </x-slot:actions>
+                </x-section-header>
             </section>
         </div>
     </div>

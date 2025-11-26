@@ -52,9 +52,9 @@
   --text-sm--line-height: 1.1875rem;
   --text-base: .9375rem;
   --text-base--line-height: 1.25rem;
-  --text-xl: 1.25rem;
+  --text-xl: 1.25rem; /* Global/Gellix Xsmall */
   --text-xl--line-height: 1.5rem;
-  --text-2xl: 1.4375rem;
+  --text-2xl: 1.4375rem; /* Global/Gellix small */
   --text-2xl--line-height: 1.5625rem;
   --text-2\.5xl: 1.5625rem;
   --text-2\.5xl--line-height: 1.75rem;
