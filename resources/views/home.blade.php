@@ -142,27 +142,34 @@
                         Nous avons développé deux outils pour enrichir l’écosystème Laravel et offrir aux développeurs des bases solides pour leurs applications.
                     </x-slot:heading-text>
                 </x-section-header>
-                <div class="mt-7.5 md:mt-10">
+                <div class="mt-7.5 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-5">
                     {{-- Tool is a Sushi model, edit values in model class --}}
                     @foreach(\App\Models\Tool::all() as $tool)
-                        <article class="rounded-2xl inset-ring inset-ring-neutral-200 bg-neutral-100">
-                            <div class="grid grid-cols-[auto_minmax(0,1fr)] px-7.5 py-6.25 md:py-7.5 lg:py-19 rounded-2xl bg-white inset-ring inset-ring-neutral-200">
-                                <img class="size-10 md:size-15 lg:w-26.5 lg:h-25.5" src="{{ $tool->logo }}" alt="{{ $tool->title }}">
+                        <article class="relative rounded-2xl border border-neutral-200 transition bg-neutral-100 hover:bg-eggplant">
+                            <div class="-m-px grid grid-cols-[auto_minmax(0,1fr)] gap-x-3.75 lg:gap-x-7.5 px-7.5 py-6.25 md:py-7.5 lg:py-10 rounded-2xl bg-white border border-neutral-200">
+                                <img class="lg:row-span-2 size-10 md:size-15 object-cover rounded-lg lg:rounded-xl lg:w-26.5 lg:h-25.5" src="{{ $tool->logo }}" alt="{{ $tool->title }}">
                                 <div class="flex items-center gap-1.75 lg:gap-2.5">
                                     <h3 class="text-2.5xl md:text-3xl font-heading font-[450]">
                                         {{ $tool->title }}
                                     </h3>
                                     @if($tool->is_open_source)
-                                        <div class="rounded-lg text-sm bg-neutral-100 py-0.5 px-2.5 lg:py-1.25 text-neutral-600">
+                                        <div class="shrink-0 rounded-lg text-[.875rem]/[1.375rem] font-semibold bg-neutral-100 py-0.5 px-2.5 lg:py-1.25 text-neutral-600">
                                             Open source
                                         </div>
                                     @endif
                                 </div>
                                 @if($tool->item_text)
-                                    <p class="mt-2 text-base font-medium">
+                                    <p class="mt-2 col-span-full lg:col-span-1 text-base font-medium">
                                         {!! $tool->item_text !!}
                                     </p>
                                 @endif
+                            </div>
+                            <div class="py-2.5 lg:py-3.75 px-5">
+                                <a class="group/btn font-semibold transition text-eggplant hover:text-white text-base flex items-center justify-between gap-4" href="{{ $tool->website_url }}">
+                                    <span class="absolute rounded-[1.25rem] inset-0"></span>
+                                    Explorer {{ $tool->title }}
+                                    <x-button-arrow />
+                                </a>
                             </div>
                         </article>
                     @endforeach
