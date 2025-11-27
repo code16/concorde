@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4ad12dd074a07b929a4421b9784c9061",
+    "content-hash": "dd68ab08227cdfb73f386cfa61f738c4",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -396,21 +396,22 @@
         },
         {
             "name": "code16/ozu-client",
-            "version": "v0.7.0",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/code16/ozu-client.git",
-                "reference": "59d53150ac21de28e0b1e84f61682739b7bf67c2"
+                "reference": "7d072535f2777f43f6ab52f13811068c5af5c69e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code16/ozu-client/zipball/59d53150ac21de28e0b1e84f61682739b7bf67c2",
-                "reference": "59d53150ac21de28e0b1e84f61682739b7bf67c2",
+                "url": "https://api.github.com/repos/code16/ozu-client/zipball/7d072535f2777f43f6ab52f13811068c5af5c69e",
+                "reference": "7d072535f2777f43f6ab52f13811068c5af5c69e",
                 "shasum": ""
             },
             "require": {
                 "code16/embed": "^2.3",
                 "code16/laravel-content-renderer": "^1.1.0",
+                "code16/pint-config": "^1.2",
                 "ext-zip": "*",
                 "guzzlehttp/guzzle": "^7.5",
                 "illuminate/contracts": "^11.0|^12.0",
@@ -420,7 +421,6 @@
                 "spatie/laravel-sluggable": "^3.6"
             },
             "require-dev": {
-                "code16/pint-config": "^1.2",
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^8.0",
                 "orchestra/testbench": "^9.0|^10.0",
@@ -429,6 +429,7 @@
                 "pestphp/pest-plugin-laravel": "^3.0",
                 "spatie/laravel-ray": "^1.26"
             },
+            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -468,9 +469,72 @@
             ],
             "support": {
                 "issues": "https://github.com/code16/ozu-client/issues",
-                "source": "https://github.com/code16/ozu-client/tree/v0.7.0"
+                "source": "https://github.com/code16/ozu-client/tree/main"
             },
-            "time": "2025-11-19T17:36:40+00:00"
+            "time": "2025-11-27T17:02:33+00:00"
+        },
+        {
+            "name": "code16/pint-config",
+            "version": "1.2.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/code16/pint-config.git",
+                "reference": "097d769f147f8b740eb730aedc5d47f19e277c05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/code16/pint-config/zipball/097d769f147f8b740eb730aedc5d47f19e277c05",
+                "reference": "097d769f147f8b740eb730aedc5d47f19e277c05",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^11.0|^12.0",
+                "laravel/pint": "^1.20",
+                "php": "^8.3",
+                "symfony/process": "^7.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^11.0|^12.0",
+                "nunomaduro/collision": "^7.10|^8.1"
+            },
+            "bin": [
+                "bin/pint-config"
+            ],
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Code16\\PintConfig\\PintConfigServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Code16\\PintConfig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "code16",
+                    "email": "antoine@code16.fr",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is my package pint-config",
+            "homepage": "https://github.com/code16/pint-config",
+            "keywords": [
+                "laravel",
+                "pint-config"
+            ],
+            "support": {
+                "issues": "https://github.com/code16/pint-config/issues",
+                "source": "https://github.com/code16/pint-config/tree/1.2.3"
+            },
+            "time": "2025-08-21T14:37:41+00:00"
         },
         {
             "name": "codeat3/blade-coolicons",
@@ -1907,6 +1971,72 @@
                 "source": "https://github.com/laravel/framework"
             },
             "time": "2025-11-18T15:16:10+00:00"
+        },
+        {
+            "name": "laravel/pint",
+            "version": "v1.25.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/pint.git",
+                "reference": "5016e263f95d97670d71b9a987bd8996ade6d8d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/5016e263f95d97670d71b9a987bd8996ade6d8d9",
+                "reference": "5016e263f95d97670d71b9a987bd8996ade6d8d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "ext-tokenizer": "*",
+                "ext-xml": "*",
+                "php": "^8.2.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.87.2",
+                "illuminate/view": "^11.46.0",
+                "larastan/larastan": "^3.7.1",
+                "laravel-zero/framework": "^11.45.0",
+                "mockery/mockery": "^1.6.12",
+                "nunomaduro/termwind": "^2.3.1",
+                "pestphp/pest": "^2.36.0"
+            },
+            "bin": [
+                "builds/pint"
+            ],
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/",
+                    "Database\\Seeders\\": "database/seeders/",
+                    "Database\\Factories\\": "database/factories/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nuno Maduro",
+                    "email": "enunomaduro@gmail.com"
+                }
+            ],
+            "description": "An opinionated code formatter for PHP.",
+            "homepage": "https://laravel.com",
+            "keywords": [
+                "format",
+                "formatter",
+                "lint",
+                "linter",
+                "php"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/pint/issues",
+                "source": "https://github.com/laravel/pint"
+            },
+            "time": "2025-09-19T02:57:12+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -7275,72 +7405,6 @@
             "time": "2025-06-05T13:55:57+00:00"
         },
         {
-            "name": "laravel/pint",
-            "version": "v1.25.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/pint.git",
-                "reference": "5016e263f95d97670d71b9a987bd8996ade6d8d9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/5016e263f95d97670d71b9a987bd8996ade6d8d9",
-                "reference": "5016e263f95d97670d71b9a987bd8996ade6d8d9",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-tokenizer": "*",
-                "ext-xml": "*",
-                "php": "^8.2.0"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.87.2",
-                "illuminate/view": "^11.46.0",
-                "larastan/larastan": "^3.7.1",
-                "laravel-zero/framework": "^11.45.0",
-                "mockery/mockery": "^1.6.12",
-                "nunomaduro/termwind": "^2.3.1",
-                "pestphp/pest": "^2.36.0"
-            },
-            "bin": [
-                "builds/pint"
-            ],
-            "type": "project",
-            "autoload": {
-                "psr-4": {
-                    "App\\": "app/",
-                    "Database\\Seeders\\": "database/seeders/",
-                    "Database\\Factories\\": "database/factories/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Nuno Maduro",
-                    "email": "enunomaduro@gmail.com"
-                }
-            ],
-            "description": "An opinionated code formatter for PHP.",
-            "homepage": "https://laravel.com",
-            "keywords": [
-                "format",
-                "formatter",
-                "lint",
-                "linter",
-                "php"
-            ],
-            "support": {
-                "issues": "https://github.com/laravel/pint/issues",
-                "source": "https://github.com/laravel/pint"
-            },
-            "time": "2025-09-19T02:57:12+00:00"
-        },
-        {
             "name": "laravel/sail",
             "version": "v1.48.1",
             "source": {
@@ -10081,7 +10145,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "code16/ozu-client": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

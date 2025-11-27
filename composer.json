@@ -12,7 +12,7 @@
         "php": "^8.4",
         "blade-ui-kit/blade-icons": "^1.8",
         "calebporzio/sushi": "^2.5",
-        "code16/ozu-client": "^0.7.0",
+        "code16/ozu-client": "dev-main",
         "codeat3/blade-coolicons": "^1.6",
         "laravel/framework": "^12.0",
         "laravel/tinker": "^2.10.1"
