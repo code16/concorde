@@ -12,9 +12,6 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         Project::factory(5)->sequence(
@@ -36,7 +33,7 @@ class DatabaseSeeder extends Seeder
                     <h1>En bien d’autres fonctionnalités sur mesure</h1>
                     <p>L’application propose bien d’autres fonctionnalités, parmi lesquels : les listes de cadeau, store locator / store chooser, recherche à facettes, e-cartes cadeau, liste de favoris, coupons, promotions, offres commerciales, base de visuels / vidéos, intégration Google Shopping…</p>
                     <p>Le système est en outre relié à tout l’environnement technique d’EK France via des API : SSO (voir le projet Platina), CRM, fidélité, stock, clients, système de commandes, affranchissement / relais / enlèvement, plateformes de paiement (Payplug et Alma)…</p>',
-                'tags' => ProjectTag::whereIn('label', ['Intranet', 'E-commerce'])->pluck('id'),
+                'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Contenu', 'Performance'])->pluck('id'),
             ],
             [
                 'title' => 'Sycomore AM',
@@ -58,7 +55,17 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Meisenthal France',
                 'item_text' => 'Boutique événementielle à fort trafic administrée avec Sharp pour les produits, les stocks, la livraison et le Click & Collect.',
-                'tags' => ProjectTag::whereIn('label', ['E-commerce'])->pluck('id'),
+                'content' => '<p>développement back et front, hébergement et suivi, design</p>
+                    <h1>Une boutique événementielle…</h1>
+                    <p>La boutique en ligne du Centre International d’Art Verrier (CIAV) de Meisenthal est généralement ouverte 2 jours dans l’année. La session de Noël, courant novembre, propose uniquement le retrait sur place (Click and Collect), et celle du printemps (généralement en mars) la livraison. Le système permet de fonctionner dans les deux modes, avec une configuration précise des modalités (créneaux, points de retrait, frais de livraison, livreur, etc.).</p>
+                    <p>[screen rayon ou product]</p>
+                    <h1>… à très grand succès</h1>
+                    <p>Le produit phare est la boule de Noël, signée d’un designer différent chaque année. Une session de vente ne dure que quelques heures, puisque la totalité des 7000 et quelque boules, fabriquées artisanalement, est très rapidement achetée par un public de connaisseurs… La complexité est donc de mettre en œuvre une infrastructure résiliente, permettant de supporter de très importants pics de charge, et de ne perdre aucun paiement dans la bataille !</p>
+                    <p>[screen graph ventes, charge (sans échelle) ?]</p>
+                    <h1>Un order management system (OMS) sur mesure</h1>
+                    <p>La gestion des nombreuses commandes (tout comme toute l’administration du site) se fait via une instance de Sharp for Laravel, où il est possible de générer des bons de préparation et de modifier le statut de la commande, ce qui notifie le client.</p>
+                    <p>[screen sharp]</p>',
+                'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Performance'])->pluck('id'),
             ],
             [
                 'title' => 'Agence culturelle Grand Est',

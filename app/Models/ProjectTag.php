@@ -25,12 +25,13 @@ class ProjectTag extends Model
     public function getRows(): array
     {
         return [
-            ['id' => 1, 'label' => 'Intranet', 'color' => TagColor::Fuchsia],
+            ['id' => 1, 'label' => 'Contenu', 'color' => TagColor::Green],
             ['id' => 2, 'label' => 'E-commerce', 'color' => TagColor::Purple],
-            ['id' => 3, 'label' => 'API', 'color' => TagColor::Orange],
-            ['id' => 4, 'label' => 'Contenu', 'color' => TagColor::Green],
-            ['id' => 5, 'label' => 'Multilinguisme', 'color' => TagColor::Blue],
-            ['id' => 6, 'label' => 'SSO', 'color' => TagColor::Blue], // TODO color
+            ['id' => 3, 'label' => 'Intranet', 'color' => TagColor::Fuchsia],
+            ['id' => 4, 'label' => 'Multilinguisme', 'color' => TagColor::Blue],
+            ['id' => 5, 'label' => 'SSO', 'color' => TagColor::Blue], // TODO color
+            ['id' => 6, 'label' => 'API', 'color' => TagColor::Orange],
+            ['id' => 7, 'label' => 'Performance', 'color' => TagColor::Orange], // TODO color
         ];
     }
 }
