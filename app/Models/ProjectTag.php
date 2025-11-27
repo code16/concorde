@@ -28,7 +28,9 @@ class ProjectTag extends Model
             ['id' => 1, 'label' => 'Intranet', 'color' => TagColor::Fuchsia],
             ['id' => 2, 'label' => 'E-commerce', 'color' => TagColor::Purple],
             ['id' => 3, 'label' => 'API', 'color' => TagColor::Orange],
-            ['id' => 4, 'label' => 'Site vitrine', 'color' => TagColor::Green],
+            ['id' => 4, 'label' => 'Contenu', 'color' => TagColor::Green],
+            ['id' => 5, 'label' => 'Multilinguisme', 'color' => TagColor::Blue],
+            ['id' => 6, 'label' => 'SSO', 'color' => TagColor::Blue], // TODO color
         ];
     }
 }
