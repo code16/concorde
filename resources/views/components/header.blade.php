@@ -55,7 +55,7 @@
                 >
                     @foreach([
                         'Nos projets' => '#projects',
-                        'Nos approche' => '#approach',
+                        'Notre approche' => '#approach',
                         'L’équipe' => '#team',
                         'Blog' => '#blog',
                     ] as $label => $url)
