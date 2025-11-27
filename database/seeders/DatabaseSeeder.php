@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Project::factory(4)->sequence(
+        Project::factory(5)->sequence(
             [
                 'title' => 'Ambiance & Styles',
                 'item_text' => 'Plateforme e-commerce intégrant paiement, Click & Collect, Ship from Store, gestion des stocks et fidélité.',
