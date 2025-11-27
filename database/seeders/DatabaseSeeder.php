@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
                     <h1>… à très grand succès</h1>
                     <p>Le produit phare est la boule de Noël, signée d’un designer différent chaque année. Une session de vente ne dure que quelques heures, puisque la totalité des 7000 et quelque boules, fabriquées artisanalement, est très rapidement achetée par un public de connaisseurs… La complexité est donc de mettre en œuvre une infrastructure résiliente, permettant de supporter de très importants pics de charge, et de ne perdre aucun paiement dans la bataille !</p>
                     <p>[screen graph ventes, charge (sans échelle) ?]</p>
-                    <h1>Un order management system (OMS) sur mesure</h1>
+                    <h1>Un <em>order management system</em> (OMS) sur mesure</h1>
                     <p>La gestion des nombreuses commandes (tout comme toute l’administration du site) se fait via une instance de Sharp for Laravel, où il est possible de générer des bons de préparation et de modifier le statut de la commande, ce qui notifie le client.</p>
                     <p>[screen sharp]</p>',
                 'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Performance'])->pluck('id'),
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
                     <h1>Publication de messages, vidéos, documents</h1>
                     <p>Les administrateurs EK France gèrent tout ce contenu via une instance de Sharp for Laravel, dans laquelle ils peuvent également déposer des messages généraux, des vidéos (de démonstration de produit par exemple), et les nombreux documents de la base de ressources du groupement.</p>
                     <p>[screen documents]</p>
-                    <p>Le système est accessible à tous les utilisateurs via un SSO dédié, appelé Solek, qui sert aussi de plateforme de connexion à l’administration multi-tenant des sites Ambiance & Styles et Culinarion.</p>',
+                    <p>Le système est accessible à tous les utilisateurs via un SSO dédié, appelé Solek, qui sert aussi de plateforme de connexion à l’administration <em>multi-tenant</em> des sites Ambiance & Styles et Culinarion.</p>',
                 'tags' => ProjectTag::whereIn('label', ['API', 'Intranet', 'SSO'])->pluck('id'),
             ],
         )->create();
