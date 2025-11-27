@@ -59,7 +59,7 @@
                         'L’équipe' => '#team',
                         'Blog' => '#blog',
                     ] as $label => $url)
-                        <a class="relative text-base font-semibold text-white hover:underline" href="{{ $label }}">
+                        <a class="relative text-base font-semibold text-white hover:underline" href="{{ $url }}">
                             <span class="absolute -inset-2"></span>
                             {{ $label }}
                         </a>
