@@ -1,0 +1,53 @@
+<?php
+
+namespace App\Models;
+
+use Code16\OzuClient\Eloquent\IsOzuModel;
+use Code16\OzuClient\OzuCms\Form\OzuField;
+use Code16\OzuClient\OzuCms\OzuCollectionConfig;
+use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
+use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Article extends Model
+{
+    /** @use HasFactory<\Database\Factories\ArticleFactory> */
+    use HasFactory;
+    use IsOzuModel;
+
+    protected function casts(): array
+    {
+        return [
+            'publication_date' => 'date',
+        ];
+    }
+
+    public static function configureOzuCollection(OzuCollectionConfig $config): OzuCollectionConfig
+    {
+        return  $config->setLabel('Articles');
+    }
+
+    public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
+    {
+        return $config;
+    }
+
+    public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
+    {
+        return $config
+            ->addCustomField(OzuField::makeText('category_label')->setLabel('Category label'))
+            ->addCustomField(
+                OzuField::makeDate('publication_date')
+                ->setLabel('Publication date')
+                ->setValidationRules([
+                    'required',
+                ])
+            );
+    }
+
+    public function url(): string
+    {
+        return route('articles.show', $this);
+    }
+}

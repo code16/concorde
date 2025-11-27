@@ -10,7 +10,7 @@
         <div class="mt-2.5 text-base text-neutral-600">
             {!! $project->item_text !!}
         </div>
-        <div class="mt-5 flex gap-1.75">
+        <div class="mt-5 flex flex-wrap gap-1.75">
             @foreach($project->tags as $tag)
                 <x-tag :color="$tag->color">
                     {{ $tag->label }}

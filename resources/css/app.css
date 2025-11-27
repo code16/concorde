@@ -52,6 +52,8 @@
   --text-sm--line-height: 1.1875rem;
   --text-base: .9375rem;
   --text-base--line-height: 1.25rem;
+  --text-lg: 1.125rem; /* Desktop + Tablet/Gellix medium */
+  --text-lg--line-height: 1.3125rem;
   --text-xl: 1.25rem; /* Global/Gellix Xsmall */
   --text-xl--line-height: 1.5rem;
   --text-2xl: 1.4375rem; /* Global/Gellix small */
@@ -80,6 +82,14 @@
 
 .\@container-scroll {
   container-type: scroll-state;
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /*@custom-variant @stuck-top {*/

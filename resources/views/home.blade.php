@@ -206,15 +206,75 @@
                 </div>
             </section>
             <section class="md:px-7.5 lg:px-17.5">
-                <x-section-header>
-                    <x-slot:surtitle>
-                        Témoignages
-                    </x-slot:surtitle>
-                    <x-slot:title>
-                        Ils nous font confiance
-                    </x-slot:title>
-                    <x-slot:actions></x-slot:actions>
-                </x-section-header>
+                <div x-data="{ atStart: false, atEnd: false }">
+                    <x-section-header>
+                        <x-slot:surtitle>
+                            Témoignages
+                        </x-slot:surtitle>
+                        <x-slot:title>
+                            Ils nous font confiance
+                        </x-slot:title>
+                        <x-slot:actions class="hidden md:flex gap-3.75" x-show="!atStart || !atEnd">
+                                <button class="relative grid place-content-center size-6 rounded-full text-white bg-eggplant disabled:bg-neutral-400 disabled:pointer-events-none hover:text-eggplant hover:bg-violet-400 transition"
+                                    x-bind:disabled="atStart"
+                                    x-on:click="$refs.scroller.scrollBy({ left: $refs.scroller.children[0].offsetWidth * -1, behavior: 'smooth' })"
+                                >
+                                    <span class="absolute -inset-1"></span>
+                                    <x-icon-arrow-left class="size-4.5" />
+                                </button>
+                                <button class="relative grid place-content-center size-6 rounded-full text-white bg-eggplant disabled:bg-neutral-400 disabled:pointer-events-none hover:text-eggplant hover:bg-violet-400 transition"
+                                    x-bind:disabled="atEnd"
+                                    x-on:click="$refs.scroller.scrollBy({ left: $refs.scroller.children[0].offsetWidth, behavior: 'smooth' })"
+                                >
+                                    <span class="absolute -inset-1"></span>
+                                    <x-icon-arrow-right class="size-4.5" />
+                                </button>
+                        </x-slot:actions>
+                    </x-section-header>
+                    <div class="mt-10 flex overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-px-2 -mx-3.75 px-3.75 md:scroll-px-2 md:px-0 md:-mx-2"
+                        x-ref="scroller"
+                        x-init="
+                            [...$el.children]
+                                .sort(() => Math.random() - 0.5)
+                                .forEach(child => $el.appendChild(child));
+                            new IntersectionObserver(entries => { atStart = entries[0].isIntersecting }, { root: $refs.scroller, threshold: 1 }).observe($el.children[0]);
+                             new IntersectionObserver(entries => { atEnd = entries[0].isIntersecting }, { root: $refs.scroller, threshold: 1 }).observe($el.children[$el.children.length - 1]);
+                             $refs.scroller.scrollLeft = 0;
+                        "
+                    >
+                        @foreach($testimonials as $i => $testimonial)
+                            <div class="shrink-0 snap-start w-[min(100%,19.75rem)] md:w-1/2 xl:w-1/3 px-2">
+                                <article
+                                    class="relative md:w-full bg-white rounded-xl inset-ring inset-ring-neutral-200 p-10"
+                                    data-index="{{ $i }}"
+                                >
+                                    <h3 class="sr-only">{{ $testimonial->title }}</h3>
+                                    <figure>
+                                        <figcaption class="flex gap-2.5 items-center">
+                                            @if($testimonial->authorPicture)
+                                                <img class="size-11.5 border border-eggplant rounded-full" src="{{ $testimonial->authorPicture->thumbnail(80) }}" alt="{{ $testimonial->author_name }}">
+                                            @endif
+                                            <div>
+                                                <p class="text-base font-bold">
+                                                    {{ $testimonial->author_name }}
+                                                </p>
+                                                <p class="text-base font-medium text-neutral-600">
+                                                    {{ $testimonial->author_role }}
+                                                </p>
+                                            </div>
+                                        </figcaption>
+                                        <blockquote class="mt-7.5 md:mt-10 text-lg md:text-xl font-heading font-[450]">
+                                            {!! $testimonial->content !!}
+                                        </blockquote>
+                                    </figure>
+                                    @if($testimonial->logo)
+                                        <img class="mt-10 md:mt-12.5 h-10 object-contain opacity-20" src="{{ $testimonial->logo->downloadUrl() }}" alt="{{ $testimonial->title }}">
+                                    @endif
+                                </article>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
             </section>
             <section class="md:px-7.5 lg:px-17.5">
                 <x-section-header>
@@ -225,17 +285,20 @@
                         Nos projets, nos outils, et tout ce qu’on aime partager avec vous.
                     </x-slot:title>
                     <x-slot:actions>
-                        <x-button href="{{ route('blog') }}" variant="link">
+                        <x-button href="{{ route('articles.index') }}" variant="link">
                             <x-button-arrow />
                             Explorer le blog
                         </x-button>
                     </x-slot:actions>
                 </x-section-header>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+                    @foreach($articles as $article)
+                        <x-article-item :article="$article" />
+                    @endforeach
+                </div>
             </section>
         </div>
     </div>
-
-    <div class="pt-32"></div>
 
 
 {{--    <img class="container" src="/screen.png">--}}

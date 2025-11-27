@@ -2,11 +2,15 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Project;
 use App\Models\ProjectTag;
+use App\Models\Testimonial;
 use App\Models\User;
+use Code16\OzuClient\Eloquent\Media;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -106,6 +110,39 @@ class DatabaseSeeder extends Seeder
                     <p>Le système est accessible à tous les utilisateurs via un SSO dédié, appelé Solek, qui sert aussi de plateforme de connexion à l’administration <em>multi-tenant</em> des sites Ambiance & Styles et Culinarion.</p>',
                 'tags' => ProjectTag::whereIn('label', ['API', 'Intranet', 'SSO'])->pluck('id'),
             ],
-        )->create();
+        )->count(4)->create();
+
+        Testimonial::factory([
+            'title' => 'Ecofi',
+            'content' => '“Une petite équipe qui a finalement tout d’une grande. On avance en toute confiance et le résultat final est toujours à la hauteur.”',
+            'author_name' => 'Alain Canderlé',
+            'author_role' => 'Directeur Général',
+        ])
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ecofi.svg'), 'logo')
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ecofi-ceo.png'), 'authorPicture')
+            ->create();
+
+        Testimonial::factory([
+            'title' => 'Sycomore AM',
+            'content' => '“Leur expertise technique et leur rigueur ont fait la différence. Les échanges sont clairs, les délais tenus, et le suivi après mise en production est irréprochable. Nous avons été serein pendant tout le déroulé du projet.”',
+            'author_name' => 'François Bonel',
+            'author_role' => 'Chef de projet marketing',
+        ])
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/sycomore.svg'), 'logo')
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/sycomore-po.png'), 'authorPicture')
+            ->create();
+
+        Testimonial::factory([
+            'title' => 'Sycomore AM',
+            'content' => '“Ce que j’apprécie le plus, c’est leur transparence et leur sens du détail. Ils expliquent tout clairement, cherchent toujours la meilleure solution, et on sait qu’on peut compter sur eux.”',
+            'author_name' => 'Eric Holzinger',
+            'author_role' => 'Directeur Général',
+        ])
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek.svg'), 'logo')
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek-ceo.png'), 'authorPicture')
+            ->create();
+
+
+        Article::factory(2)->create();
     }
 }

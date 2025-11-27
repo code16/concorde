@@ -16,7 +16,7 @@
         </div>
     @endif
     @if($actions ?? null)
-        <div class="mt-5 self-end md:mt-0">
+        <div class="mt-5 self-end md:mt-0 {{ $actions->attributes->get('class') }}" {{ $actions->attributes->except('class') }}>
             {{ $actions }}
         </div>
     @endif

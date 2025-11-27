@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Article;
 use App\Models\Project;
+use App\Models\Testimonial;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -10,7 +12,9 @@ class HomeController extends Controller
     public function show()
     {
         return view('home', [
-            'projects' => Project::take(4)->get(),
+            'projects' => Project::orderBy('order')->take(4)->get(),
+            'testimonials' => Testimonial::orderBy('order')->get(),
+            'articles' => Article::orderBy('publication_date', 'desc')->take(2)->get(),
         ]);
     }
 }
