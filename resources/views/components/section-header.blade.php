@@ -1,6 +1,6 @@
 @props(['vertical' => false])
 
-<div class="grid text-center grid-cols-1 justify-items-center justify-between {{ !$vertical ? 'md:justify-items-start md:grid-cols-[auto_auto] md:text-left' : '' }} gap-x-4 lg:gap-x-10">
+<div class="contents md:grid text-center grid-cols-1 justify-items-center justify-between {{ !$vertical ? 'md:justify-items-start md:grid-cols-[auto_auto] md:text-left' : '' }} gap-x-4 lg:gap-x-10">
     <div class="mb-2 flex justify-center {{ !$vertical ? 'md:col-span-full' : '' }} items-center gap-0.5">
         <x-icon-arrow-right-sm class="size-5 text-violet-400" />
         <h2 class="text-sm font-semibold">{{ $surtitle }}</h2>
@@ -16,7 +16,7 @@
         </div>
     @endif
     @if($actions ?? null)
-        <div class="mt-5 self-end md:mt-0 {{ $actions->attributes->get('class') }}" {{ $actions->attributes->except('class') }}>
+        <div class="order-1 mt-8 self-center md:self-end md:mt-0 {{ $actions->attributes->get('class') }}" {{ $actions->attributes->except('class') }}>
             {{ $actions }}
         </div>
     @endif

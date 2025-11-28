@@ -143,6 +143,6 @@ class DatabaseSeeder extends Seeder
             ->create();
 
 
-        Article::factory(2)->create();
+        Article::factory(2)->has(Media::factory()->image()->withFile(), 'cover')->create();
     }
 }
