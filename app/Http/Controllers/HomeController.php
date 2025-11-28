@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function show()
     {
-        return view('home', [
+        return view('pages.home', [
             'projects' => Project::orderBy('order')->take(4)->get(),
             'testimonials' => Testimonial::orderBy('order')->get(),
             'articles' => Article::orderBy('publication_date', 'desc')->take(2)->get(),

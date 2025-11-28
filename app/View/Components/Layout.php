@@ -8,17 +8,11 @@ use Illuminate\View\Component;
 
 class Layout extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
-    {
-        //
+    public function __construct(
+        public bool $home = false,
+    ) {
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
     public function render(): View|Closure|string
     {
         return view('layouts.app');

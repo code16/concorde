@@ -1,5 +1,6 @@
 @import './fonts.css';
 @import 'tailwindcss';
+@import './content.css' layer(components);
 
 
 @source '../../storage/framework/views/*.php';
@@ -13,7 +14,8 @@
   'Segoe UI Symbol', 'Noto Color Emoji';
 
   --color-*: initial;
-  --color-eggplant: #191228;
+  /*--color-eggplant: #191228;*/
+  --color-eggplant: oklch(0.2 0.04 297.05);
   --color-violet-50: #F2EEFF;
   --color-violet-100: #EDE7FF;
   --color-violet-400: #AC78FF;

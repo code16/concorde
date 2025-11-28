@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Ambiance & Styles',
                 'item_text' => 'Plateforme e-commerce intégrant paiement, Click & Collect, Ship from Store, gestion des stocks et fidélité.',
+                'heading_text' => 'Plateforme e-commerce intégrant paiement, Click & Collect, Ship from Store, gestion des stocks et fidélité.',
                 'content' => '<p>conception, développement back et front, hébergement et suivi<br>
                     design graphique : <a href="https://fr.haigo.io">Haigo</a> (refonte 2024)</p>
                     <h1>Une centaine de magasins indépendants sous deux enseignes</h1>
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Sycomore AM',
                 'item_text' => 'Site multilingue riche en contenus et données, alimenté par API et administré avec Sharp pour la gestion éditoriale.',
+                'heading_text' => 'Site multilingue riche en contenus et données, alimenté par API et administré avec Sharp pour la gestion éditoriale.',
                 'content' => '<p>développement back et front, hébergement et suivi</p>
                     <p>conception et design graphique : <a href="https://structure.paris">Structure</a></p>
                     <p>Sycomore AM est un investisseur se voulant responsable et engagé sur les questions sociales et environnementales, proposant des actifs financiers performants à ses clients particuliers et institutionnels dans douze pays.</p>
@@ -59,6 +61,7 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Meisenthal France',
                 'item_text' => 'Boutique événementielle à fort trafic administrée avec Sharp pour les produits, les stocks, la livraison et le Click & Collect.',
+                'heading_text' => 'Boutique événementielle à fort trafic administrée avec Sharp pour les produits, les stocks, la livraison et le Click & Collect.',
                 'content' => '<p>développement back et front, hébergement et suivi, design</p>
                     <h1>Une boutique événementielle…</h1>
                     <p>La boutique en ligne du Centre International d’Art Verrier (CIAV) de Meisenthal est généralement ouverte 2 jours dans l’année. La session de Noël, courant novembre, propose uniquement le retrait sur place (Click and Collect), et celle du printemps (généralement en mars) la livraison. Le système permet de fonctionner dans les deux modes, avec une configuration précise des modalités (créneaux, points de retrait, frais de livraison, livreur, etc.).</p>
@@ -74,6 +77,7 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'Agence culturelle Grand Est',
                 'item_text' => 'Portail orienté contenu, plateforme de gestion de formations, SSO dédié.',
+                'heading_text' => 'Portail orienté contenu, plateforme de gestion de formations, SSO dédié.',
                 'content' => '<p>conception, développement back et front, hébergement et suivi</p>
                     <p>design graphique : <a href="https://www.atelierposte4.com">Atelier Poste 4</a></p>
                     <h1>Un portail au contenu très riche et mouvant</h1>
@@ -93,6 +97,7 @@ class DatabaseSeeder extends Seeder
             [
                 'title' => 'EK France',
                 'item_text' => null,
+                'heading_text' => null,
                 'content' => '<h1>Une boite à outils pour les responsables de magasins EK France</h1>
                     <p>Platina est une application qui offre aux membres des réseaux de magasins gérés par EK France (dont Ambiance & Styles et Culinarion) divers outils centraux pour leur gestion commerciale et marketing, ainsi qu’une plateforme d’échange avec les autres magasins et les gérants de la centrale.</p>
                     <p>[screen home]</p>

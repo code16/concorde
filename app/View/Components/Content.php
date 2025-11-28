@@ -31,7 +31,6 @@ class Content extends Component
     {
         if ($this->headingLevel) {
             $level = $this->getHeadingLevel();
-            ray($content);
             $content = preg_replace_callback(
                 "#(</?h)(\d)#",
                 fn ($matches) => $matches[1].($level + $matches[2] - 1),

@@ -17,11 +17,18 @@ class Project extends Model
     use HasFactory;
     use IsOzuModel;
 
+    protected function casts(): array
+    {
+        return [
+            'tags' => 'array'
+        ];
+    }
+
     /** @var ProjectTag[] */
     public Collection $tags {
         get {
             return ProjectTag::query()
-                ->whereIn('id', json_decode($this->getAttribute('tags') ?: '[]'))
+                ->whereIn('id', $this->getAttribute('tags'))
                 ->get();
         }
     }
@@ -47,6 +54,12 @@ class Project extends Model
             ->addCustomField(
                 OzuField::makeEditor('item_text')
                     ->setLabel('Item text')
+                    ->setWithoutParagraphs()
+                    ->hideToolbar()
+            )
+            ->addCustomField(
+                OzuField::makeEditor('heading_text')
+                    ->setLabel('Heading text')
                     ->setWithoutParagraphs()
                     ->hideToolbar()
             )

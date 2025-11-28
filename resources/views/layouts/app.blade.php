@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="not-has-[header:focus-within]:scroll-pt-(--header-height)"
+<html class="not-has-[header:focus-within]:scroll-pt-32 scroll-smooth"
     lang="{{ str_replace('_', '-', app()->getLocale()) }}"
 >
     <head>
@@ -45,9 +45,9 @@
         @stack('head')
     </head>
     <body class="bg-neutral-100 text-eggplant font-sans antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
-        <div class="relative flex flex-col min-h-screen">
-            @if($home ?? true)
-                <div class="mt-2.5 mb-2 relative z-20 container">
+        <div class="relative flex flex-col py-2.5 min-h-screen">
+            @if($home ?? false)
+                <div class="mb-2 relative z-20 container">
                     <div class="flex gap-6 py-1.25 px-5 md:px-10 rounded-2xl bg-violet-400">
                         <p class="text-xs/5.5 font-semibold">
                             <span class="md:hidden">
@@ -68,7 +68,7 @@
                     </div>
                 </div>
             @endif
-            <div class="relative">
+            <div class="flex-1 relative flex flex-col">
                 @if($header ?? null)
                     {{ $header }}
                 @else

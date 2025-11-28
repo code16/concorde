@@ -1,0 +1,16 @@
+
+.content {
+  @apply text-[1.1875rem]/[1.875rem] font-[450];
+  > p {
+    @apply mb-6;
+  }
+  > h2 {
+    @apply font-[650] mt-12 mb-4;
+  }
+  > :first-child {
+    margin-top: 0!important;
+  }
+  > :last-child {
+    margin-bottom: 0!important;
+  }
+}

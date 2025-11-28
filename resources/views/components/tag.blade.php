@@ -1,4 +1,5 @@
 @props([
+    'class' => '',
     /** @var \App\Enums\TagColor $color **/
     'color',
 ])
@@ -9,6 +10,7 @@
     \App\Enums\TagColor::Orange => 'bg-orange-100 text-orange-800',
     \App\Enums\TagColor::Purple => 'bg-purple-100 text-purple-900',
     \App\Enums\TagColor::Fuchsia => 'bg-fuchsia-100 text-fuchsia-900',
-} }}">
+    default => 'bg-eggplant text-white',
+} }}" {{ $attributes }}>
     {{ $slot }}
 </div>

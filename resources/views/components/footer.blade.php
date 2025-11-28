@@ -1,5 +1,5 @@
 
-<footer class="container mb-2.5 mt-12.5 md:mt-20">
+<footer class="container mt-12.5 md:mt-20">
     <div class="grid grid-cols-[auto_1fr] gap-y-5 gap-x-5 min-[23rem]:gap-x-10 md:gap-x-17.5 lg:gap-x-37.5 justify-between rounded-xl content-center items-center px-5 min-[23rem]:px-7.5 md:px-12.5 lg:pl-20 lg:pr-37.5 bg-eggplant md:min-h-53.25 py-7.5">
         <x-icon-logo-small class="col-start-1 self-end justify-self-center w-18 md:w-21 text-white" />
         <div class="contents md:flex justify-between">
