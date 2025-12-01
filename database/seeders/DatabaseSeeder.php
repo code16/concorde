@@ -8,11 +8,12 @@ use App\Models\ProjectTag;
 use App\Models\Testimonial;
 use App\Models\User;
 use Code16\OzuClient\Eloquent\Media;
+use Code16\OzuClient\Support\Database\OzuSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Storage;
 
-class DatabaseSeeder extends Seeder
+class DatabaseSeeder extends OzuSeeder
 {
     use WithoutModelEvents;
 
@@ -27,14 +28,14 @@ class DatabaseSeeder extends Seeder
                     design graphique : <a href="https://fr.haigo.io">Haigo</a> (refonte 2024)</p>
                     <h1>Une centaine de magasins indépendants sous deux enseignes</h1>
                     <p>Le projet englobe deux sites internet, <a href="https://ambianceetstyles.com">ambianceetstyles.com</a> (environ 90 magasins) et <a href="https://www.culinarion.com">culinarion.com</a> (environ 50 magasins), permettant de les faire bénéficier des très nombreuses fonctionnalités communes en respectant les spécificités de chaque groupement.</p>
-                    <p>[screen AS] / [screen CU]</p>
+                    '.$this->makeImageEmbed(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as.png')->make()).'
                     <h1>Click and Collect ou Ship from Store</h1>
                     <p>Le projet a été développé en tenant compte des caractéristiques spécifiques liées du commerce associé : chaque point de vente est indépendant, et fixe ses prix et son assortiment.</p>
                     <p>Le système permet aux nombreux clients des magasins des deux enseignes de passer commande dans l’assortiment commun aussi bien que parmi les articles locaux, soit en Click and Collect soit en livraison (Ship from Store, et dans ce cas un algorithme de sélection utilisant des critères de disponibilité de stock, proximité géographique, performances passées de traitement de commande, etc. permet de proposer la commande au bon magasin).</p>
-                    <p>[screen product page]</p>
+                    '.$this->makeImageEmbed(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-product.png')->make()).'
                     <h1>Mise en œuvre d’une gestion multi-tenant</h1>
                     <p>Le système de gestion, développé avec Sharp pour Laravel, permet à la fois aux administrateurs d’EK France (la structure qui regroupe les deux enseignes) de gérer tout le contenu marketing, de suivre le traitement des commandes, d’administrer les accès et les magasins, d’organiser les paiements (et bien d’autres choses), et au personnel des magasins de traiter leurs commandes et leurs clients.</p>
-                    <p>[screen / vidéo Sharp ?]</p>
+                    '.$this->makeImageEmbed(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-sharp.png')->make()).'
                     <h1>En bien d’autres fonctionnalités sur mesure</h1>
                     <p>L’application propose bien d’autres fonctionnalités, parmi lesquels : les listes de cadeau, store locator / store chooser, recherche à facettes, e-cartes cadeau, liste de favoris, coupons, promotions, offres commerciales, base de visuels / vidéos, intégration Google Shopping…</p>
                     <p>Le système est en outre relié à tout l’environnement technique d’EK France via des API : SSO (voir le projet Platina), CRM, fidélité, stock, clients, système de commandes, affranchissement / relais / enlèvement, plateformes de paiement (Payplug et Alma)…</p>',
