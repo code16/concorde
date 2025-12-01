@@ -1,6 +1,6 @@
 
 .content {
-  @apply text-[1.1875rem]/[1.875rem] font-[450];
+  @apply font-[450];
   > p {
     @apply mb-6;
   }

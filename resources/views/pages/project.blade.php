@@ -21,6 +21,7 @@
             <div class=" py-16 px-7.5 md:px-12.5 lg:px-17.5">
                 <x-content class="w-[65ch] mx-auto" heading-level="h2">
                     <x-ozu-content>
+                        <x-ozu-content::attributes component="ozu-content-image" :project="$project" />
                         {!! $project->content !!}
                     </x-ozu-content>
                 </x-content>

@@ -10,6 +10,7 @@ use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Article extends Model
@@ -23,6 +24,11 @@ class Article extends Model
         return [
             'publication_date' => 'date',
         ];
+    }
+
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(TeamMember::class, 'author_id');
     }
 
     public static function configureOzuCollection(OzuCollectionConfig $config): OzuCollectionConfig
@@ -40,11 +46,16 @@ class Article extends Model
         return $config
             ->addCustomField(OzuField::makeText('category_label')->setLabel('Category label'))
             ->addCustomField(
+                OzuField::makeSelect('author_id')
+                    ->setLabel('Auteur')
+                    ->setOptions(TeamMember::where('active', true)->pluck('name', 'id')->toArray())
+            )
+            ->addCustomField(
                 OzuField::makeDate('publication_date')
-                ->setLabel('Publication date')
-                ->setValidationRules([
-                    'required',
-                ])
+                    ->setLabel('Publication date')
+                    ->setValidationRules([
+                        'required',
+                    ])
             );
     }
 

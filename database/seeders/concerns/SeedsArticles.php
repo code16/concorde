@@ -1,0 +1,63 @@
+<?php
+
+namespace Database\Seeders\concerns;
+
+use App\Models\Article;
+use Code16\OzuClient\Eloquent\Media;
+use Database\Factories\ArticleFactory;
+use League\CommonMark\Environment\Environment;
+use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
+use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
+use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
+use League\CommonMark\MarkdownConverter;
+
+trait SeedsArticles
+{
+    protected function articleFactoryFromLegacy(RenderedContentWithFrontMatter $parsed, bool $production = false): ArticleFactory
+    {
+        $frontMatter = $parsed->getFrontMatter();
+
+        return Article::factory([
+            'title' => $frontMatter['title'],
+            'slug' => str($frontMatter['title'])->slug(),
+            'category_label' => '',
+            'publication_date' => $frontMatter['date'],
+            'author_id' => match($frontMatter['author']) {
+                'philippe' => 1,
+                'arnaud' => 4,
+            },
+            'content' => transform($parsed->getContent(), function ($content) use ($production) {
+                $content = preg_replace_callback('/<p>(<img src="([^"]+)" alt="([^"]*)" \/>)<\/p>/', function ($matches) use ($production) {
+                    return $production
+                        ? sprintf('<p>%s</p>', e($matches[1]))
+                        : $this->makeImageEmbed(
+                            Media::factory()->image()->withFile($this->legacyPostThumbnailPath($matches[2]))->make(),
+                            $matches[3]
+                        );
+                }, $content);
+
+                $content = preg_replace_callback('/<video [^>]+>([\s\S]+?)<\/video>/', function ($matches) {
+                    return sprintf('<p>%s</p>', e($matches[0]));
+                }, $content);
+
+                return $content;
+            }),
+        ]);
+    }
+
+    protected function legacyPostThumbnailPath(string $path): string
+    {
+        return str($path)
+            ->replace('/assets/img/posts', storage_path('legacy/posts/img'))
+            ->value();
+    }
+
+    protected function parseMarkdown(string $markdown): RenderedContentWithFrontMatter
+    {
+        $environment = new Environment([]);
+        $environment->addExtension(new CommonMarkCoreExtension());
+        $environment->addExtension(new FrontMatterExtension());
+
+        return new MarkdownConverter($environment)->convert($markdown);
+    }
+}

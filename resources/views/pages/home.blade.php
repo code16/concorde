@@ -190,9 +190,9 @@
                     </x-section-header>
                     <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5">
                         {{-- TeamMember is a Sushi model, edit values in model class --}}
-                        @foreach(\App\Models\TeamMember::all() as $teamMember)
+                        @foreach($teamMembers as $teamMember)
                             <article class="flex items-center md:items-start md:flex-col bg-white rounded-xl inset-ring inset-ring-neutral-200 md:bg-transparent md:inset-ring-0">
-                                <img class="size-25 inset-ring inset-ring-neutral-200 md:w-full md:h-auto md:aspect-227/270 lg:aspect-332/360 rounded-xl object-cover object-top" src="{{ $teamMember->photo }}" alt="{{ $teamMember->name }}">
+                                <img class="size-25 inset-ring inset-ring-neutral-200 md:w-full md:h-auto md:aspect-227/270 lg:aspect-332/360 rounded-xl object-cover object-top" src="{{ $teamMember->picture }}" alt="{{ $teamMember->name }}">
                                 <div class="p-4 pl-5 md:p-0 md:mt-3.75 lg:mt-5">
                                     <h3 class="font-heading font-[450] text-xl lg:text-2xl">
                                         {{ $teamMember->name }}
@@ -294,7 +294,7 @@
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
                     @foreach($articles as $article)
-                        <x-article-item :article="$article" />
+                        <x-article-item :article="$article" home />
                     @endforeach
                 </div>
             </section>

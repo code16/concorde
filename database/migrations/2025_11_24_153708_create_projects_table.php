@@ -14,8 +14,8 @@ return new class extends Migration
         $this->createOzuTable('projects');
 
         Schema::table('projects', function (Blueprint $table) {
-            $table->string('heading_text')->nullable();
-            $table->string('item_text')->nullable();
+            $table->text('heading_text')->nullable();
+            $table->text('item_text')->nullable();
             $table->json('tags')->nullable();
         });
     }

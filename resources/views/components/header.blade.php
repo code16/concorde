@@ -21,21 +21,9 @@
 </div>
 <div x-data x-intersect="$dispatch('reset-nav')"></div>
 
-<header class="container isolate @container-scroll sticky z-20
--top-3
-{{-- top-2.5--}}
-">
-{{--    <div class="bg-neutral-100 absolute -z-10 -top-2.5 w-full h-6"></div>--}}
+<header class="container isolate @container-scroll sticky z-20 -top-3">
     <div class="relative">
-{{--        <div class="absolute -z-10 inset-0 @stuck-top:bottom-4 rounded-2xl bg-eggplant"></div>--}}
-        <div class="flex items-center gap-x-6
-{{--    bg-[#0B0617]/70--}}
-{{--    backdrop-blur-lg--}}
-{{--     backdrop-brightness-60--}}
-{{--     backdrop-contrast-140--}}
-{{--backdrop-saturate-300--}}
-{{--backdrop-invert-100--}}
-     h-21.5 px-5 py-4 md:px-10">
+        <div class="flex items-center gap-x-6 h-21.5 px-5 py-4 md:px-10">
             <div class="flex-1 flex">
                 <a class="relative block transition duration-300 origin-left lg:@stuck-top:scale-75" href="{{ route('home') }}">
                     <span class="absolute -inset-2"></span>
@@ -71,7 +59,7 @@
                     <x-nav-item href="{{ route('home').'#team' }}" data-section="team">
                         L’équipe
                     </x-nav-item>
-                    <x-nav-item href="{{ route('articles.index') }}" data-section="blog" :current="request()->routeIs('article.*')">
+                    <x-nav-item href="{{ route('articles.index') }}" data-section="blog" :current="request()->routeIs('articles.*')">
                         Blog
                     </x-nav-item>
                     @if($home)

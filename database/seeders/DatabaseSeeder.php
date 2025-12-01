@@ -6,19 +6,24 @@ use App\Models\Article;
 use App\Models\Project;
 use App\Models\ProjectTag;
 use App\Models\Testimonial;
-use App\Models\User;
 use Code16\OzuClient\Eloquent\Media;
 use Code16\OzuClient\Support\Database\OzuSeeder;
+use Database\Seeders\concerns\SeedsArticles;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Finder\SplFileInfo;
 
 class DatabaseSeeder extends OzuSeeder
 {
     use WithoutModelEvents;
+    use SeedsArticles;
 
     public function run(): void
     {
+        $this->clearMediaDirectory();
+
         Project::factory(5)->sequence(
             [
                 'title' => 'Ambiance & Styles',
@@ -148,7 +153,18 @@ class DatabaseSeeder extends OzuSeeder
             ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek-ceo.png'), 'authorPicture')
             ->create();
 
+        collect(File::files(storage_path('legacy/posts')))
+            ->each(function (SplFileInfo $file) {
+                $parsed = $this->parseMarkdown($file->getContents());
 
-        Article::factory(2)->has(Media::factory()->image()->withFile(), 'cover')->create();
+                $this->articleFactoryFromLegacy($parsed)
+                    ->has(
+                        Media::factory()
+                            ->image()
+                            ->withFile($this->legacyPostThumbnailPath($parsed->getFrontMatter()['thumbnail'])),
+                        'cover',
+                    )
+                    ->create();
+            });
     }
 }

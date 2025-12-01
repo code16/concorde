@@ -14,7 +14,7 @@ class ProjectController extends Controller
         /** @var ProjectTag[]|Collection<int,ProjectTag> $tags */
         $tags = $projects->flatMap(fn (Project $project) => $project->tags)->unique('id');
 
-        return view('pages.project-index', [
+        return view('pages.project-list', [
             'projects' => $projects,
             'tags' => $tags,
         ]);

@@ -15,7 +15,8 @@ return new class extends Migration
 
         Schema::table('articles', function (Blueprint $table) {
             $table->string('category_label')->nullable();
-            $table->dateTime('publication_date');
+            $table->unsignedBigInteger('author_id')->nullable();
+            $table->date('publication_date')->nullable();
         });
     }
 };
