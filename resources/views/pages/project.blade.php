@@ -30,14 +30,6 @@
                     px-7.5 md:px-12.5 lg:px-17.5">
                     <x-content-container>
                         <x-content heading-level="h2">
-                            <ul>
-                                <li><p>Duis non quam et nisi tincidunt fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam ullamcorper, mauris nec feugiat fermentum, purus lacus suscipit felis, et facilisis justo lacus id risus.
-                                    </p></li>
-                                <li><p>Duis non quam et nisi tincidunt fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam ullamcorper, mauris nec feugiat fermentum, purus lacus suscipit felis, et facilisis justo lacus id risus. Nullam ullamcorper, mauris nec feugiat fermentum, p
-                                    </p></li>
-                                <li><p>Duis non quam et nisi tincidunt fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam ullamcorper, mauris nec feugiat fermentum, purus lacus suscipit felis, et facilisis justo lacus id risus.
-                                    </p></li>
-                            </ul>
                             <x-ozu-content>
                                 <x-ozu-content::attributes component="ozu-content-image" :project="$project" />
                                 {!! $project->content !!}
