@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Article;
 use App\Models\Project;
 use App\Models\ProjectTag;
 use App\Models\Testimonial;
@@ -10,9 +9,7 @@ use Code16\OzuClient\Eloquent\Media;
 use Code16\OzuClient\Support\Database\OzuSeeder;
 use Database\Seeders\concerns\SeedsArticles;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use Symfony\Component\Finder\SplFileInfo;
 
 class DatabaseSeeder extends OzuSeeder
