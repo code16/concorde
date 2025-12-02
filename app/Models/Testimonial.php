@@ -34,6 +34,7 @@ class Testimonial extends Model
     {
         return $config
             ->setLabel('Testimonials')
+            ->setIcon('fa-quote-left')
             ->setHasPublicationState();
     }
 
