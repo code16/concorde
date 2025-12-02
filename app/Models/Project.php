@@ -13,6 +13,7 @@ use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
@@ -25,6 +26,12 @@ class Project extends Model
         return [
             'tags' => 'array'
         ];
+    }
+
+    public function kpis(): HasMany
+    {
+        return $this->hasMany(ProjectKpi::class, 'parent_id')
+            ->orderBy('order');
     }
 
     /** @var ProjectTag[] */
@@ -51,6 +58,8 @@ class Project extends Model
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
         return $config
+            ->setIsReorderable()
+            ->setIsSearchable()
             ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Titre'))
             ->addColumn(OzuColumn::makeText('heading_text', 9)->setLabel('Heading'));
     }

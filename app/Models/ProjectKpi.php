@@ -33,6 +33,7 @@ class ProjectKpi extends Model
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
         return $config
+            ->setIsReorderable()
             ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Chiffre'))
             ->addColumn(OzuColumn::makeText('content', 9)->setLabel('Libellé'));
     }
