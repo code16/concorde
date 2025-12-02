@@ -3,7 +3,10 @@
 namespace App\Models;
 
 use Code16\OzuClient\Eloquent\IsOzuModel;
+use Code16\OzuClient\OzuCms\Form\OzuEditorField;
+use Code16\OzuClient\OzuCms\Form\OzuEditorToolbarButton;
 use Code16\OzuClient\OzuCms\Form\OzuField;
+use Code16\OzuClient\OzuCms\List\OzuColumn;
 use Code16\OzuClient\OzuCms\OzuCollectionConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
@@ -40,17 +43,22 @@ class Project extends Model
 
     public static function configureOzuCollection(OzuCollectionConfig $config): OzuCollectionConfig
     {
-        return $config->setLabel('Projects');
+        return $config
+            ->setLabel('Projects')
+            ->addSubCollection(ProjectKpi::class);
     }
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
-        return $config;
+        return $config
+            ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeText('heading_text', 9)->setLabel('Heading'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
     {
         return $config
+            ->hideCoverField()
             ->addCustomField(
                 OzuField::makeEditor('item_text')
                     ->setLabel('Item text')
@@ -62,6 +70,21 @@ class Project extends Model
                     ->setLabel('Heading text')
                     ->setWithoutParagraphs()
                     ->hideToolbar()
+            )
+            ->configureContentField(fn (OzuEditorField $field) => $field
+                ->setToolbar([
+                    OzuEditorToolbarButton::Heading1,
+                    OzuEditorToolbarButton::Bold,
+                    OzuEditorToolbarButton::Italic,
+                    OzuEditorToolbarButton::Link,
+                    OzuEditorToolbarButton::BulletList,
+                    OzuEditorToolbarButton::Separator,
+                    OzuEditorToolbarButton::Quote,
+                    OzuEditorToolbarButton::Image,
+                    OzuEditorToolbarButton::Video,
+                    OzuEditorToolbarButton::Iframe,
+                ])
+                ->setHeight(500)
             )
             ->addCustomField(
                 OzuField::makeSelect('tags')

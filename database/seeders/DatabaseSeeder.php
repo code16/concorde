@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Project;
+use App\Models\ProjectKpi;
 use App\Models\ProjectTag;
 use App\Models\Testimonial;
 use Code16\OzuClient\Eloquent\Media;
@@ -21,8 +22,8 @@ class DatabaseSeeder extends OzuSeeder
     {
         $this->clearMediaDirectory();
 
-        Project::factory(5)->sequence(
-            [
+        Project::factory()
+            ->sequence([
                 'title' => 'Ambiance & Styles',
                 'item_text' => 'Plateforme e-commerce intégrant paiement, Click & Collect, Ship from Store, gestion des stocks et fidélité.',
                 'heading_text' => 'Plateforme e-commerce intégrant paiement, Click & Collect, Ship from Store, gestion des stocks et fidélité.',
@@ -117,8 +118,15 @@ class DatabaseSeeder extends OzuSeeder
                     <p>[screen documents]</p>
                     <p>Le système est accessible à tous les utilisateurs via un SSO dédié, appelé Solek, qui sert aussi de plateforme de connexion à l’administration <em>multi-tenant</em> des sites Ambiance & Styles et Culinarion.</p>',
                 'tags' => ProjectTag::whereIn('label', ['API', 'Intranet', 'SSO'])->pluck('id'),
-            ],
-        )->count(4)->create();
+            ])
+            ->count(5)
+            ->create()
+            ->each(function (Project $project) {
+                ProjectKpi::factory()
+                    ->for($project)
+                    ->count(3)
+                    ->create();
+            });
 
         Testimonial::factory([
             'title' => 'Ecofi',
