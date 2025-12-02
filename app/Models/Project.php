@@ -52,6 +52,7 @@ class Project extends Model
     {
         return $config
             ->setLabel('Projects')
+            ->setHasPublicationState()
             ->addSubCollection(ProjectKpi::class);
     }
 

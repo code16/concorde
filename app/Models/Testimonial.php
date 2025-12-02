@@ -32,7 +32,9 @@ class Testimonial extends Model
 
     public static function configureOzuCollection(OzuCollectionConfig $config): OzuCollectionConfig
     {
-        return $config->setLabel('Testimonials');
+        return $config
+            ->setLabel('Testimonials')
+            ->setHasPublicationState();
     }
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
