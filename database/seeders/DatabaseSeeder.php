@@ -41,7 +41,7 @@ class DatabaseSeeder extends OzuSeeder
                     <h1>Mise en œuvre d’une gestion multi-tenant</h1>
                     <p>Le système de gestion, développé avec Sharp pour Laravel, permet à la fois aux administrateurs d’EK France (la structure qui regroupe les deux enseignes) de gérer tout le contenu marketing, de suivre le traitement des commandes, d’administrer les accès et les magasins, d’organiser les paiements (et bien d’autres choses), et au personnel des magasins de traiter leurs commandes et leurs clients.</p>
                     '.$this->makeImageEmbed(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-sharp.png')->make()).'
-                    <h1>En bien d’autres fonctionnalités sur mesure</h1>
+                    <h1>Et bien d’autres fonctionnalités sur mesure</h1>
                     <p>L’application propose bien d’autres fonctionnalités, parmi lesquels : les listes de cadeau, store locator / store chooser, recherche à facettes, e-cartes cadeau, liste de favoris, coupons, promotions, offres commerciales, base de visuels / vidéos, intégration Google Shopping…</p>
                     <p>Le système est en outre relié à tout l’environnement technique d’EK France via des API : SSO (voir le projet Platina), CRM, fidélité, stock, clients, système de commandes, affranchissement / relais / enlèvement, plateformes de paiement (Payplug et Alma)…</p>',
                 'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Contenu', 'Performance'])->pluck('id'),
