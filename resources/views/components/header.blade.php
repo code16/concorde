@@ -10,13 +10,31 @@
                 }
             }
         }
+        .\@stuck-top\:bg-eggplant {
+            @container scroll-state(stuck: top) {
+                background-color: var(--color-eggplant);
+            }
+        }
+        .\@stuck-top\:from-eggplant {
+            @container scroll-state(stuck: top) {
+                --tw-gradient-from: var(--color-eggplant);
+            }
+        }
+        .\@stuck-top\:to-eggplant {
+            @container scroll-state(stuck: top) {
+                --tw-gradient-to: var(--color-eggplant);
+            }
+        }
     </style>
 @endpushonce
 
-
 <div class="absolute inset-0 z-10 pointer-events-none">
-    <div class="container sticky -top-6">
-        <div class=" {{ match($variant) { 'dark' => 'bg-[#0B0617]', 'light' => 'bg-eggplant' } }} rounded-2xl h-21.5"></div>
+    <div class="container sticky @container-scroll -top-6">
+        <div class="transition duration-300 {{ match($variant) {
+            'dark' => 'bg-[#0B0617]',
+            'light' => 'bg-eggplant',
+            'theme' => 'bg-transparent @stuck-top:bg-eggplant'
+        } }} rounded-2xl h-21.5"></div>
     </div>
 </div>
 <div x-data x-intersect="$dispatch('reset-nav')"></div>

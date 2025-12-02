@@ -30,7 +30,9 @@
 
         <link rel="icon" href="/favicon.ico" sizes="48x48">
         <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml">
+        <link rel="icon" href="/favicons/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
         <link rel="apple-touch-icon" href="/favicons/apple-touch-icon.png">
+        <link rel="manifest" href="/site.webmanifest" />
 
         <link rel="preload" href="{{ Vite::asset('resources/fonts/Manrope-variable.woff2') }}" as="font" type="font/woff2" crossorigin>
 
@@ -41,6 +43,14 @@
         <style>
             [x-cloak] { display: none!important; }
         </style>
+        @if($themePrimary)
+            <style>
+                :root {
+                    --theme-primary: {{ $themePrimary }};
+                    --theme-accent: {{ $themeAccent }};
+                }
+            </style>
+        @endif
         {{ $head ?? null }}
         @stack('head')
     </head>

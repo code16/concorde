@@ -2,6 +2,8 @@
 
 namespace App\View\Components;
 
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Component;
 use Phiki\Adapters\Laravel\Facades\Phiki;
 use Phiki\Grammar\Grammar;
@@ -19,6 +21,7 @@ class Content extends Component
         $content = trim($slot);
 
         $this->transformHeadings($content);
+        $this->transformLinks($content);
         $this->transformCodeBlocks($content);
 
         return $content;
@@ -49,6 +52,22 @@ class Content extends Component
                 html_entity_decode($matches[2]),
                 Phiki::environment()->grammars->has($matches[1]) ? $matches[1] : Grammar::Txt,
                 Theme::GithubLight
+            ),
+            $content
+        );
+    }
+
+    protected function transformLinks(&$content): void
+    {
+        $content = preg_replace_callback(
+            '/<a href="([^"]+)">(.+?)<\/a>/',
+            fn ($matches) => Blade::render(
+                '<a href="{!! e($href, false) !!}" target="{{ $target }}">{{ $slot }}</a>',
+                [
+                    'href' => $matches[1],
+                    'target' => str($matches[1])->startsWith('/') ? '_self' : '_blank',
+                    'slot' => new HtmlString($matches[2]),
+                ]
             ),
             $content
         );

@@ -68,7 +68,6 @@ class Project extends Model
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
     {
         return $config
-            ->hideCoverField()
             ->addCustomField(
                 OzuField::makeEditor('item_text')
                     ->setLabel('Item text')
@@ -101,6 +100,10 @@ class Project extends Model
                     ->setLabel('Tags')
                     ->setMultiple()
                     ->setOptions(ProjectTag::all()->pluck('label', 'id')->toArray())
+            )
+            ->addCustomField(
+                OzuField::makeText('color')
+                    ->setLabel('Color (hex)')
             );
     }
 }

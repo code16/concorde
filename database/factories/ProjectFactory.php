@@ -14,7 +14,7 @@ class ProjectFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'slug' => fn ($attributes) => str($attributes['title'])->slug(),
+            'slug' => fn ($attributes) => str($attributes['title'])->replace('<br>', ' ')->slug(),
         ];
     }
 }

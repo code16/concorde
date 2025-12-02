@@ -10,6 +10,8 @@ class Layout extends Component
 {
     public function __construct(
         public bool $home = false,
+        public ?string $themePrimary = null,
+        public ?string $themeAccent = null,
     ) {
     }
 

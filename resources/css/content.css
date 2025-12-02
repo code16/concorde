@@ -5,7 +5,22 @@
     @apply mb-6;
   }
   > h2 {
-    @apply font-[650] mt-12 mb-4;
+    @apply text-[1.75rem]/[2rem] font-semibold mt-14 mb-6;
+  }
+  a:not([class]) {
+    @apply underline underline-offset-4 transition px-1 -mx-1 box-decoration-clone hover:bg-current/10;
+  }
+  > ul, ol {
+    @apply pl-[1.5em] mb-6;
+  }
+  li {
+    @apply mb-2;
+  }
+  > ul {
+    @apply list-disc;
+  }
+  > ol {
+    @apply list-decimal;
   }
   > :first-child {
     margin-top: 0!important;

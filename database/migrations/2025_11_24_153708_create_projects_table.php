@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::table('projects', function (Blueprint $table) {
             $table->text('heading_text')->nullable();
             $table->text('item_text')->nullable();
+            $table->string('color')->nullable();
+            $table->string('accent_color')->nullable();
             $table->json('tags')->nullable();
         });
     }

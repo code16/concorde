@@ -8,7 +8,7 @@
 >
     <div class="flex-1 rounded-[0.9375rem] bg-white px-10 py-7.5 md:p-8.75 lg:py-11.25 lg:px-12.5 inset-ring inset-ring-neutral-200">
         <h3 class="text-2.5xl lg:text-3xl font-heading font-[450]">
-            {{ $project->title }}
+            {!! $project->title !!}
         </h3>
         <div class="mt-2.5 text-base text-neutral-600">
             {!! $project->item_text !!}
