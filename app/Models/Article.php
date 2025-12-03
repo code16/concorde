@@ -33,7 +33,10 @@ class Article extends Model
 
     public static function configureOzuCollection(OzuCollectionConfig $config): OzuCollectionConfig
     {
-        return  $config->setLabel('Articles');
+        return  $config
+            ->setLabel('Articles')
+            ->setIcon('far-newspaper')
+            ->setHasPublicationState();
     }
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig

@@ -52,6 +52,7 @@ class Project extends Model
     {
         return $config
             ->setLabel('Projects')
+            ->setIcon('fa-laptop-code')
             ->setHasPublicationState()
             ->addSubCollection(ProjectKpi::class);
     }
@@ -93,7 +94,7 @@ class Project extends Model
                     OzuEditorToolbarButton::Video,
                     OzuEditorToolbarButton::Iframe,
                 ])
-                ->setHeight(500)
+                ->setHeight(500, 1100)
             )
             ->addCustomField(
                 OzuField::makeSelect('tags')
