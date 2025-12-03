@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::table('project_kpis', function (Blueprint $table) {
             $table->foreignId('parent_id')->constrained('projects')->cascadeOnDelete();
             $table->boolean('is_inverted')->default(false);
-            // $table->string('suffix')->nullable();
+            $table->string('suffix')->nullable();
         });
     }
 };

@@ -24,6 +24,11 @@ class ProjectController extends Controller
     {
         return view('pages.project', [
             'project' => $project,
+            'relatedProjects' => Project::query()->where('id', '!=', $project->id)->get()
+                ->sortByDesc(function (Project $p) use ($project) {
+                    return $p->tags->pluck('id')->intersect($project->tags->pluck('id'))->count();
+                })
+                ->take(2),
         ]);
     }
 }

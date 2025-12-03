@@ -50,7 +50,13 @@
             <x-content-container :enabled="$contentContainer">
                 <div class="{{ $contentContainer ? 'max-w-110 md:max-w-142' : 'max-w-110 md:max-w-142 lg:max-w-180' }}">
                     @if($surtitle ?? null)
-                        <p class="mb-2.5 font-medium text-violet-400 text-base">
+                        <p class="mb-2.5 font-medium text-base {{
+                            match($variant) {
+                                'dark' => 'text-violet-400',
+                                'light' => 'text-violet-400',
+                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.2),.4)_c_h)]',
+                            }
+                        }}">
                             {{ $surtitle }}
                         </p>
                     @endif

@@ -21,11 +21,17 @@
             @endforeach
         </div>
     </div>
-    <div class="mt-3.75 lg:mt-5 px-5">
-        <a class="group/btn font-semibold transition text-eggplant hover:text-white text-base flex items-center justify-between gap-4" href="{{ $project->url() }}">
-            <span class="absolute rounded-[1.25rem] inset-0"></span>
-            Découvrir le projet
-            <x-button-arrow />
-        </a>
-    </div>
+    @if($project->website_url || $project->has_show_page)
+        <div class="mt-3.75 lg:mt-5 px-5">
+            <a class="group/btn font-semibold transition text-eggplant hover:text-white text-base flex items-center justify-between gap-4" href="{{ $project->url() }}">
+                <span class="absolute rounded-[1.25rem] inset-0"></span>
+                @if($project->has_show_page)
+                    Découvrir le projet
+                @else
+                    {{ $project->cta_label ?: 'Visiter le site' }}
+                @endif
+                <x-button-arrow />
+            </a>
+        </div>
+    @endif
 </article>

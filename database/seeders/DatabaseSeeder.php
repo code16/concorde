@@ -91,12 +91,13 @@ class DatabaseSeeder extends OzuSeeder
                     <p>L’application propose bien d’autres fonctionnalités, parmi lesquels : les listes de cadeau, store locator / store chooser, recherche à facettes, e-cartes cadeau, liste de favoris, coupons, promotions, offres commerciales, base de visuels / vidéos, intégration Google Shopping…</p>
                     <p>Le système est en outre relié à tout l’environnement technique d’EK France via des API : SSO (voir le projet Platina), CRM, fidélité, stock, clients, système de commandes, affranchissement / relais / enlèvement, plateformes de paiement (Payplug et Alma)…</p>',
             'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Contenu', 'Performance'])->pluck('id'),
-            'color' => '#862633'
+            'color' => '#862633',
+            'website_url' => 'https://ambianceetstyles.com',
         ])
             ->has(ProjectKpi::factory()->sequence(
-                ['title' => '110k+', 'suffix' => '', 'content' => 'comptes clients'],
-                ['title' => '20k+', 'suffix' => '', 'content' => 'articles en ligne à tout instant'],
-                ['title' => '2015', 'content' => 'début du projet'],
+                ['title' => '110', 'suffix' => 'k+', 'content' => 'comptes clients'],
+                ['title' => '20', 'suffix' => 'k+', 'content' => 'articles en ligne à tout instant'],
+                ['title' => '2015', 'content' => 'mise en ligne'],
             )->count(3), 'kpis')
             ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-cover.png'), 'cover')
             ->create();
@@ -171,7 +172,7 @@ class DatabaseSeeder extends OzuSeeder
             ->has(ProjectKpi::factory()->sequence(
                 ['title' => '10k+', 'content' => 'comptes usagers Sola'],
                 ['title' => '7200+', 'content' => 'inscriptions à des formations Cursus'],
-                ['title' => '2017', 'content' => 'début du projet'],
+                ['title' => '2017', 'content' => 'mise en ligne'],
             )->count(3), 'kpis')
             ->create();
 

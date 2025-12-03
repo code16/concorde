@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('accent_color')->nullable();
             $table->json('tags')->nullable();
             $table->string('website_url')->nullable();
+            $table->string('cta_label')->nullable();
             $table->boolean('is_featured')->default(false);
             $table->boolean('has_show_page')->default(false);
         });

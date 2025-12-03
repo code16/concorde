@@ -70,6 +70,9 @@ class Project extends Model
     {
         return $config
             ->addCustomField(
+                OzuField::makeCheck('has_show_page', 'Has show page')
+            )
+            ->addCustomField(
                 OzuField::makeEditor('item_text')
                     ->setLabel('Item text')
                     ->setWithoutParagraphs()
@@ -107,7 +110,8 @@ class Project extends Model
                     ->setLabel('Website URL')
             )
             ->addCustomField(
-                OzuField::makeCheck('has_show_page', 'Has show page')
+                OzuField::makeText('cta_label')
+                    ->setLabel('CTA label')
             )
             ->addCustomField(
                 OzuField::makeText('color')
