@@ -102,6 +102,13 @@ class Project extends Model
                     ->setOptions(ProjectTag::all()->pluck('label', 'id')->toArray())
             )
             ->addCustomField(
+                OzuField::makeText('website_url')
+                    ->setLabel('Website URL')
+            )
+            ->addCustomField(
+                OzuField::makeCheck('has_show_page', 'Has show page')
+            )
+            ->addCustomField(
                 OzuField::makeText('color')
                     ->setLabel('Color (hex)')
             );

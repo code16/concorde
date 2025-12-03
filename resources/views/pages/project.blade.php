@@ -20,25 +20,30 @@
         @endif
     </x-hero>
     <div class="container">
-        <div class="
-        -mt-10  pt-10 bg-white rounded-xl
-{{--         flex justify-start mt-10--}}
-         ">
-{{--            <div class="p-2 bg-neutral-50 rounded-2xl inset-ring inset-ring-neutral-200">--}}
-                <div class="pt-16 pb-24
-{{--                    bg-white rounded-xl inset-ring inset-ring-neutral-200 --}}
-                    px-7.5 md:px-12.5 lg:px-17.5">
-                    <x-content-container>
-                        <x-content heading-level="h2">
-                            <x-ozu-content>
-                                <x-ozu-content::attributes component="ozu-content-image" :project="$project" />
-                                {!! $project->content !!}
-                            </x-ozu-content>
-                        </x-content>
-                    </x-content-container>
-                </div>
-{{--            </div>--}}
-
+        <div class="-mt-10 pt-10 bg-white rounded-xl">
+            <div class="pt-16 pb-24 px-7.5 md:px-12.5 lg:px-17.5">
+                <x-content-container>
+                    <x-content heading-level="h2">
+                        <x-ozu-content>
+                            <x-ozu-content::attributes component="ozu-content-image" :project="$project" />
+                            {!! $project->content !!}
+                        </x-ozu-content>
+                    </x-content>
+                    @if(count($project->kpis))
+                        <ul class="mt-20 grid grid-cols-1 md:grid-cols-[repeat(min(var(--count),3),minmax(0,1fr))] gap-10" style="--count:{{ count($project->kpis) }}">
+                            @foreach($project->kpis as $kpi)
+                                <li>
+                                    <div class="flex items-baseline gap-1 text-6xl font-medium">
+                                        {{ $kpi->title }}
+                                        <span class="text-5xl">{{ $kpi->suffix }}</span>
+                                    </div>
+                                    <div class="mt-2 text-lg font-semibold">{{ $kpi->content }}</div>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </x-content-container>
+            </div>
         </div>
     </div>
 </x-layout>

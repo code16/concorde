@@ -93,7 +93,11 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Contenu', 'Performance'])->pluck('id'),
             'color' => '#862633'
         ])
-            ->has(ProjectKpi::factory()->count(3), 'kpis')
+            ->has(ProjectKpi::factory()->sequence(
+                ['title' => '110k+', 'suffix' => '', 'content' => 'comptes clients'],
+                ['title' => '20k+', 'suffix' => '', 'content' => 'articles en ligne à tout instant'],
+                ['title' => '2015', 'content' => 'début du projet'],
+            )->count(3), 'kpis')
             ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-cover.png'), 'cover')
             ->create();
 
@@ -117,7 +121,11 @@ class DatabaseSeeder extends OzuSeeder
             'color' => '#0b0a0a',
             'accent_color' => '#fd612099',
         ])
-            ->has(ProjectKpi::factory()->count(3), 'kpis')
+            ->has(ProjectKpi::factory()->sequence(
+                ['title' => '120', 'content' => 'variantes de contenu (5 langues, 12 pays, 2 profils)'],
+                ['title' => '190+', 'content' => 'parts gérées, dans 58 fonds'],
+                ['title' => '30k+', 'content' => 'mises à jour par mois via l’API'],
+            )->count(3), 'kpis')
             ->create();
 
         Project::factory([
@@ -160,7 +168,11 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['Contenu', 'E-commerce', 'SSO'])->pluck('id'),
             'color' => '#3800ff',
         ])
-            ->has(ProjectKpi::factory()->count(3), 'kpis')
+            ->has(ProjectKpi::factory()->sequence(
+                ['title' => '10k+', 'content' => 'comptes usagers Sola'],
+                ['title' => '7200+', 'content' => 'inscriptions à des formations Cursus'],
+                ['title' => '2017', 'content' => 'début du projet'],
+            )->count(3), 'kpis')
             ->create();
 
         Project::factory([
@@ -185,7 +197,11 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['API', 'Intranet', 'SSO'])->pluck('id'),
             'color' => '#354B54',
         ])
-            ->has(ProjectKpi::factory()->count(3), 'kpis')
+            ->has(ProjectKpi::factory()->sequence(
+                ['title' => '200+', 'content' => 'utilisateurs'],
+                ['title' => '7200+', 'content' => 'commandes fournisseurs traités'],
+                ['title' => '15k+', 'content' => 'étiquettes de PLV'],
+            )->count(3), 'kpis')
             ->create();
     }
 }
