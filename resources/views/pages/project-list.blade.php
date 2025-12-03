@@ -11,7 +11,7 @@
             Projets
         </x-slot:surtitle>
         <x-slot:title>
-            Chacun de nos projets sont une solution à une problématique singulière
+            Chacun de nos projets est une solution à une problématique singulière
         </x-slot:title>
     </x-hero>
     <div class="mt-15 container">
