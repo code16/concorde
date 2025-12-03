@@ -63,15 +63,20 @@ class Project extends Model
             ->setIsReorderable()
             ->setIsSearchable()
             ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Titre'))
-            ->addColumn(OzuColumn::makeText('heading_text', 9)->setLabel('Heading'));
+            ->addColumn(OzuColumn::makeText('heading_text', 7)->setLabel('Heading'))
+            ->addColumn(OzuColumn::makeDate('is_featured', 2)->setLabel('Featured'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
     {
         return $config
+            ->configureTitleField(fn (OzuEditorField $field) => $field)
             ->hideCoverField()
             ->addCustomField(
                 OzuField::makeCheck('has_show_page', 'Has show page')
+            )
+            ->addCustomField(
+                OzuField::makeCheck('is_featured', 'Featured')
             )
             ->addCustomField(
                 OzuField::makeEditor('item_text')
@@ -108,15 +113,23 @@ class Project extends Model
             )
             ->addCustomField(
                 OzuField::makeText('website_url')
+                    ->setValidationRules(['required_with:cta_label'])
                     ->setLabel('Website URL')
             )
             ->addCustomField(
                 OzuField::makeText('cta_label')
                     ->setLabel('CTA label')
+                    ->setHelpMessage('Optional. Default "Visiter le site"')
             )
             ->addCustomField(
                 OzuField::makeText('color')
                     ->setLabel('Color (hex)')
+                    ->setHelpMessage('Optional')
+            )
+            ->addCustomField(
+                OzuField::makeText('accent_color')
+                    ->setLabel('Accent color (hex)')
+                    ->setHelpMessage('Optional')
             );
     }
 }

@@ -14,14 +14,9 @@
         'theme' => 'bg-(--theme-primary)',
 } }}
     ">
-{{--        <div class="bg-[inherit] h-4 -mt-4"></div>--}}
-{{--        @if($img)--}}
-{{--            <img class="-z-10 absolute inset-0 size-full object-cover" src="{{ $img->attributes['src'] }}" alt="{{ strip_tags($title) }}">--}}
-{{--            <div class="absolute inset-0 bg-linear-to-t from-black/60 bg-black/0"></div>--}}
-{{--        @endif--}}
         <div class="absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
         <div class="flex-1 flex flex-col relative isolate overflow-clip
-        {{ $home ? 'min-h-135 py-25 md:pt-32.5 md:pb-42.5' : 'pt-25 pb-32.5' }}
+        {{ $home ? 'min-h-135 py-25 md:pt-32.5 md:pb-42.5' : 'pt-7.5 pb-15 md:pt-25 md:pb-32.5' }}
         {{ match($variant) {
             // (bool) $img => 'justify-end pb-20  bg-linear-to-t from-black/60 via-transparent via-80% to-transparent',
             'dark' => 'bg-linear-to-b from-[#0A0515] to-[#1C0F36] ',
@@ -54,7 +49,7 @@
                             match($variant) {
                                 'dark' => 'text-violet-400',
                                 'light' => 'text-violet-400',
-                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.2),.4)_c_h)]',
+                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]',
                             }
                         }}">
                             {{ $surtitle }}
@@ -68,7 +63,7 @@
                             match($variant) {
                                 'dark' => 'text-neutral-250',
                                 'light' => 'text-neutral-250',
-                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.4),.6)_c_h)]',
+                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.4),.7)_c_h)]',
                             }
                         }}">
                             {{ $headingText }}

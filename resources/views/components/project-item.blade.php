@@ -3,7 +3,7 @@
     'project'
 ])
 
-<article class="relative flex flex-col rounded-[1.25rem] bg-neutral-50 p-2 pb-3.75 lg:pb-5 inset-ring inset-ring-neutral-200 transition hover:bg-eggplant"
+<article class="relative flex flex-col rounded-[1.25rem] bg-neutral-50 p-2 inset-ring inset-ring-neutral-200 transition hover:bg-eggplant"
     x-show="typeof filterTag !== 'undefined' && filterTag ? !!$el.querySelector(`[data-tag-id='${filterTag}']`) : true"
 >
     <div class="flex-1 rounded-[0.9375rem] bg-white px-10 py-7.5 md:p-8.75 lg:py-11.25 lg:px-12.5 inset-ring inset-ring-neutral-200">
@@ -22,8 +22,8 @@
         </div>
     </div>
     @if($project->website_url || $project->has_show_page)
-        <div class="mt-3.75 lg:mt-5 px-5">
-            <a class="group/btn font-semibold transition text-eggplant hover:text-white text-base flex items-center justify-between gap-4" href="{{ $project->url() }}">
+        <div class="mt-3.75 mb-1.75 lg:mb-3 lg:mt-5 px-5">
+            <a class="group/btn font-semibold transition text-eggplant hover:text-white text-base flex items-center justify-between gap-4" href="{{ $project->has_show_page ? $project->url() : $project->website_url }}" @if(!$project->has_show_page) target="_blank" @endif>
                 <span class="absolute rounded-[1.25rem] inset-0"></span>
                 @if($project->has_show_page)
                     Découvrir le projet

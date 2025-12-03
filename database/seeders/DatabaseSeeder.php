@@ -93,11 +93,13 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Contenu', 'Performance'])->pluck('id'),
             'color' => '#862633',
             'website_url' => 'https://ambianceetstyles.com',
+            'has_show_page' => true,
+            'is_featured' => true,
         ])
             ->has(ProjectKpi::factory()->sequence(
                 ['title' => '110', 'suffix' => 'k+', 'content' => 'comptes clients'],
                 ['title' => '20', 'suffix' => 'k+', 'content' => 'articles en ligne à tout instant'],
-                ['title' => '2015', 'content' => 'mise en ligne'],
+                ['title' => '2015', 'suffix' => '', 'content' => 'mise en ligne'],
             )->count(3), 'kpis')
             ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/project/as-cover.png'), 'cover')
             ->create();
@@ -121,11 +123,13 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['Contenu', 'API', 'Multilinguisme'])->pluck('id'),
             'color' => '#0b0a0a',
             'accent_color' => '#fd612099',
+            'has_show_page' => true,
+            'is_featured' => true,
         ])
             ->has(ProjectKpi::factory()->sequence(
-                ['title' => '120', 'content' => 'variantes de contenu (5 langues, 12 pays, 2 profils)'],
-                ['title' => '190+', 'content' => 'parts gérées, dans 58 fonds'],
-                ['title' => '30k+', 'content' => 'mises à jour par mois via l’API'],
+                ['title' => '120', 'suffix' => '', 'content' => 'variantes de contenu (5 langues, 12 pays, 2 profils)'],
+                ['title' => '190', 'suffix' => '+', 'content' => 'parts gérées, dans 58 fonds'],
+                ['title' => '30', 'suffix' => 'k+', 'content' => 'mises à jour par mois via l’API'],
             )->count(3), 'kpis')
             ->create();
 
@@ -144,6 +148,8 @@ class DatabaseSeeder extends OzuSeeder
                 <p>La gestion des nombreuses commandes (tout comme toute l’administration du site) se fait via une instance de Sharp for Laravel, où il est possible de générer des bons de préparation et de modifier le statut de la commande, ce qui notifie le client.</p>
                 <p>[screen sharp]</p>',
             'tags' => ProjectTag::whereIn('label', ['E-commerce', 'Performance'])->pluck('id'),
+            'has_show_page' => true,
+            'is_featured' => true,
         ])
             ->has(ProjectKpi::factory()->count(3), 'kpis')
             ->create();
@@ -168,11 +174,13 @@ class DatabaseSeeder extends OzuSeeder
                 <p>[video Sharp Cursus ?]</p>',
             'tags' => ProjectTag::whereIn('label', ['Contenu', 'E-commerce', 'SSO'])->pluck('id'),
             'color' => '#3800ff',
+            'has_show_page' => true,
+            'is_featured' => true,
         ])
             ->has(ProjectKpi::factory()->sequence(
-                ['title' => '10k+', 'content' => 'comptes usagers Sola'],
-                ['title' => '7200+', 'content' => 'inscriptions à des formations Cursus'],
-                ['title' => '2017', 'content' => 'mise en ligne'],
+                ['title' => '10', 'suffix' => 'k+', 'content' => 'comptes usagers Sola'],
+                ['title' => '7200', 'suffix' => '+', 'content' => 'inscriptions à des formations Cursus'],
+                ['title' => '2017', 'suffix' => '', 'content' => 'mise en ligne'],
             )->count(3), 'kpis')
             ->create();
 
@@ -197,12 +205,22 @@ class DatabaseSeeder extends OzuSeeder
                 <p>Le système est accessible à tous les utilisateurs via un SSO dédié, appelé Solek, qui sert aussi de plateforme de connexion à l’administration <em>multi-tenant</em> des sites Ambiance & Styles et Culinarion.</p>',
             'tags' => ProjectTag::whereIn('label', ['API', 'Intranet', 'SSO'])->pluck('id'),
             'color' => '#354B54',
+            'has_show_page' => true,
         ])
             ->has(ProjectKpi::factory()->sequence(
-                ['title' => '200+', 'content' => 'utilisateurs'],
-                ['title' => '7200+', 'content' => 'commandes fournisseurs traités'],
-                ['title' => '15k+', 'content' => 'étiquettes de PLV'],
+                ['title' => '200', 'suffix' => '+', 'content' => 'utilisateurs'],
+                ['title' => '7200', 'suffix' => '+', 'content' => 'commandes fournisseurs traités'],
+                ['title' => '15k', 'suffix' => '+', 'content' => 'étiquettes de PLV'],
             )->count(3), 'kpis')
+            ->create();
+
+        Project::factory([
+            'title' => 'Comédie de Colmar',
+            'tags' => ProjectTag::whereIn('label', ['Contenu'])->pluck('id'),
+            'has_show_page' => false,
+            'website_url' => 'https://comedie-colmar.com',
+            'cta_label' => 'Voir le site Comédie de Colmar'
+        ])
             ->create();
     }
 }

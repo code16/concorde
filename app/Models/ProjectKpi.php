@@ -62,7 +62,12 @@ class ProjectKpi extends Model
             )
             ->hideCoverField()
             ->addCustomField(
-                OzuField::makeCheck('is_inverted', 'Placer le chiffre après le libellé')
+                OzuField::makeText('suffix')
+                    ->setLabel('Suffixe')
+                    ->setValidationRules([
+                        'max:10'
+                    ])
+                    ->setHelpMessage('Exemple « k+ »')
             );
     }
 }

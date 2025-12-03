@@ -48,11 +48,11 @@
                         </x-button>
                     </x-slot:actions>
                 </x-section-header>
-                <div class="mt-7.5 grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3.75 lg:gap-5">
+                <x-project-grid class="mt-7.5">
                     @foreach($projects as $project)
                        <x-project-item :project="$project" />
                     @endforeach
-                </div>
+                </x-project-grid>
             </section>
             <div id="approach" class="grid grid-cols-1 gap-y-[inherit]">
                 <section class="md:px-12.5 lg:px-17.5">

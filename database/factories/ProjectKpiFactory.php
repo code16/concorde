@@ -13,9 +13,9 @@ class ProjectKpiFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->numerify() . fake()->randomElement(['k', ' k+', '+', '']),
+            'title' => fake()->numerify(),
             'content' => fake()->sentence(),
-            'is_inverted' => fake()->boolean(),
+            'suffix' =>fake()->randomElement(['k', ' k+', '+', '']),
         ];
     }
 }

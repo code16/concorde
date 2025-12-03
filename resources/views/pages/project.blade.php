@@ -15,7 +15,7 @@
                 {!! $project->heading_text !!}
             </x-slot:heading-text>
         @endif
-        <div class="mt-3.75 text-base font-medium text-[oklch(from_var(--theme-primary)_max(calc(l_+_.2),.4)_c_h)]">
+        <div class="mt-3.75 -mb-7.5 text-base font-medium text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]">
             @foreach($project->tags as $tag)
                 {{ $tag->label }} @if(!$loop->last) <span class="opacity-50">&bull;</span> @endif
             @endforeach
@@ -23,7 +23,7 @@
     </x-hero>
     <div class="container">
         <div class="-mt-10 pt-10 bg-white rounded-xl">
-            <div class="pt-16 pb-24 px-7.5 md:px-12.5 lg:px-17.5">
+            <div class="pt-10 pb-20 md:pt-16 md:pb-24 px-7.5 md:px-12.5 lg:px-17.5">
                 <x-content-container>
                     <x-content heading-level="h2">
                         <x-ozu-content>
@@ -56,9 +56,7 @@
             </div>
         @endif
         @if(count($relatedProjects))
-            <section class="mt-20
-            md:px-12.5 lg:px-17.5
-            ">
+            <section class="flex flex-col mt-20 md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:title>
                         Projets similaires
@@ -70,11 +68,11 @@
                         </x-button>
                     </x-slot:actions>
                 </x-section-header>
-                <div class="mt-7.5 grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3.75 lg:gap-5">
+                <x-project-grid class="mt-7.5">
                     @foreach($relatedProjects as $relatedProject)
                         <x-project-item :project="$relatedProject" />
                     @endforeach
-                </div>
+                </x-project-grid>
             </section>
         @endif
     </div>

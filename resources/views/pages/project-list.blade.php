@@ -14,16 +14,12 @@
             Chacun de nos projets est une solution à une problématique singulière
         </x-slot:title>
     </x-hero>
-    <div class="mt-15 container">
+    <div class="mt-10 md:mt-15 container">
         <section class="md:px-12.5 lg:px-17.5">
             <div x-data="{ filterTag: new URL(location.href).searchParams.get('tag') || '' }">
-                <div class="group
-{{--                bg-white rounded-xl px-4 py-3--}}
-                 flex flex-wrap gap-6">
+                <div class="relative group py-4 -my-4 -mx-3.75 px-7.5 overflow-x-auto overflow-y-clip flex gap-6">
                     @foreach($tags->prepend(null) as $tag)
-                        <a class="relative text-base  font-medium  aria-current:underline decoration-1 underline-offset-4 opacity-50 aria-current:opacity-100 hover:opacity-100
-{{--                       py-1 px-2.5 rounded-md aria-current:bg-eggplant aria-current:text-white hover:bg-neutral-100--}}
-                        "
+                        <a class="shrink-0 relative text-base  font-medium  aria-current:underline decoration-1 underline-offset-4 opacity-50 aria-current:opacity-100 hover:opacity-100"
                             href="{{ route('projects.index', ['tag' => $tag?->id]) }}"
                             data-tag-id="{{ $tag?->id }}"
                             rel="nofollow"
@@ -34,13 +30,14 @@
                             {{ $tag?->label ?: 'Tous' }}
                         </a>
                     @endforeach
+                    <div class="shrink-0 md:hidden sticky pointer-events-none z-10 -ml-6 -right-7.5 w-12  bg-linear-to-l from-neutral-100 via-neutral-100 to-transparent"></div>
                 </div>
 
-                <div class="mt-10 min-h-120 content-start grid grid-cols-1 md:grid-cols-2 gap-2.5 md:gap-3.75 lg:gap-5">
+                <x-project-grid class="mt-7.5 md:mt-10 min-h-120 content-start">
                     @foreach($projects as $project)
                         <x-project-item :project="$project" />
                     @endforeach
-                </div>
+                </x-project-grid>
             </div>
         </section>
     </div>

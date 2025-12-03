@@ -11,7 +11,7 @@
             Articles
         </x-slot:surtitle>
         <x-slot:title>
-            Articles
+            Blog
         </x-slot:title>
     </x-hero>
     <div class="mt-15 container">

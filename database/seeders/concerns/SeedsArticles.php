@@ -37,6 +37,13 @@ trait SeedsArticles
                 }, $content);
 
                 $content = preg_replace_callback('/<video [^>]+>([\s\S]+?)<\/video>/', function ($matches) {
+                    if (preg_match('/src="([^"]+)"/', $matches[1], $srcMatches)
+                        && file_exists($this->legacyPostThumbnailPath($srcMatches[1]))
+                    ) {
+                        return $this->makeFileEmbed(
+                            Media::factory()->file()->withFile($this->legacyPostThumbnailPath($srcMatches[1]))->make()
+                        );
+                    }
                     return sprintf('<p>%s</p>', e($matches[0]));
                 }, $content);
 
