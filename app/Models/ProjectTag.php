@@ -32,6 +32,7 @@ class ProjectTag extends Model
             ['id' => 5, 'label' => 'SSO', 'color' => TagColor::Blue], // TODO color
             ['id' => 6, 'label' => 'API', 'color' => TagColor::Orange],
             ['id' => 7, 'label' => 'Performance', 'color' => TagColor::Orange], // TODO color
+            ['id' => 8, 'label' => 'Sécurité', 'color' => TagColor::Orange], // TODO color
         ];
     }
 }

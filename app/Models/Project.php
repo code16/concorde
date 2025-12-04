@@ -64,7 +64,8 @@ class Project extends Model
             ->setIsSearchable()
             ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Titre'))
             ->addColumn(OzuColumn::makeText('heading_text', 7)->setLabel('Heading'))
-            ->addColumn(OzuColumn::makeCheck('is_featured', 2)->setLabel('Featured'));
+            ->addColumn(OzuColumn::makeCheck('has_show_page', 1)->setLabel('Show'))
+            ->addColumn(OzuColumn::makeCheck('is_featured', 1)->setLabel('Featured'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig

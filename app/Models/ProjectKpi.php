@@ -34,8 +34,9 @@ class ProjectKpi extends Model
     {
         return $config
             ->setIsReorderable()
-            ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Chiffre'))
-            ->addColumn(OzuColumn::makeText('content', 9)->setLabel('Libellé'));
+            ->addColumn(OzuColumn::makeText('title', 1)->setLabel('Chiffre'))
+            ->addColumn(OzuColumn::makeText('suffix', 1)->setLabel('Suffixe'))
+            ->addColumn(OzuColumn::makeText('content', 10)->setLabel('Libellé'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
@@ -65,6 +66,8 @@ class ProjectKpi extends Model
                 OzuField::makeText('suffix')
                     ->setLabel('Suffixe')
                     ->setValidationRules([
+                        'string',
+                        'nullable',
                         'max:10'
                     ])
                     ->setHelpMessage('Exemple « k+ »')
