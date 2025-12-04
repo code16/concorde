@@ -6,6 +6,7 @@ use Code16\OzuClient\Eloquent\IsOzuModel;
 use Code16\OzuClient\OzuCms\Form\OzuEditorField;
 use Code16\OzuClient\OzuCms\Form\OzuEditorToolbarButton;
 use Code16\OzuClient\OzuCms\Form\OzuField;
+use Code16\OzuClient\OzuCms\List\OzuColumn;
 use Code16\OzuClient\OzuCms\OzuCollectionConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
@@ -42,7 +43,9 @@ class Article extends Model
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
-        return $config;
+        return $config
+            ->addColumn(OzuColumn::makeText('title', 9)->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeDate('publication_date', 3)->setLabel('Publication date')->setDefaultSort('desc'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
@@ -61,6 +64,8 @@ class Article extends Model
                     OzuEditorToolbarButton::File,
                     OzuEditorToolbarButton::Video,
                     OzuEditorToolbarButton::Iframe,
+                    OzuEditorToolbarButton::Code,
+                    OzuEditorToolbarButton::CodeBlock,
                 ])
                 ->setHeight(500, 1100)
             )
