@@ -5,6 +5,7 @@ namespace Database\Seeders\concerns;
 use App\Models\Article;
 use Code16\OzuClient\Eloquent\Media;
 use Database\Factories\ArticleFactory;
+use Illuminate\Support\Carbon;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
@@ -21,7 +22,7 @@ trait SeedsArticles
             'title' => str($frontMatter['title'])->rtrim('.'),
             'slug' => str($frontMatter['title'])->slug(),
             'category_label' => '',
-            'publication_date' => $frontMatter['date'],
+            'publication_date' => Carbon::parse($frontMatter['date'])->format('Y-m-d'),
             'author_id' => match($frontMatter['author']) {
                 'philippe' => 1,
                 'arnaud' => 4,
