@@ -63,8 +63,9 @@ class Project extends Model
             ->setIsReorderable()
             ->setIsSearchable()
             ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Titre'))
-            ->addColumn(OzuColumn::makeText('heading_text', 7)->setLabel('Heading'))
+            ->addColumn(OzuColumn::makeText('item_text', 6)->setLabel('Item'))
             ->addColumn(OzuColumn::makeCheck('has_show_page', 1)->setLabel('Show'))
+            ->addColumn(OzuColumn::makeCheck('website_url', 1)->setLabel('Lien'))
             ->addColumn(OzuColumn::makeCheck('is_featured', 1)->setLabel('Featured'));
     }
 
