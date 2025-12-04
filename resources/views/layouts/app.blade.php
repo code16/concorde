@@ -54,7 +54,7 @@
         {{ $head ?? null }}
         @stack('head')
     </head>
-    <body class="bg-neutral-100 text-eggplant font-sans antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
+    <body class="bg-neutral-100 text-eggplant font-sans font-medium antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
         <div class="relative flex flex-col py-2.5 min-h-screen">
             @if($home ?? false)
                 <div class="mb-2 relative z-20 container">

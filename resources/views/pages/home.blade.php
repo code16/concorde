@@ -158,7 +158,7 @@
                                         @endif
                                     </div>
                                     @if($tool->item_text)
-                                        <p class="mt-2 col-span-full lg:col-span-1 text-base font-medium">
+                                        <p class="mt-2 col-span-full lg:col-span-1 text-base">
                                             {!! $tool->item_text !!}
                                         </p>
                                     @endif
@@ -193,11 +193,11 @@
                         @foreach($teamMembers as $teamMember)
                             <article class="flex items-center md:items-start md:flex-col bg-white rounded-xl inset-ring inset-ring-neutral-200 md:bg-transparent md:inset-ring-0">
                                 <img class="size-25 inset-ring inset-ring-neutral-200 md:w-full md:h-auto md:aspect-227/270 lg:aspect-332/360 rounded-xl object-cover object-top" src="{{ $teamMember->picture }}" alt="{{ $teamMember->name }}">
-                                <div class="p-4 pl-5 md:p-0 md:mt-3.75 lg:mt-5">
+                                <div class="p-4 pl-5 md:p-0 md:mt-3.75">
                                     <h3 class="font-heading font-[450] text-xl lg:text-2xl">
                                         {{ $teamMember->name }}
                                     </h3>
-                                    <p class="mt-0.5 text-sm md:text-base text-neutral-600">
+                                    <p class="mt-2 text-sm  text-neutral-600">
                                         {{ $teamMember->role }}
                                     </p>
                                 </div>
@@ -258,7 +258,7 @@
                                                     <p class="text-base font-bold">
                                                         {{ $testimonial->author_name }}
                                                     </p>
-                                                    <p class="text-base font-medium text-neutral-600">
+                                                    <p class="text-base text-neutral-600">
                                                         {{ $testimonial->author_role }}
                                                     </p>
                                                 </div>

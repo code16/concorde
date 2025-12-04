@@ -19,7 +19,7 @@
             <div x-data="{ filterTag: new URL(location.href).searchParams.get('tag') || '' }">
                 <div class="relative group py-4 -my-4 -mx-3.75 px-7.5 overflow-x-auto overflow-y-clip flex gap-6">
                     @foreach($tags->prepend(null) as $tag)
-                        <a class="shrink-0 relative text-base  font-medium  aria-current:underline decoration-1 underline-offset-4 opacity-50 aria-current:opacity-100 hover:opacity-100"
+                        <a class="shrink-0 relative text-base font-medium aria-current:underline decoration-1 underline-offset-4 opacity-50 aria-current:opacity-100 hover:opacity-100"
                             href="{{ route('projects.index', ['tag' => $tag?->id]) }}"
                             data-tag-id="{{ $tag?->id }}"
                             rel="nofollow"

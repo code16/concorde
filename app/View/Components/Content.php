@@ -48,11 +48,13 @@ class Content extends Component
     {
         $content = preg_replace_callback(
             '/<pre><code class="language-(\w+)">([\s\S]+?)<\/code><\/pre>/',
-            fn ($matches) => Phiki::codeToHtml(
-                html_entity_decode($matches[2]),
-                Phiki::environment()->grammars->has($matches[1]) ? $matches[1] : Grammar::Txt,
-                Theme::GithubLight
-            ),
+            fn ($matches) => Blade::render('components.content-code', [
+                'slot' => new HtmlString(Phiki::codeToHtml(
+                    trim(html_entity_decode($matches[2])),
+                    Phiki::environment()->grammars->has($matches[1]) ? $matches[1] : Grammar::Txt,
+                    Theme::GithubLight
+                )),
+            ]),
             $content
         );
     }

@@ -113,7 +113,7 @@ Let's review this code with a quick breakdown:
 
 With this, our list is working. In real world, beside pagination, we would add a search field to quickly find a product, and filters to maybe only show sale products, or out-of-stock ones: all of this is quite simple to implement.
 
-<img width="1115" alt="list" src="https://user-images.githubusercontent.com/973325/159024834-d9b0fe15-9219-488f-94b9-3c17f6fdb1fc.png">
+![](/assets/img/posts/leveraging-sharp-laravel-open-source-content-management-framework/screen-1.png)
 
 I also choose to skip how the menu on the left is built, as it's pretty straightforward, and we have more to see.
 
@@ -198,7 +198,7 @@ Notice that we use a special `$this->save()` method, provided by the optional `W
 
 I reduced this example to only one field, to keep the code short; here's the result with just two other fields:
 
-<img width="1115" alt="form" src="https://user-images.githubusercontent.com/973325/159252999-b818ee45-a351-4152-b989-e81d002eb79a.png">
+![](/assets/img/posts/leveraging-sharp-laravel-open-source-content-management-framework/screen-2.png)
 
 ## Write commands to implement functional tasks
 
@@ -284,7 +284,7 @@ class ProductList extends SharpEntityList
 
 And here's the result:
 
-<img width="1148" alt="command-form" src="https://user-images.githubusercontent.com/973325/159680218-fe85782e-201b-49a5-b9c6-3e218380ffb6.png">
+![](/assets/img/posts/leveraging-sharp-laravel-open-source-content-management-framework/screen-3.png)
 
 We can restrict this command to some users, via authorizations, but I've chosen to keep this aside for now.
 
@@ -334,7 +334,7 @@ And with that we now have a simple way to preview a product. A third useful comm
 
 Of course Order instances will be created, in an e-commerce project, by customers in the public section of the website. In the admin section, we will need a paginated list of them, plus a detailed page for each one with customer details, ordered products... In Sharp, this detailed page is named a Show page, and can look like this:
 
-<img width="1148" alt="order-show" src="https://user-images.githubusercontent.com/973325/159716471-626b5673-0cc3-4a53-928b-940cb19a13b8.png">
+![](/assets/img/posts/leveraging-sharp-laravel-open-source-content-management-framework/screen-4.png)
 
 Here's the full code for this page (like before, this is very educational code, and very not production ready code):
 
@@ -418,7 +418,8 @@ In a real world application, we probably would not be able to do that, we'll nee
 
 As a final step in this educational project, we could add a welcome dashboard, mixing quick-links for current required tasks and stats:
 
-<img width="1187" alt="dashboard" src="https://user-images.githubusercontent.com/973325/159724287-27139de7-2630-4bc9-b871-65cbc1c5a30f.png">
+![](/assets/img/posts/leveraging-sharp-laravel-open-source-content-management-framework/screen-5.png)
+
 (This screenshot was taken (and edited) from a real project, to explain the changes on the left menu.)
 
 The code is similar to a Show page, so I will spare you the details. Here's a small sample to show how to easily add a panel with a count and a custom link to some page (a list, here):

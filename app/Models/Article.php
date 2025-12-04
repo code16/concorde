@@ -3,7 +3,8 @@
 namespace App\Models;
 
 use Code16\OzuClient\Eloquent\IsOzuModel;
-use Code16\OzuClient\Eloquent\Media;
+use Code16\OzuClient\OzuCms\Form\OzuEditorField;
+use Code16\OzuClient\OzuCms\Form\OzuEditorToolbarButton;
 use Code16\OzuClient\OzuCms\Form\OzuField;
 use Code16\OzuClient\OzuCms\OzuCollectionConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
@@ -47,6 +48,22 @@ class Article extends Model
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
     {
         return $config
+            ->configureContentField(fn (OzuEditorField $field) => $field
+                ->setToolbar([
+                    OzuEditorToolbarButton::Heading1,
+                    OzuEditorToolbarButton::Bold,
+                    OzuEditorToolbarButton::Italic,
+                    OzuEditorToolbarButton::Link,
+                    OzuEditorToolbarButton::BulletList,
+                    OzuEditorToolbarButton::Separator,
+                    OzuEditorToolbarButton::Quote,
+                    OzuEditorToolbarButton::Image,
+                    OzuEditorToolbarButton::File,
+                    OzuEditorToolbarButton::Video,
+                    OzuEditorToolbarButton::Iframe,
+                ])
+                ->setHeight(500, 1100)
+            )
             ->addCustomField(OzuField::makeText('category_label')->setLabel('Category label'))
             ->addCustomField(
                 OzuField::makeSelect('author_id')

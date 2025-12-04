@@ -1,5 +1,6 @@
 @props(['enabled' => true])
 
-<div class="{{ $enabled ? 'text-base/[1.5rem] md:text-[1.1875rem]/[1.875rem] w-[65ch] max-w-full mx-auto' : 'contents' }}">
+{{-- max-width 772px = 65ch of 1.1875rem --}}
+<div class="{{ $enabled ? 'max-w-193 mx-auto' : 'contents' }}">
     {{ $slot }}
 </div>

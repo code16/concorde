@@ -110,7 +110,7 @@ First, at the time of writing this blog post, Sharp 9 is still in beta: make sur
 
 Next, let's be honest, upgrading from 8.x to 9.x will require some work given that we touched many parts of the package. But we tried to ease the pain as much as possible, and we wrote a [dedicated upgrade guide](https://sharp9.code16.fr/docs/guide/upgrading/9.0) to help you through the process.
 
-And **if you are new to Sharp**, well, this announcement post is not a good starting point: maybe you can read this old but still relevant [introduction post](https://code16.fr/posts/leveraging-sharp-laravel-open-source-content-management-framework/), and go to [Sharp’s website](https://sharp.code16.fr) to check the online demo, and get started with the documentation. 
+And **if you are new to Sharp**, well, this announcement post is not a good starting point: maybe you can read this old but still relevant [introduction post](https://code16.fr/posts/leveraging-sharp-an-open-source-content-management-framework-in-a-laravel-project/), and go to [Sharp’s website](https://sharp.code16.fr) to check the online demo, and get started with the documentation. 
 
 ## What’s next?
 

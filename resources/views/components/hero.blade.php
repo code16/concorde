@@ -45,7 +45,7 @@
             <x-content-container :enabled="$contentContainer">
                 <div class="{{ $contentContainer ? 'max-w-110 md:max-w-142' : 'max-w-110 md:max-w-142 lg:max-w-180' }}">
                     @if($surtitle ?? null)
-                        <p class="mb-2.5 font-medium text-base {{
+                        <p class="mb-2.5 text-base {{
                             match($variant) {
                                 'dark' => 'text-violet-400',
                                 'light' => 'text-violet-400',
@@ -59,7 +59,7 @@
                         {{ $title }}
                     </h1>
                     @if($headingText ?? null)
-                        <p class="mt-3.75 text-base font-medium {{
+                        <p class="mt-3.75 text-base {{
                             match($variant) {
                                 'dark' => 'text-neutral-250',
                                 'light' => 'text-neutral-250',

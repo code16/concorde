@@ -102,6 +102,7 @@ class Project extends Model
                     OzuEditorToolbarButton::Separator,
                     OzuEditorToolbarButton::Quote,
                     OzuEditorToolbarButton::Image,
+                    OzuEditorToolbarButton::File,
                     OzuEditorToolbarButton::Video,
                     OzuEditorToolbarButton::Iframe,
                 ])

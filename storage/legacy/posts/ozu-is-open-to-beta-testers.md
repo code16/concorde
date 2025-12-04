@@ -23,9 +23,8 @@ Well, everything, but... in beta. We are looking for feedback on the whole produ
 
 Here’s a screencast recorded a while ago (the UI has evolved since then but the spirit is still there), presenting the development process of an Ozu project: 
 
-<div style="margin-bottom: 1em">
-<iframe width="100%" height="460" src="https://www.youtube-nocookie.com/embed/ZBYZHeB67O4?si=wFbQ6tMi9CXL8Nc6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</div>
+<x-ozu-content-video url="https://youtube.com/watch?v=ZBYZHeB67O4">
+</x-ozu-content-video>
 
 Another good resource is the readme of the `code16/ozu-client` package ([read it on GitHub](https://github.com/code16/ozu-client)) which is a good starting point; we also made our dummy test project public, [also available on GitHub](https://github.com/dvlpp/ozu-demo) (the amazing static production website of this thing [is here](https://ozu-demo.netlify.app)). 
 

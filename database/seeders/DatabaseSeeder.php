@@ -45,7 +45,7 @@ class DatabaseSeeder extends OzuSeeder
             ->create();
 
         Testimonial::factory([
-            'title' => 'Sycomore AM',
+            'title' => 'Ek',
             'content' => '“Ce que j’apprécie le plus, c’est leur transparence et leur sens du détail. Ils expliquent tout clairement, cherchent toujours la meilleure solution, et on sait qu’on peut compter sur eux.”',
             'author_name' => 'Eric Holzinger',
             'author_role' => 'Directeur Général',

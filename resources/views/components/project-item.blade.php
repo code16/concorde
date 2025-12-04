@@ -6,7 +6,7 @@
 <article class="relative flex flex-col rounded-[1.25rem] bg-neutral-50 p-2 inset-ring inset-ring-neutral-200 transition hover:bg-eggplant"
     x-show="typeof filterTag !== 'undefined' && filterTag ? !!$el.querySelector(`[data-tag-id='${filterTag}']`) : true"
 >
-    <div class="flex-1 rounded-[0.9375rem] bg-white px-10 py-7.5 md:p-8.75 lg:py-11.25 lg:px-12.5 inset-ring inset-ring-neutral-200">
+    <div class="flex-1 rounded-xl bg-white px-10 py-7.5 md:p-8.75 lg:py-11.25 lg:px-12.5 inset-ring inset-ring-neutral-200">
         <h3 class="text-2.5xl lg:text-3xl font-heading font-[450]">
             {!! $project->title !!}
         </h3>

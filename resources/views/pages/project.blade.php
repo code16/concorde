@@ -15,7 +15,7 @@
                 {!! $project->heading_text !!}
             </x-slot:heading-text>
         @endif
-        <div class="mt-3.75 -mb-7.5 text-base font-medium text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]">
+        <div class="mt-3.75 -mb-7.5 text-base text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]">
             @foreach($project->tags as $tag)
                 {{ $tag->label }} @if(!$loop->last) <span class="opacity-50">&bull;</span> @endif
             @endforeach
@@ -46,7 +46,7 @@
             <div class="mt-5 grid grid-cols-1 md:grid-cols-[repeat(min(var(--count),4),minmax(0,1fr))] gap-2.5 md:gap-3.75 lg:gap-5" style="--count:{{ count($project->kpis) }}">
                 @foreach($project->kpis as $kpi)
                     <article class="bg-white rounded-xl inset-ring inset-ring-neutral-200 p-7.5">
-                        <div class="flex justify-center items-baseline gap-0.5 text-6xl font-medium">
+                        <div class="flex justify-center items-baseline gap-0.5 text-6xl">
                             {{ $kpi->title }}
                             <span class="text-5xl">{{ $kpi->suffix }}</span>
                         </div>

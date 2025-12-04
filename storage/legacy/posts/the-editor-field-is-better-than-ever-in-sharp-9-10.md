@@ -7,7 +7,7 @@ thumbnail: /assets/img/posts/sharp-9-10-brings-major-improvements-ti-the-editor-
 author: philippe
 ---
 
-Since [this post on new features of Sharp 9.5](https://code16.fr/posts/notification-badges-and-more-in-sharp-9-5/), Sharp 9 development continued at a steady pace, bringing new features and improvements. Here’s a quick recap of the most notable changes.
+Since [this post on new features of Sharp 9.5](https://code16.fr/posts/notification-badge-and-more-in-sharp-95/), Sharp 9 development continued at a steady pace, bringing new features and improvements. Here’s a quick recap of the most notable changes.
 
 ## The Editor field is better than ever
 

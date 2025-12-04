@@ -18,7 +18,7 @@ trait SeedsArticles
         $frontMatter = $parsed->getFrontMatter();
 
         return Article::factory([
-            'title' => $frontMatter['title'],
+            'title' => str($frontMatter['title'])->rtrim('.'),
             'slug' => str($frontMatter['title'])->slug(),
             'category_label' => '',
             'publication_date' => $frontMatter['date'],
@@ -32,7 +32,6 @@ trait SeedsArticles
                         ? sprintf('<p>%s</p>', e($matches[1]))
                         : $this->makeImageEmbed(
                             Media::factory()->image()->withFile($this->legacyPostThumbnailPath($matches[2]))->make(),
-                            $matches[3]
                         );
                 }, $content);
 
@@ -46,6 +45,9 @@ trait SeedsArticles
                     }
                     return sprintf('<p>%s</p>', e($matches[0]));
                 }, $content);
+
+                $content = str_replace(['<h2>', '</h2>', '<h3>', '</h3>'], ['<h1>', '</h1>', '<h2>', '</h2>'], $content);
+                $content = preg_replace('/https:\/\/code16.fr\/posts\/([a-z0-9-]+)\//', '/blog/$1', $content);
 
                 return $content;
             }),

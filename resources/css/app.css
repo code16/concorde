@@ -12,6 +12,7 @@
   'Segoe UI Symbol', 'Noto Color Emoji';
   --font-heading: 'Gellix', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   --color-*: initial;
   /*--color-eggplant: #191228;*/
@@ -45,17 +46,17 @@
   --color-current: currentColor;
 
   --radius-lg: .4375rem;
-  --radius-xl: .9375rem;
+  --radius-xl: 1rem;
   --radius-2xl: 1.25rem;
 
   --text-xs: .8125rem;
   --text-xs--line-height: 1.125rem;
   --text-sm: .875rem;
   --text-sm--line-height: 1.1875rem;
-  --text-base: .9375rem;
-  --text-base--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.3125rem;
   --text-lg: 1.125rem; /* Desktop + Tablet/Gellix medium */
-  --text-lg--line-height: 1.3125rem;
+  --text-lg--line-height: 1.375rem;
   --text-xl: 1.25rem; /* Global/Gellix Xsmall */
   --text-xl--line-height: 1.5rem;
   --text-2xl: 1.4375rem; /* Global/Gellix small */
