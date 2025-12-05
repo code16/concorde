@@ -67,6 +67,7 @@ class Article extends Model
                     OzuEditorToolbarButton::Code,
                     OzuEditorToolbarButton::CodeBlock,
                 ])
+                ->setAllowedExtensions(['png', 'jpg', 'jpeg', 'webp', 'mp4'])
                 ->setHeight(500, 1100)
             )
             ->addCustomField(

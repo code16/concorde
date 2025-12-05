@@ -106,6 +106,7 @@ class Project extends Model
                     OzuEditorToolbarButton::Video,
                     OzuEditorToolbarButton::Iframe,
                 ])
+                ->setAllowedExtensions(['png', 'jpg', 'jpeg', 'webp', 'mp4'])
                 ->setHeight(500, 1100)
             )
             ->addCustomField(
