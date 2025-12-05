@@ -33,7 +33,7 @@
                     </x-content>
                     @if($project->website_url)
                         <div class="mt-20 flex justify-center">
-                            <x-button class="m-auto" variant="link" href="{{ $project->website_url }}">
+                            <x-button class="m-auto" variant="link" href="{{ $project->website_url }}" target="_blank">
                                 {{ $project->cta_label ?: 'Visiter le site' }}
                                 <x-button-arrow />
                             </x-button>

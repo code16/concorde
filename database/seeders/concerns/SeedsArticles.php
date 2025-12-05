@@ -5,7 +5,6 @@ namespace Database\Seeders\concerns;
 use App\Models\Article;
 use Code16\OzuClient\Eloquent\Media;
 use Database\Factories\ArticleFactory;
-use Illuminate\Support\Carbon;
 use League\CommonMark\Environment\Environment;
 use League\CommonMark\Extension\CommonMark\CommonMarkCoreExtension;
 use League\CommonMark\Extension\FrontMatter\FrontMatterExtension;
@@ -14,8 +13,11 @@ use League\CommonMark\MarkdownConverter;
 
 trait SeedsArticles
 {
-    protected function articleFactoryFromLegacy(RenderedContentWithFrontMatter $parsed, bool $production = false): ArticleFactory
-    {
+    protected function articleFactoryFromLegacy(
+        RenderedContentWithFrontMatter $parsed,
+        ?\Closure $handleImageEmbed = null,
+        ?\Closure $handleVideoEmbed = null
+    ): ArticleFactory {
         $frontMatter = $parsed->getFrontMatter();
 
         return Article::factory([
@@ -28,25 +30,23 @@ trait SeedsArticles
                 'philippe' => 1,
                 'arnaud' => 4,
             },
-            'content' => transform($parsed->getContent(), function ($content) use ($production) {
-                $content = preg_replace_callback('/<p>(<img src="([^"]+)" alt="([^"]*)" \/>)<\/p>/', function ($matches) use ($production) {
-                    return $production
-                        ? sprintf('<p>%s</p>', e($matches[1]))
+            'content' => transform($parsed->getContent(), function ($content) use ($handleImageEmbed, $handleVideoEmbed) {
+                $content = preg_replace_callback('/<p>(<img src="([^"]+)" alt="([^"]*)" \/>)<\/p>/', function ($matches) use ($handleImageEmbed) {
+                    return $handleImageEmbed
+                        ? $handleImageEmbed($matches[2])
                         : $this->makeImageEmbed(
                             Media::factory()->image()->withFile($this->legacyPostThumbnailPath($matches[2]))->make(),
                         );
                 }, $content);
 
-                $content = preg_replace_callback('/<video [^>]+>([\s\S]+?)<\/video>/', function ($matches) use ($production) {
-                    if (preg_match('/src="([^"]+)"/', $matches[1], $srcMatches)
-                        && file_exists($this->legacyPostThumbnailPath($srcMatches[1]))
-                        && !$production
-                    ) {
-                        return $this->makeFileEmbed(
+                $content = preg_replace_callback('/<video [^>]+>([\s\S]+?)<\/video>/', function ($matches) use ($handleVideoEmbed) {
+                    preg_match('/src="([^"]+)"/', $matches[1], $srcMatches);
+
+                    return $handleVideoEmbed
+                        ? $handleVideoEmbed($srcMatches[1])
+                        : $this->makeFileEmbed(
                             Media::factory()->file()->withFile($this->legacyPostThumbnailPath($srcMatches[1]))->make()
                         );
-                    }
-                    return sprintf('<p>%s</p>', e($matches[0]));
                 }, $content);
 
                 $content = str_replace(['<h2>', '</h2>', '<h3>', '</h3>'], ['<h1>', '</h1>', '<h2>', '</h2>'], $content);

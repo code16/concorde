@@ -95,4 +95,13 @@ class Article extends Model
     {
         return route('articles.show', $this);
     }
+
+    // quickfix for Ozu date error
+    // public function toArray(): mixed
+    // {
+    //     return [
+    //         ...parent::toArray(),
+    //         'publication_date' => $this->publication_date->format('Y-m-d'),
+    //     ];
+    // }
 }
