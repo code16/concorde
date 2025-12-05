@@ -19,7 +19,6 @@
                         Nous contacter
                     </h2>
                     <div class="mt-1.5 md:mt-4.75 text-sm text-white">
-                        {{ app(\App\GeneralSettings::class)->contact_phone }}<br>
                         {{ app(\App\GeneralSettings::class)->contact_email }}
                     </div>
                 </div>
