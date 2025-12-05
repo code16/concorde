@@ -69,6 +69,12 @@ class Article extends Model
                 ])
                 ->setHeight(500, 1100)
             )
+            ->addCustomField(
+                OzuField::makeEditor('item_text')
+                    ->setLabel('Item text')
+                    ->setWithoutParagraphs()
+                    ->hideToolbar()
+            )
             ->addCustomField(OzuField::makeText('category_label')->setLabel('Category label'))
             ->addCustomField(
                 OzuField::makeSelect('author_id')

@@ -30,7 +30,7 @@
                 @else
                     {{ $project->cta_label ?: 'Visiter le site' }}
                 @endif
-                <x-button-arrow />
+                <x-button-arrow :variant="$project->has_show_page ? 'default' : 'external'" />
             </a>
         </div>
     @endif

@@ -20,9 +20,10 @@ trait SeedsArticles
 
         return Article::factory([
             'title' => str($frontMatter['title'])->rtrim('.'),
+            'item_text' => $frontMatter['description'] ?? '',
             'slug' => str($frontMatter['title'])->slug(),
             'category_label' => '',
-            'publication_date' => Carbon::parse($frontMatter['date'])->format('Y-m-d'),
+            'publication_date' => $frontMatter['date'],
             'author_id' => match($frontMatter['author']) {
                 'philippe' => 1,
                 'arnaud' => 4,

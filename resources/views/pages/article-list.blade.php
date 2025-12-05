@@ -14,12 +14,14 @@
             Blog
         </x-slot:title>
     </x-hero>
-    <div class="mt-15 container">
-        <section class="md:px-12.5 lg:px-17.5">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-12">
-                @foreach($articles as $article)
-                    <x-article-item :article="$article" />
-                @endforeach
+    <div class="container">
+        <section class="-mt-10 pt-10 bg-white rounded-b-2xl">
+            <div class="py-5 md:py-10 px-7.5 md:px-12.5 lg:px-17.5">
+                <div class="grid grid-cols-1 divide-y divide-neutral-100">
+                    @foreach($articles as $article)
+                        <x-article-item :article="$article" horizontal />
+                    @endforeach
+                </div>
             </div>
         </section>
     </div>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('category_label')->nullable();
             $table->unsignedBigInteger('author_id')->nullable();
             $table->date('publication_date')->nullable();
+            $table->text('item_text')->nullable();
         });
     }
 };

@@ -219,7 +219,6 @@ class DatabaseSeeder extends OzuSeeder
             'tags' => ProjectTag::whereIn('label', ['Contenu'])->pluck('id'),
             'has_show_page' => false,
             'website_url' => 'https://comedie-colmar.com',
-            'cta_label' => 'Voir le site Comédie de Colmar'
         ])
             ->create();
     }
