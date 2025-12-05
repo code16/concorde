@@ -42,7 +42,7 @@
                 </x-content-container>
             </div>
         </div>
-        @if(count($project->kpis))
+        @if(count($project->kpis = $project->kpis->take(2)))
             <div class="mt-5 grid grid-cols-1 md:grid-cols-[repeat(min(var(--count),4),minmax(0,1fr))] gap-2.5 md:gap-3.75 lg:gap-5" style="--count:{{ count($project->kpis) }}">
                 @foreach($project->kpis as $kpi)
                     <article class="bg-white rounded-xl inset-ring inset-ring-neutral-200 p-7.5">
@@ -50,7 +50,7 @@
                             {{ $kpi->title }}
                             <span class="text-5xl">{{ $kpi->suffix }}</span>
                         </div>
-                        <div class="mt-3.5 text-lg text-center font-semibold">{{ $kpi->content }}</div>
+                        <div class="mt-3.5 max-w-80 mx-auto text-lg text-center font-semibold">{{ $kpi->content }}</div>
                     </article>
                 @endforeach
             </div>

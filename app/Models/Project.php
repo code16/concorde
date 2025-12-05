@@ -112,6 +112,7 @@ class Project extends Model
             ->addCustomField(
                 OzuField::makeSelect('tags')
                     ->setLabel('Tags')
+                    ->setDisplayAsDropdown()
                     ->setMultiple()
                     ->setOptions(ProjectTag::all()->pluck('label', 'id')->toArray())
             )
