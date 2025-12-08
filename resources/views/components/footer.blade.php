@@ -23,11 +23,11 @@
                     </div>
                 </div>
             </div>
-            <div class="col-start-1 row-start-2 self-start md:self-stretch min-w-22 md:min-w-auto flex flex-col">
+            <div class="col-start-1 row-start-2 self-start min-w-22 md:min-w-auto flex flex-col">
                 <h2 class="hidden md:block uppercase text-xs text-white opacity-40">
                     Nous suivre
                 </h2>
-                <div class="mt-auto md:mb-0.5 flex justify-center md:justify-start gap-5">
+                <div class="md:mt-4.75 md:mb-0.5 flex justify-center md:justify-start gap-5">
                     <a class="text-white" aria-label="LinkedIn" href="{{ app(\App\GeneralSettings::class)->linkedin_url }}" target="_blank">
                         <x-icon-linkedin class="size-4" />
                     </a>
