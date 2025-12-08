@@ -15,8 +15,8 @@
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
   --color-*: initial;
-  /*--color-eggplant: #191228;*/
-  --color-eggplant: oklch(0.2 0.04 297.05);
+  --color-eggplant: #191228;
+  /*--color-eggplant: oklch(0.2 0.04 297.05);*/
   --color-violet-50: #F2EEFF;
   --color-violet-100: #EDE7FF;
   --color-violet-400: #AC78FF;

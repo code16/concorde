@@ -57,7 +57,7 @@
     <body class="bg-neutral-100 text-eggplant font-sans font-medium antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
         <div class="relative flex flex-col py-2.5 min-h-screen">
             @if($home ?? false)
-                <div class="mb-2 relative z-20 container">
+                <div class="mb-2 hidden min-[23rem]:block relative z-20 container">
                     <div class="flex gap-6 py-1.25 px-5 md:px-10 rounded-2xl bg-violet-400">
                         <p class="text-xs/5.5 font-semibold">
                             <span class="md:hidden">
