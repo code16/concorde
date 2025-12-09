@@ -48,7 +48,7 @@
 {{--            <h2 class="text-base font-medium text-neutral-500">Notre approche</h2>--}}
             <div class="grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                 @foreach([
-                    'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer avec confiance un code propre, maîtrisé et capable d’évoluer.',
+                    'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.',
                     'Suivi' => 'Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.',
                     'Autonomie' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
                 ] as $title => $description)
