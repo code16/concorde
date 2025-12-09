@@ -19,7 +19,9 @@
                         Nous contacter
                     </h2>
                     <div class="mt-1.5 md:mt-4.75 text-sm text-white">
-                        {{ app(\App\GeneralSettings::class)->contact_email }}
+                        <a href="mailto:{{ app(\App\GeneralSettings::class)->contact_email }}" class="underline">
+                            {{ app(\App\GeneralSettings::class)->contact_email }}
+                        </a>
                     </div>
                 </div>
             </div>

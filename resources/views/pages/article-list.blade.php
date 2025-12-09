@@ -8,10 +8,10 @@
     </x-slot:header>
     <x-hero variant="light">
         <x-slot:surtitle>
-            Articles
+            Blog (EN)
         </x-slot:surtitle>
         <x-slot:title>
-            Blog
+            Behind what we build
         </x-slot:title>
     </x-hero>
     <div class="container">

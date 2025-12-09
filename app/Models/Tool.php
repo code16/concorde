@@ -21,7 +21,7 @@ class Tool extends Model
         return [
             [
                 'title' => 'Sharp',
-                'item_text' => 'Des back-offices sur-mesure, pour une gestion intuitive et simplifiée.',
+                'item_text' => 'Développer des back-offices puissants, fiables et sur-mesure.',
                 'is_open_source' => true,
                 'website_url' => 'https://sharp.code16.fr/',
                 'logo' => asset('/img/tools/sharp.svg'),

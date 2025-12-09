@@ -74,7 +74,7 @@
 
                     <div class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                         @foreach([
-                            'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer avec confiance un code propre, maîtrisé et capable d’évoluer.',
+                            'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.',
                             'Suivi' => 'Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.',
                             'Autonomie' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
                         ] as $title => $description)
@@ -142,7 +142,7 @@
                             </span>
                         </x-slot:title>
                         <x-slot:heading-text>
-                            Nous avons développé deux outils pour enrichir l’écosystème Laravel et offrir aux développeurs des bases solides pour leurs applications.
+                            Nous avons développé des outils pour enrichir l’écosystème Laravel et offrir aux développeurs des bases solides pour leurs applications.
                         </x-slot:heading-text>
                     </x-section-header>
                     <div class="mt-7.5 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-5">
