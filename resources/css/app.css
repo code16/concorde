@@ -14,7 +14,7 @@
   'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
 
-  --color-*: initial;
+  /*--color-*: initial;*/
   --color-eggplant: #191228;
   /*--color-eggplant: oklch(0.2 0.04 297.05);*/
   --color-violet-50: #F2EEFF;
@@ -92,6 +92,12 @@
 
   &::-webkit-scrollbar {
     display: none;
+  }
+}
+
+@custom-variant supports-relative-colors {
+  @supports (color: rgb(from red r g b)) {
+    @slot;
   }
 }
 

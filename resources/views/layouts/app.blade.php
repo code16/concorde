@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        @php($title = (isset($title) ? "$title — "  : '') . 'Code 16')
+        @php($title = isset($title->attributes['full']) ? $title : (isset($title) ? "$title — "  : '') . 'Code 16')
         @php($metaDescription = $metaDescription->attributes['content'] ?? '')
         @php($metaImage = $metaImage->attributes['content'] ?? asset('/img/og-image.png'))
         @php($metaType ??= 'website')

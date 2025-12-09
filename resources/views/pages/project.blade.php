@@ -1,7 +1,7 @@
 
 <x-layout :theme-primary="$project->color" :theme-accent="$project->accent_color">
     <x-title>
-        {{ $project->title }}
+        {!! $project->title !!}
     </x-title>
     <x-slot:header>
         <x-header :variant="$project->color ? 'theme' : 'light'" />
@@ -15,7 +15,7 @@
                 {!! $project->heading_text !!}
             </x-slot:heading-text>
         @endif
-        <div class="mt-3.75 -mb-7.5 text-base {{ $project->color ? 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]' : 'text-violet-100/50' }}">
+        <div class="mt-3.75 -mb-7.5 text-base {{ $project->color ? 'text-white/40 supports-relative-colors:text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]' : 'text-violet-100/50' }}">
             @foreach($project->tags as $tag)
                 {{ $tag->label }} @if(!$loop->last) <span class="opacity-50">&bull;</span> @endif
             @endforeach

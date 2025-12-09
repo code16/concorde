@@ -12,9 +12,9 @@
         'dark' => 'bg-[#0B0617]',
         'light' => 'bg-eggplant',
         'theme' => 'bg-(--theme-primary)',
-} }}
+    } }}
     ">
-        <div class="absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
+        <div class="not-supports-relative-colors:hidden absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
         <div class="flex-1 flex flex-col relative isolate overflow-clip
         {{ $home ? 'min-h-135 py-25 md:pt-32.5 md:pb-42.5' : 'pt-7.5 pb-15 md:pt-25 md:pb-32.5' }}
         {{ match($variant) {
@@ -26,15 +26,15 @@
         px-7.5 md:px-12.5 lg:px-17.5">
             @if($variant === 'theme')
                 <x-icon-bg-grid-theme
-                    class="absolute  -z-10 -top-4 -right-103.5 md:-right-40.5 lg:-right-21.5 w-190
+                    class="absolute  -z-10 -top-4 -right-103.5 md:-right-40.5 lg:-right-21.5 w-190 text-white/20
                         {{
                             $themeAccent
-                                ? 'text-[oklch(from_var(--theme-accent)_l_c_h)]
-                                [&_#lines-gradient-from]:[stop-color:oklch(from_var(--theme-accent)_l_c_h)]
-                                [&_#lines-gradient-to]:[stop-color:oklch(from_var(--theme-accent)_l_c_h_/_0%)]'
-                                : 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h)]
-                                [&_#lines-gradient-from]:[stop-color:oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h)]
-                                [&_#lines-gradient-to]:[stop-color:oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h_/_0%)]'
+                                ? 'supports-relative-colors:text-[oklch(from_var(--theme-accent)_l_c_h)]
+                                supports-relative-colors:[&_#lines-gradient-from]:[stop-color:oklch(from_var(--theme-accent)_l_c_h)]
+                                supports-relative-colors:[&_#lines-gradient-to]:[stop-color:oklch(from_var(--theme-accent)_l_c_h_/_0%)]'
+                                : 'supports-relative-colors:text-[oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h)]
+                                supports-relative-colors:[&_#lines-gradient-from]:[stop-color:oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h)]
+                                supports-relative-colors:[&_#lines-gradient-to]:[stop-color:oklch(from_var(--theme-primary)_max(calc(l_+_.15),.4)_c_h_/_0%)]'
                          }}
                     "
                 />
@@ -49,7 +49,7 @@
                             match($variant) {
                                 'dark' => 'text-violet-400',
                                 'light' => 'text-violet-400',
-                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]',
+                                'theme' => 'text-white/40 supports-relative-colors:text-[oklch(from_var(--theme-primary)_max(calc(l_+_.25),.5)_c_h)]',
                             }
                         }}">
                             {{ $surtitle }}
@@ -63,7 +63,7 @@
                             match($variant) {
                                 'dark' => 'text-neutral-250',
                                 'light' => 'text-neutral-250',
-                                'theme' => 'text-[oklch(from_var(--theme-primary)_max(calc(l_+_.4),.7)_c_h)]',
+                                'theme' => 'text-white/60 supports-relative-colors:text-[oklch(from_var(--theme-primary)_max(calc(l_+_.4),.7)_c_h)]',
                             }
                         }}">
                             {{ $headingText }}

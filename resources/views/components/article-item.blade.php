@@ -7,7 +7,7 @@
 
 <article class="relative flex  gap-y-3 gap-x-6 {{ $horizontal ? 'flex-row md:flex-row py-6 md:px-0' /*  md:px-4md:bg-white md:border md:border-neutral-200 md:rounded-2xl*/ : 'flex-col' }}">
     <a href="{{ $article->url() }}" tabindex="-1">
-        <img class="{{ $horizontal ? 'hidden md:block md:w-48 aspect-1/1' : 'aspect-16/9' }} object-cover rounded-xl border border-neutral-200" src="{{ $article->cover?->thumbnail(1024) ?: asset('/img/placeholder.svg') }}" alt="{{ $article->title }}">
+        <img class="{{ $horizontal ? 'hidden md:block md:w-48 aspect-1/1' : 'aspect-16/9 w-full' }} object-cover rounded-xl border border-neutral-200" src="{{ $article->cover?->thumbnail(1024) ?: asset('/img/placeholder.svg') }}" alt="{{ $article->title }}">
     </a>
     <div class="flex-1 {{-- p-2.5 --}}">
         <div class="flex gap-4">

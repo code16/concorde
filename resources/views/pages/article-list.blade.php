@@ -1,7 +1,7 @@
 
 <x-layout>
     <x-title>
-        Articles
+        Blog
     </x-title>
     <x-slot:header>
         <x-header variant="light" />

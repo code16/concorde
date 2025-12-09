@@ -38,6 +38,7 @@ class Project extends Model
     public Collection $tags {
         get {
             return ProjectTag::query()
+                ->orderBy('order')
                 ->whereIn('id', $this->getAttribute('tags'))
                 ->get();
         }

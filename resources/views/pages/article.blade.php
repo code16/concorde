@@ -1,8 +1,9 @@
 
 <x-layout>
     <x-title>
-        {{ $article->title }}
+        {!! $article->title !!}
     </x-title>
+    <x-meta.description :content="$article->item_text" />
     <x-slot:header>
         <x-header variant="light" />
     </x-slot:header>

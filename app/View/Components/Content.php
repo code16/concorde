@@ -53,7 +53,7 @@ class Content extends Component
                     trim(html_entity_decode($matches[2])),
                     Phiki::environment()->grammars->has($matches[1]) ? $matches[1] : Grammar::Txt,
                     Theme::GithubLight
-                )),
+                )->toString()),
             ]),
             $content
         );

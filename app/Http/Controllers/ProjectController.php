@@ -12,7 +12,7 @@ class ProjectController extends Controller
     {
         $projects = Project::orderBy('order')->get();
         /** @var ProjectTag[]|Collection<int,ProjectTag> $tags */
-        $tags = $projects->flatMap(fn (Project $project) => $project->tags)->unique('id');
+        $tags = $projects->flatMap(fn (Project $project) => $project->tags)->unique('id')->sortBy('order');
 
         return view('pages.project-list', [
             'projects' => $projects,

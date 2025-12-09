@@ -13,39 +13,10 @@
         <x-slot:title>
             Chacun de nos projets est une solution à une problématique singulière
         </x-slot:title>
-{{--        <div class="mt-5 flex flex-col md:flex-row flex-wrap gap-y-1.25 gap-x-5">--}}
-{{--            @foreach([--}}
-{{--                'Exigence',--}}
-{{--                'Suivi',--}}
-{{--                'Autonomie',--}}
-{{--            ] as $label)--}}
-{{--                <div class="flex items-center gap-1.5">--}}
-{{--                    <x-icon-circle-check class="size-4.5 fill-violet-400 text-eggplant" />--}}
-{{--                    <div class="font-semibold text-base text-white">--}}
-{{--                        {{ $label }}--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            @endforeach--}}
-{{--        </div>--}}
     </x-hero>
     <div class="mt-10 container">
         <section class="md:px-12.5 lg:px-17.5">
             <div>
-{{--                <div class="flex bg-white p-7.5 md:p-12.5 rounded-xl border border-neutral-200">--}}
-{{--                    <div>--}}
-{{--                        <div class="mb-4 self-end flex items-center gap-0.5">--}}
-{{--                            <x-icon-arrow-right-sm class="size-5 text-violet-400" />--}}
-{{--                            <h2 class="text-sm font-semibold">--}}
-{{--                                Notre approche technique--}}
-{{--                            </h2>--}}
-{{--                        </div>--}}
-{{--                        <p class="text-2xl max-w-3xl min-[23rem]:text-2.5xl font-heading lg:text-3xl font-[350]">--}}
-{{--                            Tous nos projets sont conçus sur mesure et construits sur une base technique solide et maîtrisée. Nous assurons leur maintien dans le temps grâce à une suite de test dédiée intégrée au déploiement, des mises à jour régulières des dépendances, un monitoring constant, une gestion rigoureuse des incidents, des sauvegardes systématiques et un haut niveau de sécurité applicative.--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--            <h2 class="text-base font-medium text-neutral-500">Notre approche</h2>--}}
             <div class="grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                 @foreach([
                     'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer avec confiance un code propre, maîtrisé et capable d’évoluer.',
