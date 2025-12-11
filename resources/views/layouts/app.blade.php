@@ -36,6 +36,10 @@
 
         <link rel="preload" href="{{ Vite::asset('resources/fonts/Manrope-variable.woff2') }}" as="font" type="font/woff2" crossorigin>
 
+        @env('production')
+            <script src="https://cdn.usefathom.com/script.js" data-site="UYEFQCWU" defer></script>
+        @endenv
+
         @vite([
             'resources/css/app.css',
             'resources/js/app.js',
