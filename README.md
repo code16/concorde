@@ -6,7 +6,7 @@ This repository contains the full source code powering the website.
 ## Tech stack
 
 - **Built with Ozu** ([ozu.code16.fr](https://ozu.code16.fr))
-- Laravel 12
+- Laravel, Tailwind CSS, Alpine.js
 - Packages: calebporzio/sushi, blade-ui-kit/blade-icons, phiki/phiki
 
 ## License
