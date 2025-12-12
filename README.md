@@ -5,7 +5,7 @@ This repository contains the full source code powering the website.
 
 ## Tech stack
 
-- **Built with Ozu** ([ozu.code16.fr](https://ozu.code16.fr))
+- Concorde is a static website **built with Ozu** ([ozu.code16.fr](https://ozu.code16.fr)), which provides a CMS and a deployment platform while keeping the Laravel stack.
 - Laravel, Tailwind CSS, Alpine.js
 - Packages: calebporzio/sushi, blade-ui-kit/blade-icons, phiki/phiki
 
