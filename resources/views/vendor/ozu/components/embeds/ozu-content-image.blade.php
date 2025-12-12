@@ -19,7 +19,7 @@
                 src="{{ $thumbnail }}"
                 alt="{{ $legend ?? '' }}"
                 loading="lazy"
-                x-init="imgWidth = $width"
+                x-init="imgWidth = $el.offsetWidth"
                 x-resize="imgWidth = $width"
             >
         @endif

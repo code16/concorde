@@ -9,7 +9,7 @@
     </x-slot:header>
     <div class="container">
         <div class="-mt-10  pt-10 bg-white rounded-xl">
-            <div class="pb-7.5 pt-16 px-7.5 md:pb-16 md:px-12.5 lg:px-17.5">
+            <div class="pb-20 pt-16 px-7.5 md:pb-24 md:px-12.5 lg:px-17.5">
                 <x-content-container>
                     <div class="mb-12">
                         <h1 class="text-3xl md:text-4xl font-[650]">
@@ -26,7 +26,7 @@
 
                     <div class="mt-12">
                         <div class="flex">
-                            <div class="rounded-xl p-4 pr-6 border border-neutral-200 ">
+                            <div class="rounded-xl p-4 pr-6 border border-neutral-200">
                                 <div class="flex items-center gap-x-4 gap-y-1.5">
                                     <img class="shrink-0 size-10 rounded-full" src="{{ $article->author->squarePicture }}" alt="{{ $article->author->name }}">
                                     <div>
@@ -40,6 +40,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="mt-20 flex justify-center">
+                        <x-button href="{{ route('articles.index', absolute: false) }}" variant="link">
+                            <x-button-arrow variant="back" />
+                            Return to articles
+                        </x-button>
                     </div>
                 </x-content-container>
             </div>

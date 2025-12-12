@@ -31,6 +31,9 @@
   strong {
     @apply font-[650];
   }
+  :not(pre) > code {
+    @apply text-[.9375rem] md:text-[1.125rem] bg-violet-50 px-1.5 py-0.5 rounded-md;
+  }
 
   > :first-child {
     margin-top: 0!important;
