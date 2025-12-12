@@ -44,8 +44,9 @@ class Article extends Model
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
         return $config
-            ->addColumn(OzuColumn::makeText('title', 9)->setLabel('Titre'))
-            ->addColumn(OzuColumn::makeDate('publication_date', 3)->setLabel('Publication date')->setDefaultSort('desc'));
+            ->addColumn(OzuColumn::makeText('title')->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeText('category_label')->setLabel('Catégorie'))
+            ->addColumn(OzuColumn::makeDate('publication_date')->setLabel('Publication date')->setDefaultSort('desc'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
@@ -95,13 +96,4 @@ class Article extends Model
     {
         return route('articles.show', $this);
     }
-
-    // quickfix for Ozu date error
-    // public function toArray(): mixed
-    // {
-    //     return [
-    //         ...parent::toArray(),
-    //         'publication_date' => $this->publication_date->format('Y-m-d'),
-    //     ];
-    // }
 }
