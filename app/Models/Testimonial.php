@@ -35,7 +35,7 @@ class Testimonial extends Model
     {
         return $config
             ->setLabel('Testimonials')
-            ->setIcon('fa-quote-left')
+            ->setIcon('lucide-message-square-quote')
             ->setHasPublicationState();
     }
 
