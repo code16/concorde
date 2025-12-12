@@ -5,6 +5,7 @@ namespace App\Models;
 use Code16\OzuClient\Eloquent\IsOzuModel;
 use Code16\OzuClient\Eloquent\Media;
 use Code16\OzuClient\OzuCms\Form\OzuField;
+use Code16\OzuClient\OzuCms\List\OzuColumn;
 use Code16\OzuClient\OzuCms\OzuCollectionConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionFormConfig;
 use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
@@ -40,7 +41,11 @@ class Testimonial extends Model
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
-        return $config->setIsReorderable();
+        return $config
+            ->addColumn(OzuColumn::makeImage('authorPicture', 1))
+            ->addColumn(OzuColumn::makeText('title', 3)->setLabel('Client'))
+            ->addColumn(OzuColumn::makeText('author_name', 5)->setLabel('Auteur'))
+            ->addColumn(OzuColumn::makeText('author_role', 3)->setLabel('Fonction'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
@@ -48,9 +53,9 @@ class Testimonial extends Model
         return $config
             ->configureTitleField(fn (OzuField $field) => $field->setLabel('Company name (hidden)'))
             ->hideCoverField()
-            ->addCustomField(OzuField::makeText('author_name')->setLabel('Author name'))
-            ->addCustomField(OzuField::makeText('author_role')->setLabel('Author role'))
-            ->addCustomField(OzuField::makeImage('authorPicture')->setLabel('Author picture')->setCropRatio('1:1'))
-            ->addCustomField(OzuField::makeImage('logo')->setLabel('Company logo')->setAllowedExtensions(['svg']));
+            ->addCustomField(OzuField::makeText('author_name')->setLabel('Auteur'))
+            ->addCustomField(OzuField::makeText('author_role')->setLabel('Fonction'))
+            ->addCustomField(OzuField::makeImage('authorPicture')->setLabel('Photo')->setCropRatio('1:1'))
+            ->addCustomField(OzuField::makeImage('logo')->setLabel('Logo')->setAllowedExtensions(['svg']));
     }
 }

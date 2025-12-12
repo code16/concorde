@@ -44,9 +44,10 @@ class Article extends Model
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
         return $config
-            ->addColumn(OzuColumn::makeText('title')->setLabel('Titre'))
-            ->addColumn(OzuColumn::makeText('category_label')->setLabel('Catégorie'))
-            ->addColumn(OzuColumn::makeDate('publication_date')->setLabel('Publication date')->setDefaultSort('desc'));
+            ->addColumn(OzuColumn::makeImage('cover', 1))
+            ->addColumn(OzuColumn::makeText('title', 5)->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeText('category_label', 3)->setLabel('Catégorie'))
+            ->addColumn(OzuColumn::makeDate('publication_date', 3)->setLabel('Publication date')->setDefaultSort('desc'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
