@@ -53,7 +53,7 @@ class Project extends Model
     {
         return $config
             ->setLabel('Projects')
-            ->setIcon('fa-laptop-code')
+            ->setIcon('lucide-laptop')
             ->setHasPublicationState()
             ->addSubCollection(ProjectKpi::class);
     }

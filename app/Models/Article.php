@@ -13,7 +13,6 @@ use Code16\OzuClient\OzuCms\OzuCollectionListConfig;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Article extends Model
 {
@@ -37,14 +36,16 @@ class Article extends Model
     {
         return  $config
             ->setLabel('Articles')
-            ->setIcon('far-newspaper')
+            ->setIcon('lucide-newspaper')
             ->setHasPublicationState();
     }
 
     public static function configureOzuCollectionList(OzuCollectionListConfig $config): OzuCollectionListConfig
     {
         return $config
-            ->addColumn(OzuColumn::makeText('title', 9)->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeImage('cover', 1))
+            ->addColumn(OzuColumn::makeText('title', 5)->setLabel('Titre'))
+            ->addColumn(OzuColumn::makeText('category_label', 3)->setLabel('Catégorie'))
             ->addColumn(OzuColumn::makeDate('publication_date', 3)->setLabel('Publication date')->setDefaultSort('desc'));
     }
 
@@ -95,13 +96,4 @@ class Article extends Model
     {
         return route('articles.show', $this);
     }
-
-    // quickfix for Ozu date error
-    // public function toArray(): mixed
-    // {
-    //     return [
-    //         ...parent::toArray(),
-    //         'publication_date' => $this->publication_date->format('Y-m-d'),
-    //     ];
-    // }
 }

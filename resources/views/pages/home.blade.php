@@ -5,7 +5,7 @@
         <x-header variant="dark" home />
     </x-slot:header>
     <x-title full>
-        Code 16 — Développement Web à Strasbourg
+        Code 16 — Développement web sur mesure, spécialistes de Laravel
     </x-title>
     <x-meta.description content="Depuis 2007, nous concevons et maintenons avec exigence des projets web ou mobiles, en étroite collaboration avec nos clients."></x-meta.description>
     <x-hero variant="dark" home>
