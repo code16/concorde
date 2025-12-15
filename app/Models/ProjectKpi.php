@@ -34,16 +34,16 @@ class ProjectKpi extends Model
     {
         return $config
             ->setIsReorderable()
-            ->addColumn(OzuColumn::makeText('title', 1)->setLabel('Chiffre'))
-            ->addColumn(OzuColumn::makeText('suffix', 1)->setLabel('Suffixe'))
-            ->addColumn(OzuColumn::makeText('content', 10)->setLabel('Libellé'));
+            ->addColumn(OzuColumn::makeText('title', 1)->setLabel('Figure'))
+            ->addColumn(OzuColumn::makeText('suffix', 1)->setLabel('Suffix'))
+            ->addColumn(OzuColumn::makeText('content', 10)->setLabel('Label'));
     }
 
     public static function configureOzuCollectionForm(OzuCollectionFormConfig $config): OzuCollectionFormConfig
     {
         return $config
             ->configureTitleField(fn (OzuTextField $field) => $field
-                ->setLabel('Chiffre')
+                ->setLabel('Figure')
                 ->setValidationRules([
                     'required',
                     'string',
@@ -51,7 +51,7 @@ class ProjectKpi extends Model
                 ])
             )
             ->configureContentField(fn (OzuEditorField $field) => $field
-                ->setLabel('Libellé')
+                ->setLabel('Label')
                 ->hideToolbar()
                 ->setHeight(50)
                 ->setWithoutParagraphs()
@@ -64,13 +64,13 @@ class ProjectKpi extends Model
             ->hideCoverField()
             ->addCustomField(
                 OzuField::makeText('suffix')
-                    ->setLabel('Suffixe')
+                    ->setLabel('Suffix')
                     ->setValidationRules([
                         'string',
                         'nullable',
                         'max:10'
                     ])
-                    ->setHelpMessage('Exemple « k+ »')
+                    ->setHelpMessage('For instance: k+')
             );
     }
 }
