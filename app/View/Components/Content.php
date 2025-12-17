@@ -51,7 +51,9 @@ class Content extends Component
             fn ($matches) => Blade::render('components.content-code', [
                 'slot' => new HtmlString(Phiki::codeToHtml(
                     trim(html_entity_decode($matches[2])),
-                    Phiki::environment()->grammars->has($matches[1]) ? $matches[1] : Grammar::Txt,
+                    $matches[1] && Phiki::environment()->grammars->has($matches[1])
+                        ? $matches[1]
+                        : Grammar::Txt,
                     Theme::GithubLight
                 )->toString()),
             ]),
