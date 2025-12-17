@@ -4,11 +4,12 @@ return [
     // List here your collections, ie the Models that will be handled by the Ozu CMS.
     // You must also properly configure them (see documentation).
     'collections' => [
-        \App\Models\Testimonial::class,
-        \App\Models\Project::class,
         \App\Models\Article::class,
-        //        \App\Models\Project::class,
+        \App\Models\Project::class,
+        \App\Models\Testimonial::class,
     ],
+
+    'settings' => \App\GeneralSettings::class,
 
     // The Ozu unique key of the website to use
     'website_key' => env('OZU_WEBSITE_KEY'),

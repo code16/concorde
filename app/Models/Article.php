@@ -44,8 +44,8 @@ class Article extends Model
     {
         return $config
             ->addColumn(OzuColumn::makeImage('cover', 1))
-            ->addColumn(OzuColumn::makeText('title', 5)->setLabel('Titre'))
-            ->addColumn(OzuColumn::makeText('category_label', 3)->setLabel('Catégorie'))
+            ->addColumn(OzuColumn::makeText('title', 5)->setLabel('Title'))
+            ->addColumn(OzuColumn::makeText('category_label', 3)->setLabel('Category'))
             ->addColumn(OzuColumn::makeDate('publication_date', 3)->setLabel('Publication date')->setDefaultSort('desc'));
     }
 
@@ -80,7 +80,7 @@ class Article extends Model
             ->addCustomField(OzuField::makeText('category_label')->setLabel('Category label'))
             ->addCustomField(
                 OzuField::makeSelect('author_id')
-                    ->setLabel('Auteur')
+                    ->setLabel('Author')
                     ->setOptions(TeamMember::where('active', true)->pluck('name', 'id')->toArray())
             )
             ->addCustomField(
