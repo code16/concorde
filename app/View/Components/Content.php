@@ -47,7 +47,7 @@ class Content extends Component
     protected function transformCodeBlocks(&$content): void
     {
         $content = preg_replace_callback(
-            '/<pre><code class="language-(\w+)">([\s\S]+?)<\/code><\/pre>/',
+            '/<pre><code(?: class="language-(\w+)")?>([\s\S]+?)<\/code><\/pre>/',
             fn ($matches) => Blade::render('components.content-code', [
                 'slot' => new HtmlString(Phiki::codeToHtml(
                     trim(html_entity_decode($matches[2])),
