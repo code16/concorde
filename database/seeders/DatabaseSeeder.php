@@ -54,6 +54,16 @@ class DatabaseSeeder extends OzuSeeder
             ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek-ceo.png'), 'authorPicture')
             ->create();
 
+        Testimonial::factory([
+            'title' => 'Ek',
+            'content' => '“Ce que j’apprécie le plus, c’est leur transparence et leur sens du détail. Ils expliquent tout clairement, cherchent toujours la meilleure solution, et on sait qu’on peut compter sur eux.”',
+            'author_name' => 'Eric Holzinger',
+            'author_role' => 'Directeur Général',
+        ])
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek.svg'), 'logo')
+            ->has(Media::factory()->image()->withFile(__DIR__.'/../fixtures/testimonials/ek-ceo.png'), 'authorPicture')
+            ->create();
+
         collect(File::files(storage_path('legacy/posts')))
             ->each(function (SplFileInfo $file) {
                 $parsed = $this->parseMarkdown($file->getContents());
