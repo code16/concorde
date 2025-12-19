@@ -235,7 +235,7 @@
                                 </button>
                             </x-slot:actions>
                         </x-section-header>
-                        <div class="mt-10 flex overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-px-2 -mx-3.75 px-3.75 md:scroll-px-2 md:scroll-px-15.5 md:px-15.5 md:-mx-17.5"
+                        <div class="mt-10 flex overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-px-2 -mx-3.75 px-3.75 md:px-5.5 md:scroll-px-5.5 md:-mx-7.5 lg:scroll-px-15.5 lg:px-15.5 lg:-mx-17.5"
                             x-ref="scroller"
                             x-init="
                             [...$el.children]
