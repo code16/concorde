@@ -22,18 +22,18 @@ class TeamMember extends Model
         return [
             [
                 'id' => 1,
-                'name' => 'Philippe Lonchampt',
-                'role' => 'Fondateur • Développeur',
-                'picture' => asset('/img/team-members/philippe.jpg'),
-                'squarePicture' => asset('/img/team-members/blog/philippe.jpg'),
-                'active' => true,
-            ],
-            [
-                'id' => 2,
                 'name' => 'Antoine Guingand',
                 'role' => 'Développeur',
                 'picture' => asset('/img/team-members/antoine.jpg'),
                 'squarePicture' => null,
+                'active' => true,
+            ],
+            [
+                'id' => 2,
+                'name' => 'Philippe Lonchampt',
+                'role' => 'Fondateur • Développeur',
+                'picture' => asset('/img/team-members/philippe.jpg'),
+                'squarePicture' => asset('/img/team-members/blog/philippe.jpg'),
                 'active' => true,
             ],
             [
