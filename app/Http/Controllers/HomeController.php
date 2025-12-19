@@ -15,7 +15,7 @@ class HomeController extends Controller
         return view('pages.home', [
             'projects' => Project::where('is_featured', true)->orderBy('order')->get(),
             'testimonials' => Testimonial::orderBy('order')->get(),
-            'teamMembers' => TeamMember::where('active', true)->orderBy('order')->get(),
+            'teamMembers' => TeamMember::where('active', true)->get(),
             'articles' => Article::orderBy('publication_date', 'desc')->take(2)->get(),
         ]);
     }
