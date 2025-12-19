@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5533cb52baa3648e49b430c4de47eaf5",
+    "content-hash": "bdcaf89d00d29f48957f5ea423a5f843",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -396,7 +396,7 @@
         },
         {
             "name": "code16/ozu-client",
-            "version": "dev-main",
+            "version": "v0.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/code16/ozu-client.git",
@@ -430,7 +430,6 @@
                 "pestphp/pest-plugin-laravel": "^3.0",
                 "spatie/laravel-ray": "^1.26"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -470,7 +469,7 @@
             ],
             "support": {
                 "issues": "https://github.com/code16/ozu-client/issues",
-                "source": "https://github.com/code16/ozu-client/tree/main"
+                "source": "https://github.com/code16/ozu-client/tree/v0.8.7"
             },
             "time": "2025-12-08T15:18:33+00:00"
         },
@@ -10995,14 +10994,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "code16/ozu-client": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.4"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }
