@@ -5,6 +5,7 @@
     @if($current)
         aria-current="page"
     @endif
+    x-on:click="isMenuOpen = false"
     {{ $attributes }}
 >
     <span class="absolute hidden md:block -inset-2"></span>
