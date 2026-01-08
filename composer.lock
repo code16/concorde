@@ -396,16 +396,16 @@
         },
         {
             "name": "code16/ozu-client",
-            "version": "v0.8.9",
+            "version": "v0.8.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/code16/ozu-client.git",
-                "reference": "c62ba8f3d274d3e2cce8dfb640f1d6b7476d67c6"
+                "reference": "566214ce973793db7927a8c18d9a20435296538f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code16/ozu-client/zipball/c62ba8f3d274d3e2cce8dfb640f1d6b7476d67c6",
-                "reference": "c62ba8f3d274d3e2cce8dfb640f1d6b7476d67c6",
+                "url": "https://api.github.com/repos/code16/ozu-client/zipball/566214ce973793db7927a8c18d9a20435296538f",
+                "reference": "566214ce973793db7927a8c18d9a20435296538f",
                 "shasum": ""
             },
             "require": {
@@ -471,9 +471,9 @@
             ],
             "support": {
                 "issues": "https://github.com/code16/ozu-client/issues",
-                "source": "https://github.com/code16/ozu-client/tree/v0.8.9"
+                "source": "https://github.com/code16/ozu-client/tree/v0.8.10"
             },
-            "time": "2026-01-08T10:14:31+00:00"
+            "time": "2026-01-08T15:02:43+00:00"
         },
         {
             "name": "code16/pint-config",
