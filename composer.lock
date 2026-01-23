@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdcaf89d00d29f48957f5ea423a5f843",
+    "content-hash": "6b2cee04c80aa1f15b20a18d94185324",
     "packages": [
         {
             "name": "blade-ui-kit/blade-icons",
@@ -396,16 +396,16 @@
         },
         {
             "name": "code16/ozu-client",
-            "version": "v0.8.10",
+            "version": "v0.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/code16/ozu-client.git",
-                "reference": "566214ce973793db7927a8c18d9a20435296538f"
+                "reference": "83b7e375784add4780b18de85c29f1b98b3250a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/code16/ozu-client/zipball/566214ce973793db7927a8c18d9a20435296538f",
-                "reference": "566214ce973793db7927a8c18d9a20435296538f",
+                "url": "https://api.github.com/repos/code16/ozu-client/zipball/83b7e375784add4780b18de85c29f1b98b3250a5",
+                "reference": "83b7e375784add4780b18de85c29f1b98b3250a5",
                 "shasum": ""
             },
             "require": {
@@ -419,7 +419,7 @@
                 "intervention/image-laravel": "^1.0",
                 "jcupitt/vips": "^2.6",
                 "laravel/prompts": "^0.3.8",
-                "php": "8.4.*|8.5.*",
+                "php": "8.3.*|8.4.*|8.5.*",
                 "spatie/laravel-package-tools": "^1.14.0",
                 "spatie/laravel-sluggable": "^3.6"
             },
@@ -427,9 +427,9 @@
                 "laravel/pint": "^1.0",
                 "nunomaduro/collision": "^8.0",
                 "orchestra/testbench": "^9.0|^10.0",
-                "pestphp/pest": "^3.0",
-                "pestphp/pest-plugin-arch": "^3.0",
-                "pestphp/pest-plugin-laravel": "^3.0",
+                "pestphp/pest": "^3.0|^4.0",
+                "pestphp/pest-plugin-arch": "^3.0|^4.0",
+                "pestphp/pest-plugin-laravel": "^3.0|^4.0",
                 "spatie/laravel-ray": "^1.26"
             },
             "type": "library",
@@ -471,9 +471,9 @@
             ],
             "support": {
                 "issues": "https://github.com/code16/ozu-client/issues",
-                "source": "https://github.com/code16/ozu-client/tree/v0.8.10"
+                "source": "https://github.com/code16/ozu-client/tree/v0.9.1"
             },
-            "time": "2026-01-08T15:02:43+00:00"
+            "time": "2026-01-23T16:19:55+00:00"
         },
         {
             "name": "code16/pint-config",
