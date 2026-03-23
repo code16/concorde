@@ -2,7 +2,8 @@
     'home' => false,
     'img' => null,
     'contentContainer' => false,
-    /** @var 'dark'|'light' $variant */'variant',
+    /** @var 'dark'|'light' $variant */
+    'variant',
 ])
 @aware(['themeAccent'])
 

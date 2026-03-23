@@ -79,7 +79,7 @@
                             'Autonomie' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
                         ] as $title => $description)
                             <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
-                                <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-violet-50 inset-ring inset-ring-violet-100 rounded-xl">
+                                <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-violet-50 [&_.accent]:fill-violet-400 inset-ring inset-ring-violet-100 rounded-xl">
                                     @if($loop->index === 0)
                                         <x-icon-approach-demanding class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#diamond]:-translate-y-[5%]" />
                                         <x-icon-approach-demanding-mobile class="md:hidden size-full" />
