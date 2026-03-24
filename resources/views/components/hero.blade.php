@@ -15,7 +15,9 @@
         'theme' => 'bg-(--theme-primary)',
     } }}
     ">
-        <div class="not-supports-relative-colors:hidden absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
+        @if($variant === 'theme')
+            <div class="not-supports-relative-colors:hidden absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
+        @endif
         <div class="flex-1 flex flex-col relative isolate overflow-clip
         {{ $home ? 'min-h-135 py-25 md:pt-32.5 md:pb-42.5' : 'pt-7.5 pb-15 md:pt-25 md:pb-32.5' }}
         {{ match($variant) {
