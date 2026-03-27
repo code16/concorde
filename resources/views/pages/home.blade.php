@@ -7,7 +7,7 @@
     <x-title full>
         Code 16 — Développement web sur mesure, spécialistes de Laravel
     </x-title>
-    <x-meta.description content="Depuis 2007, nous concevons et maintenons avec exigence des projets web ou mobiles, en étroite collaboration avec nos clients."></x-meta.description>
+    <x-meta.description content="Depuis 2007, nous concevons et maintenons avec exigence des projets web ou mobiles, en étroite collaboration avec nos clients." />
     <x-hero variant="dark" home>
         <x-slot:surtitle>
             Artisans du web
@@ -222,6 +222,7 @@
                                 <button class="relative grid place-content-center size-6 rounded-full text-white bg-eggplant disabled:bg-neutral-400 disabled:pointer-events-none hover:text-eggplant hover:bg-violet-400 transition"
                                     x-bind:disabled="atStart"
                                     x-on:click="$refs.scroller.scrollBy({ left: $refs.scroller.children[0].offsetWidth * -1, behavior: 'smooth' })"
+                                    aria-label="Précédent"
                                 >
                                     <span class="absolute -inset-1"></span>
                                     <x-icon-arrow-left class="size-4.5" />
@@ -229,6 +230,7 @@
                                 <button class="relative grid place-content-center size-6 rounded-full text-white bg-eggplant disabled:bg-neutral-400 disabled:pointer-events-none hover:text-eggplant hover:bg-violet-400 transition"
                                     x-bind:disabled="atEnd"
                                     x-on:click="$refs.scroller.scrollBy({ left: $refs.scroller.children[0].offsetWidth, behavior: 'smooth' })"
+                                    aria-label="Suivant"
                                 >
                                     <span class="absolute -inset-1"></span>
                                     <x-icon-arrow-right class="size-4.5" />

@@ -3,6 +3,7 @@
     <x-title>
         Projets
     </x-title>
+    <x-meta.description content="Chacun de nos projets est une solution à une problématique singulière" />
     <x-slot:header>
         <x-header variant="light" />
     </x-slot:header>
@@ -16,7 +17,6 @@
     </x-hero>
     <div class="mt-10 container">
         <section class="md:px-12.5 lg:px-17.5">
-            <div>
             <div class="grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                 @foreach([
                     'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.',
