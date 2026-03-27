@@ -4,7 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^8.4",
+        "php": "^8.5",
         "blade-ui-kit/blade-icons": "^1.8",
         "calebporzio/sushi": "^2.5",
         "code16/ozu-client": "^0.9",
