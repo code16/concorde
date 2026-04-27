@@ -6,9 +6,10 @@ export default defineConfig({
     css: {
         transformer: 'lightningcss',
         lightningcss: {
+            errorRecovery: true,
             targets: {
                 firefox: 112, // transpile color-mix / oklch
-            }
+            },
         }
     },
     plugins: [
