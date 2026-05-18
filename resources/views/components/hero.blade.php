@@ -1,9 +1,10 @@
 @props([
     'home' => false,
-    'img' => null,
     'contentContainer' => false,
     /** @var 'dark'|'light' $variant */
     'variant',
+    'img' => null,
+    'video' => null,
 ])
 @aware(['themeAccent'])
 
@@ -19,7 +20,11 @@
             <div class="not-supports-relative-colors:hidden absolute inset-0 bottom-60 bg-linear-to-b from-[oklch(from_var(--theme-primary)_calc(l_-_.1)_c_h)] to-[oklch(from_var(--theme-primary)_l_c_h)]"></div>
         @endif
         <div class="flex-1 flex flex-col relative isolate overflow-clip
-        {{ $home ? 'min-h-135 py-25 md:pt-32.5 md:pb-42.5' : 'pt-7.5 pb-15 md:pt-25 md:pb-32.5' }}
+        {{ match(true) {
+            $home => 'min-h-135 py-25 md:pt-32.5 md:pb-42.5',
+            isset($video) => 'pt-7.5 pb-7.5 md:pt-25',
+            default => 'pt-7.5 pb-15 md:pt-25 md:pb-32.5',
+        } }}
         {{ match($variant) {
             // (bool) $img => 'justify-end pb-20  bg-linear-to-t from-black/60 via-transparent via-80% to-transparent',
             'dark' => 'bg-linear-to-b from-[#0A0515] to-[#1C0F36] ',
@@ -75,6 +80,12 @@
                     {{ $slot }}
                 </div>
             </x-content-container>
+
+            @if($video)
+                <div class="pt-7.5 -mx-10 md:pt-17.5">
+                    {{ $video }}
+                </div>
+            @endif
         </div>
     </div>
 </div>

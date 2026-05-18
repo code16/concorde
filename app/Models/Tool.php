@@ -30,7 +30,7 @@ class Tool extends Model
                 'title' => 'Ozu',
                 'item_text' => 'Création et mise à jour simplifiée de sites statiques avec Laravel.',
                 'is_open_source' => false,
-                'website_url' => route('offers.index'),
+                'website_url' => route('ozu.index'),
                 'logo' => asset('/img/tools/ozu.svg'),
             ]
         ];

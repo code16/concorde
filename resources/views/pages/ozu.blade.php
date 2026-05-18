@@ -7,15 +7,38 @@
         <x-header variant="light" />
     </x-slot:header>
     <x-hero variant="light">
+        <x-slot:surtitle>
+            Ozu
+        </x-slot:surtitle>
         <x-slot:title>
-            Notre offre Ozu
+            Chez Code 16, <br>nous traitons les petits projets comme les grands
         </x-slot:title>
-        <x-slot:heading-text>
-            Praesent quis orci sit amet ante facilisis suscipit. Integer in eros molestie, ultricies arcu ac, cursus quam. Nulla facilisi.
-        </x-slot:heading-text>
     </x-hero>
     <div class="mt-12.5 container">
+        <div class="mb-15">
+            <div class="aspect-16/9 rounded-2xl overflow-clip bg-eggplant" x-data="{ playing: false, }">
+                <div class="relative size-full flex flex-col justify-center items-center isolate" x-on:click="playing = true" x-show="!playing">
+                    <div class="absolute h-auto -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-[70%]">
+                        <x-icon-ozu class="text-violet-400/20" />
+                    </div>
+                    <button class="flex items-center font-bold text-eggplant p-4 gap-4 cursor-pointer rounded-full bg-white hover:bg-violet-400 transition" aria-label="Lancer la vidéo">
+                        <x-icon-play class="size-10" />
+                        <span class="pr-4">
+                            Ozu en une minute
+                        </span>
+                    </button>
+                </div>
+                <template x-if="playing">
+                    <div class="size-full *:size-full">
+                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ENozagjU-TI?si=mbp3r38E73w1aFEN&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </template>
+            </div>
+        </div>
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
+
+
+
 {{--            <section class="md:px-12.5 lg:px-17.5">--}}
 {{--                <x-section-header>--}}
 {{--                    <x-slot:surtitle>--}}
@@ -29,42 +52,9 @@
 {{--                    </x-slot:heading-text>--}}
 {{--                </x-section-header>--}}
 {{--            </section>--}}
-            <section class="md:px-12.5 lg:px-17.5">
-                <div class="relative">
-{{--                    <div class="absolute h-full top-0 -mt-[4.5%] -inset-x-[13%]">--}}
-{{--                        <x-icon-browser-frame class="h-auto w-full" />--}}
-{{--                    </div>--}}
+{{--            <section class="">--}}
 
-                    <div class="rounded-2xl bg-white overflow-clip border border-neutral-200">
-                        <div class="relative flex py-2.5 px-4 bg-eggplant/5">
-                            <div class="flex-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg>
-                            </div>
-                            <div class="-my-1 w-64 bg-eggplant/5 rounded-md"></div>
-                            <div class="flex-1"></div>
-                        </div>
-                        <div class="p-12">
-                            <div class="relative grid grid-cols-1 gap-y-8">
-                                @foreach([
-                                    'Constat' => 'Les sites web statiques, c’est à dire sans interaction avec les visiteurs (pas de compte, de réservation, de commande...) représentent une large part des sites institutionnels. Ce type d’infrastructure offre des avantages indéniables en matière de performance, de sécurité et de fiabilité.',
-                                    'Limites' => 'Cependant, cela présente aussi des limites importantes : mises à jour de contenu complexes, dette technique qui s’accumule, difficultés à faire évoluer le site quand les besoins changent.',
-                                    'Solution' => 'Pour conserver les atouts des sites statiques tout en éliminant ces contraintes, Code 16 a développé <strong>Ozu</strong> : une plateforme qui accélère le développement des sites et rend les équipes autonomes dans la gestion de leur contenu, sans compromis sur la performance ni la sécurité.'
-                                ]  as $label => $paragraph)
-                                    <div class="justify-self-start odd:rounded-tl-md  even:rounded-tr-md even:justify-self-end max-w-180 p-7.5 py-6.5 rounded-2xl
-{{--                                        bg-[oklch(from_var(--theme-primary)_.8_c_h_/_.1)]--}}
-                                        bg-purple-800/5
-                                    ">
-                                        <div class="mb-2 -mt-1 text-sm font-bold text-purple-950/50">{{ $label }}</div>
-                                        <p class="text-xl/9 font-normal [&_strong]:font-semibold">
-                                            {!! $paragraph !!}
-                                        </p>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+{{--            </section>--}}
 {{--            <section class="xl:px-3">--}}
 {{--                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 rounded-2.5xl pb-7.5 p-2.5 md:p-5 rounded-2xl bg-white inset-ring inset-ring-neutral-200">--}}
 {{--                    <div class="grid grid-cols-1 md:grid-rows-[1fr_auto_1fr] px-5 md:px-10 lg:pl-17.5 xl:pl-13.5 lg:pr-22.5">--}}
@@ -107,7 +97,7 @@
 
                     ] as $title => $description)
                         <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
-                            <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-purple-50 [&_.accent]:fill-purple-800/50 inset-ring inset-ring-violet-100 rounded-xl">
+                            <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-purple-50 [&_.accent]:fill-violet-400 inset-ring inset-ring-violet-100 rounded-xl">
                                 @if($loop->index === 0)
                                     <x-icon-approach-demanding class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#diamond]:-translate-y-[5%]" />
                                     <x-icon-approach-demanding-mobile class="md:hidden size-full" />
@@ -131,83 +121,94 @@
                     @endforeach
                 </div>
             </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <x-section-header>
-                    <x-slot:title>
-                        La plateforme Ozu comparée à...
-                    </x-slot:title>
-                </x-section-header>
-                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-4 gap-x-8 grid-flow-col">
-                    <div class="lg:contents *:col-start-1">
-                        <h3 class="mb-1 px-1 self-end font-bold text-center">
-                            Ozu vs Développement de site dynamique classique
-                            (Laravel / Sharp, Wordpress...)
-                        </h3>
-                        <x-comparison-cell>
-                            Développement rapide : quelques jours / semaines vs quelques mois
-                        </x-comparison-cell>
-                        <x-comparison-cell>
-                            Tarif compétitif, à la fois pour le développement et pour la maintenance / hébergement
-                        </x-comparison-cell>
-                        <x-comparison-cell>
-                            Les avantages de l’hébergement statique : performance, fiabilité, sécurité
-                        </x-comparison-cell>
-                    </div>
-                    <div class="lg:contents *:col-start-2">
-                        <h3 class="mb-1 px-1 self-end font-bold text-center">
-                            Ozu vs Développement purement statique
-                        </h3>
-                        <x-comparison-cell>
-                            Le CMS sur mesure rendant le client final autonome sur le contenu
-                        </x-comparison-cell>
-                        <x-comparison-cell class="max-lg:col-span-1 col-span-2">
-                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.
-                        </x-comparison-cell>
-                        <x-comparison-cell>
-                            Maintenance technique et fonctionnelle tout au long de la vie du site
-                        </x-comparison-cell>
-                    </div>
-                    <div class="lg:contents *:col-start-3">
-                        <h3 class="mb-1 px-1 self-end font-bold text-center">
-                            Ozu vs Développement Webflow
-                        </h3>
-                        <x-comparison-cell>
-                            Simplicité d’utilisation
-                        </x-comparison-cell>
-                        <x-comparison-cell class="lg:hidden">
-                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.
-                        </x-comparison-cell>
-                        <x-comparison-cell>
-                            Souveraineté : développement, infrastructure et hébergement FR
-                        </x-comparison-cell>
-                    </div>
-                </div>
-            </section>
+{{--            <section class="md:px-12.5 lg:px-17.5">--}}
+{{--                <x-section-header>--}}
+{{--                    <x-slot:title>--}}
+{{--                        La plateforme Ozu comparée à...--}}
+{{--                    </x-slot:title>--}}
+{{--                </x-section-header>--}}
+{{--                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-4 gap-x-8 grid-flow-col">--}}
+{{--                    <div class="lg:contents *:col-start-1">--}}
+{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
+{{--                            Ozu vs Développement de site dynamique classique--}}
+{{--                            (Laravel / Sharp, Wordpress...)--}}
+{{--                        </h3>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Développement rapide : quelques jours / semaines vs quelques mois--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Tarif compétitif, à la fois pour le développement et pour la maintenance / hébergement--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Les avantages de l’hébergement statique : performance, fiabilité, sécurité--}}
+{{--                        </x-comparison-cell>--}}
+{{--                    </div>--}}
+{{--                    <div class="lg:contents *:col-start-2">--}}
+{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
+{{--                            Ozu vs Développement purement statique--}}
+{{--                        </h3>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Le CMS sur mesure rendant le client final autonome sur le contenu--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell class="max-lg:col-span-1 col-span-2">--}}
+{{--                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Maintenance technique et fonctionnelle tout au long de la vie du site--}}
+{{--                        </x-comparison-cell>--}}
+{{--                    </div>--}}
+{{--                    <div class="lg:contents *:col-start-3">--}}
+{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
+{{--                            Ozu vs Développement Webflow--}}
+{{--                        </h3>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Simplicité d’utilisation--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell class="lg:hidden">--}}
+{{--                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.--}}
+{{--                        </x-comparison-cell>--}}
+{{--                        <x-comparison-cell>--}}
+{{--                            Souveraineté : développement, infrastructure et hébergement FR--}}
+{{--                        </x-comparison-cell>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </section>--}}
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:title>
                         Tarification simple
                     </x-slot:title>
                 </x-section-header>
-                <div class="mt-10 grid grid-cols-1 gap-y-6">
+                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
                     <x-pricing-card>
                         <x-slot:title>
+                            Développement
+                        </x-slot:title>
+                        <p>
                             Développement et intégration sur mesure, avec l’engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l’accessibilité.
-                        </x-slot:title>
-                        <p>
-                            90€HT / heure
                         </p>
-                        <p>
-                            Site vitrine, de présentation de projets ou d’activité à partir de 3000 €HT
-                        </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
+                            </p>
+                        </x-slot:price>
                     </x-pricing-card>
+                    <div class="border-l border-dashed border-l-neutral-200"></div>
                     <x-pricing-card>
                         <x-slot:title>
-                            Hébergement, sauvegardes, maintenance de l’infrastructure, comptes CMS client
+                            Maintenance
                         </x-slot:title>
                         <p>
-                            39€HT / mois
+                            Hébergement, sauvegardes, maintenance de l’infrastructure, comptes CMS client
                         </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
+                            </p>
+{{--                        <p>--}}
+{{--                            Site vitrine, de présentation de projets ou d’activité à partir de 3000€ HT--}}
+{{--                        </p>--}}
+                        </x-slot:price>
                     </x-pricing-card>
                 </div>
             </section>
