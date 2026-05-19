@@ -85,8 +85,9 @@
                 <section class="md:px-12.5 lg:px-17.5">
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
-                            <div class="md:order-1 md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
-                                <x-icon-ozu-tailor-made class="w-full" />
+                            <div class="md:order-1 md:col-span-2 overflow-hidden min-h-48 bg-purple-50 relative">
+                                <img class="absolute top-12 left-6 w-[700px] max-w-none" src="{{ Vite::asset('resources/img/figma-screen.png') }}">
+{{--                                <x-icon-ozu-tailor-made class="w-full" />--}}
                                 {{--                                <div class="absolute inset-6 rounded-3xl border-[1.5px] border-violet-200/70"></div>--}}
                                 {{--                                <div class="absolute inset-12 rounded-2xl border-[1.5px] border-violet-300/70"></div>--}}
                                 {{--                                <div class="absolute inset-[4.5rem] rounded-xl border-[1.5px] border-violet-400/70"></div>--}}
