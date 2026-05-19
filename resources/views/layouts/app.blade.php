@@ -59,7 +59,7 @@
         @stack('head')
     </head>
     <body class="bg-neutral-100 text-eggplant font-sans antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
-        <div class="relative flex flex-col py-2.5 min-h-screen">
+        <div class="relative flex flex-col pt-2.5 min-h-screen">
             @if($home ?? false)
                 <div class="mb-2 hidden min-[23rem]:block relative z-20 container">
                     <div class="flex gap-6 py-1.25 px-5 md:px-10 rounded-2xl bg-violet-400">
@@ -93,7 +93,11 @@
                     {{ $slot }}
                 </main>
 
-                <x-footer />
+                @if($footer ?? null)
+                    {{ $footer }}
+                @else
+                    <x-footer />
+                @endif
             </div>
         </div>
 

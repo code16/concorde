@@ -154,6 +154,11 @@
                     </div>
                 </div>
             </section>
+
+        </div>
+    </div>
+    <div class="bg-eggplant text-white pt-30 pb-15 mt-30">
+        <div class="container">
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
@@ -163,10 +168,10 @@
                         Des délais réduits,<br>et une facture plus légère
                     </x-slot:title>
                 </x-section-header>
-                <p class="mt-7 text-neutral-600 max-w-2xl">
+                <p class="mt-7 text-white/70 max-w-2xl">
                     Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
                 </p>
-                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
+                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-violet-400/20 inset-ring inset-ring-white/20">
                     <x-pricing-card>
                         <x-slot:title>
                             Développement
@@ -180,7 +185,7 @@
                             </p>
                         </x-slot:price>
                     </x-pricing-card>
-                    <div class="border-l border-dashed border-l-neutral-200"></div>
+                    <div class="border-l border-dashed border-l-white/20"></div>
                     <x-pricing-card>
                         <x-slot:title>
                             Maintenance
@@ -196,9 +201,9 @@
                     </x-pricing-card>
                 </div>
             </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <div class="rounded-2xl bg-eggplant px-10 py-12 lg:py-16 flex flex-col items-center gap-6 text-center">
-                    <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
+            <section class="mt-30 md:px-12.5 lg:px-17.5">
+                <div class="rounded-2xl bg-white/20 px-10 py-12 lg:py-16 flex flex-col items-center gap-6 text-center">
+                    <p class="font-heading text-2.5xl lg:text-3xl font-[350] ">
                         Un projet à développer ?<br>Parlons-en.
                     </p>
                     <x-button href="#" variant="white" size="lg">
@@ -209,4 +214,8 @@
             </section>
         </div>
     </div>
+
+    <x-slot:footer>
+        <x-footer variant="full-dark" />
+    </x-slot:footer>
 </x-layout>
