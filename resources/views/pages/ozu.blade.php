@@ -22,13 +22,11 @@
     <div class="container relative">
         <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 mb-20 lg:mb-30">
             <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
-                <div class="relative size-full flex flex-col justify-center items-center isolate" x-on:click="playing = true" x-show="!playing">
-                    <div class="absolute h-auto -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-[70%]">
-                        <x-icon-ozu class="text-violet-400/20" />
-                    </div>
-                    <x-button variant="white" size="lg" aria-label="Lancer la vidéo">
+                <div class="relative size-full flex flex-col justify-center items-center bg-white cursor-pointer" x-on:click="playing = true" x-show="!playing">
+                    <x-icon-ozu class="absolute size-[55%] text-violet-200" />
+                    <x-button size="lg" class="relative bg-eggplant text-white hover:bg-violet-400 rounded-full" aria-label="Lancer la vidéo">
                         <x-icon-play class="-ml-3 size-8" />
-                        Ozu en une minute
+                        Découvrir Ozu en une minute
                     </x-button>
                 </div>
                 <template x-if="playing">
