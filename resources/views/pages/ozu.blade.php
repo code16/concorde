@@ -7,16 +7,20 @@
         <x-header variant="light" />
     </x-slot:header>
     <x-hero variant="light">
-        <x-slot:surtitle>
-            Ozu
-        </x-slot:surtitle>
         <x-slot:title>
-            Chez Code 16, <br>nous traitons les petits projets comme les grands
+            Grâce à Ozu, <br>nous traitons les petits projets comme les grands
         </x-slot:title>
+        <div class="mt-6">
+            <x-button href="#" class="bg-white text-eggplant hover:bg-violet-400 rounded-full px-6 py-3">
+                <x-button-arrow />
+                Parlons de votre projet
+            </x-button>
+        </div>
+        <div class="h-16 md:h-24"></div>
     </x-hero>
-    <div class="mt-12.5 container">
-        <div class="mb-15">
-            <div class="aspect-16/9 rounded-2xl overflow-clip bg-eggplant" x-data="{ playing: false, }">
+    <div class="container relative z-10">
+        <div class="-mt-16 md:-mt-24 max-w-3xl mx-auto mb-20 lg:mb-30">
+            <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
                 <div class="relative size-full flex flex-col justify-center items-center isolate" x-on:click="playing = true" x-show="!playing">
                     <div class="absolute h-auto -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-[70%]">
                         <x-icon-ozu class="text-violet-400/20" />
@@ -36,64 +40,20 @@
             </div>
         </div>
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
-
-
-
-{{--            <section class="md:px-12.5 lg:px-17.5">--}}
-{{--                <x-section-header>--}}
-{{--                    <x-slot:surtitle>--}}
-{{--                        Pour qui--}}
-{{--                    </x-slot:surtitle>--}}
-{{--                    <x-slot:title>--}}
-{{--                        Adapté pour les designers<br>et les agences--}}
-{{--                    </x-slot:title>--}}
-{{--                    <x-slot:heading-text>--}}
-{{--                        Proposez à vos clients un site internet développé sur mesure à partir de votre design, avec un système de gestion de contenu.--}}
-{{--                    </x-slot:heading-text>--}}
-{{--                </x-section-header>--}}
-{{--            </section>--}}
-{{--            <section class="">--}}
-
-{{--            </section>--}}
-{{--            <section class="xl:px-3">--}}
-{{--                <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 rounded-2.5xl pb-7.5 p-2.5 md:p-5 rounded-2xl bg-white inset-ring inset-ring-neutral-200">--}}
-{{--                    <div class="grid grid-cols-1 md:grid-rows-[1fr_auto_1fr] px-5 md:px-10 lg:pl-17.5 xl:pl-13.5 lg:pr-22.5">--}}
-{{--                        <div class="mb-4 self-end flex items-center gap-0.5">--}}
-{{--                            <x-icon-arrow-right-sm class="size-5 text-red-500" />--}}
-{{--                            <h2 class="text-sm font-semibold">--}}
-{{--                                Pour qui--}}
-{{--                            </h2>--}}
-{{--                        </div>--}}
-{{--                        <p class="max-w-112 font-heading text-2.5xl [&_br]:max-md:hidden lg:text-3xl font-[350]">--}}
-{{--                            Proposez à vos clients un site internet développé sur mesure à partir de votre design, avec un système de gestion de contenu.--}}
-{{--                        </p>--}}
-{{--                    </div>--}}
-{{--                    <div class="h-61.5 md:h-80 lg:h-100 grid place-content-center rounded-xl bg-neutral-100 inset-ring inset-ring-neutral-100">--}}
-{{--                        --}}{{--                        <x-icon-laravel class="size-full **:origin-center--}}
-{{--                        --}}{{--                          [&_[id^='icon-']]:animate-spin [&_[id^='icon']]:[animation-duration:var(--duration)]!--}}
-{{--                        --}}{{--                          [&_[id^='icon']]:[transform-box:fill-box]--}}
-{{--                        --}}{{--                          [&_[id^='arc-']]:animate-spin [&_[id^='arc-']]:[animation-duration:var(--duration)]!--}}
-{{--                        --}}{{--                          [&_#arc-1]:[--duration:150s] [&_#arc-1_[id^='icon']]:[animation-direction:reverse]!--}}
-{{--                        --}}{{--                          [&_#arc-2]:[--duration:80s] [&_#arc-2]:[animation-direction:reverse]! [&_#arc-2_[id^='icon']]:[animation-direction:normal]!--}}
-{{--                        --}}{{--                          [&_#arc-3]:[--duration:50s] [&_#arc-3_[id^='icon']]:[animation-direction:reverse]!--}}
-{{--                        --}}{{--                        " />--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </section>--}}
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
                         Pourquoi Ozu ?
                     </x-slot:surtitle>
                     <x-slot:title>
-                        Tous les avantages <br>d’un hébergement statique
+                        Les avantages d’un hébergement statique,<br>sans les inconvénients
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                     @foreach([
-                        'Rapide, stable et sécurisé' => 'Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.',
-                          'Gestion de contenu sur mesure' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
-                        'Maintenance technique complète' => 'Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.',
+                        'Rapide, stable et sécurisé' => 'Le site est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la très grande majorité des attaques.',
+                        'Gestion de contenu sur mesure' => 'Vos clients peuvent gérer leur contenu en autonomie avec un dashboard moderne et pensé pour être simple d’utilisation.',
+                        'Maintenance technique complète' => 'Nous appliquons même garantie de maintenance que sur les gros projets, assurant continuité de service et évolutivité.',
 
                     ] as $title => $description)
                         <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
@@ -121,71 +81,100 @@
                     @endforeach
                 </div>
             </section>
-{{--            <section class="md:px-12.5 lg:px-17.5">--}}
-{{--                <x-section-header>--}}
-{{--                    <x-slot:title>--}}
-{{--                        La plateforme Ozu comparée à...--}}
-{{--                    </x-slot:title>--}}
-{{--                </x-section-header>--}}
-{{--                <div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-y-4 gap-x-8 grid-flow-col">--}}
-{{--                    <div class="lg:contents *:col-start-1">--}}
-{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
-{{--                            Ozu vs Développement de site dynamique classique--}}
-{{--                            (Laravel / Sharp, Wordpress...)--}}
-{{--                        </h3>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Développement rapide : quelques jours / semaines vs quelques mois--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Tarif compétitif, à la fois pour le développement et pour la maintenance / hébergement--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Les avantages de l’hébergement statique : performance, fiabilité, sécurité--}}
-{{--                        </x-comparison-cell>--}}
-{{--                    </div>--}}
-{{--                    <div class="lg:contents *:col-start-2">--}}
-{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
-{{--                            Ozu vs Développement purement statique--}}
-{{--                        </h3>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Le CMS sur mesure rendant le client final autonome sur le contenu--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell class="max-lg:col-span-1 col-span-2">--}}
-{{--                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Maintenance technique et fonctionnelle tout au long de la vie du site--}}
-{{--                        </x-comparison-cell>--}}
-{{--                    </div>--}}
-{{--                    <div class="lg:contents *:col-start-3">--}}
-{{--                        <h3 class="mb-1 px-1 self-end font-bold text-center">--}}
-{{--                            Ozu vs Développement Webflow--}}
-{{--                        </h3>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Simplicité d’utilisation--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell class="lg:hidden">--}}
-{{--                            Évolutivité : le projet peut évoluer, y compris vers une version dynamique, sans complexité.--}}
-{{--                        </x-comparison-cell>--}}
-{{--                        <x-comparison-cell>--}}
-{{--                            Souveraineté : développement, infrastructure et hébergement FR--}}
-{{--                        </x-comparison-cell>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </section>--}}
+            <section class="md:px-12.5 lg:px-17.5">
+                <div class="rounded-2xl overflow-hidden bg-white inset-ring inset-ring-neutral-200">
+                    <div class="grid grid-cols-1 md:grid-cols-5">
+                        <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
+                            <div class="flex items-center gap-0.5">
+                                <x-icon-arrow-right-sm class="size-5 text-violet-400" />
+                                <span class="text-sm font-semibold">Sur-mesure</span>
+                            </div>
+                            <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
+                                Votre design, <br>intégralement respecté
+                            </h3>
+                            <p class="text-neutral-600 max-w-prose">
+                                Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
+                            </p>
+                        </div>
+                        <div class="md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
+                            <div class="absolute inset-6 rounded-2xl border border-violet-200/70"></div>
+                            <div class="absolute inset-12 rounded-2xl border border-violet-300/70"></div>
+                            <div class="absolute inset-[4.5rem] rounded-xl border border-violet-400/70"></div>
+                            <x-icon-ozu class="relative size-20 text-violet-400/25" />
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
+                    <x-slot:surtitle>
+                        Comparer
+                    </x-slot:surtitle>
                     <x-slot:title>
-                        Tarification simple
+                        Ozu face aux alternatives
                     </x-slot:title>
                 </x-section-header>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                        <div class="bg-eggplant px-7 py-5">
+                            <p class="text-violet-300 text-sm font-semibold mb-1">Ozu vs</p>
+                            <h3 class="text-white text-2xl font-heading font-[450]">WordPress</h3>
+                        </div>
+                        <ul class="p-7 space-y-4">
+                            @foreach([
+                                'Performances bien supérieures grâce à l\'hébergement statique',
+                                'Sécurité renforcée : aucune base de données exposée, aucun plugin vulnérable',
+                                'Aucune mise à jour WordPress ou d\'extensions à gérer',
+                                'Design 100% sur mesure, sans thèmes ni page builders',
+                                'Coût total maîtrisé sur la durée',
+                            ] as $point)
+                                <li class="flex gap-3 items-start">
+                                    <x-icon-circle-check class="size-5 fill-violet-400 text-purple-50 shrink-0 mt-0.5" />
+                                    <span class="text-neutral-600 text-base">{{ $point }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                        <div class="bg-eggplant px-7 py-5">
+                            <p class="text-violet-300 text-sm font-semibold mb-1">Ozu vs</p>
+                            <h3 class="text-white text-2xl font-heading font-[450]">Webflow</h3>
+                        </div>
+                        <ul class="p-7 space-y-4">
+                            @foreach([
+                                'Liberté de design absolue, sans les contraintes de l\'éditeur visuel',
+                                'Hébergement et données en France, sans dépendance à un SaaS américain',
+                                'Évolutivité totale : le projet peut évoluer vers des fonctionnalités dynamiques avancées',
+                                'CMS configuré précisément selon les besoins de chaque client',
+                            ] as $point)
+                                <li class="flex gap-3 items-start">
+                                    <x-icon-circle-check class="size-5 fill-violet-400 text-purple-50 shrink-0 mt-0.5" />
+                                    <span class="text-neutral-600 text-base">{{ $point }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="md:px-12.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        Tarification simple
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Des délais réduits,<br>et une facture plus légère
+                    </x-slot:title>
+                </x-section-header>
+                <p class="mt-7 text-neutral-600 max-w-2xl">
+                    Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
+                </p>
                 <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
                     <x-pricing-card>
                         <x-slot:title>
                             Développement
                         </x-slot:title>
                         <p>
-                            Développement et intégration sur mesure, avec l’engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l’accessibilité.
+                            Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
                         </p>
                         <x-slot:price>
                             <p>
@@ -199,33 +188,27 @@
                             Maintenance
                         </x-slot:title>
                         <p>
-                            Hébergement, sauvegardes, maintenance de l’infrastructure, comptes CMS client
+                            Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
                         </p>
                         <x-slot:price>
                             <p>
                                 <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
                             </p>
-{{--                        <p>--}}
-{{--                            Site vitrine, de présentation de projets ou d’activité à partir de 3000€ HT--}}
-{{--                        </p>--}}
                         </x-slot:price>
                     </x-pricing-card>
                 </div>
             </section>
-            @if(count($projects = \App\Models\Project::where('is_ozu', true)->get()) > 0)
-                <section class="md:px-12.5 lg:px-17.5">
-                    <x-section-header>
-                        <x-slot:title>
-                            Nos sites Ozu
-                        </x-slot:title>
-                    </x-section-header>
-                    <x-project-grid class="mt-7.5 md:mt-10 min-h-120 content-start">
-                        @foreach($projects as $project)
-                            <x-project-item :project="$project" />
-                        @endforeach
-                    </x-project-grid>
-                </section>
-            @endif
+            <section class="md:px-12.5 lg:px-17.5">
+                <div class="rounded-2xl bg-eggplant px-10 py-12 lg:py-16 flex flex-col items-center gap-6 text-center">
+                    <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
+                        Un projet à développer ?<br>Parlons-en.
+                    </p>
+                    <x-button href="#" class="bg-white text-eggplant hover:bg-violet-400 rounded-full px-6 py-3">
+                        <x-button-arrow />
+                        Parlons de votre projet
+                    </x-button>
+                </div>
+            </section>
         </div>
     </div>
 </x-layout>
