@@ -11,3 +11,4 @@ Route::get('/projets/{project:slug}', [ProjectController::class, 'show'])->name(
 Route::get('/blog', [ArticleController::class, 'index'])->name('articles.index');
 Route::get('/blog/{article:slug}', [ArticleController::class, 'show'])->name('articles.show');
 Route::redirect('/en', '/');
+Route::get('/ozu', fn () => view('pages.ozu'))->name('ozu.index');
