@@ -22,14 +22,15 @@
     <div class="container relative">
         <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 mb-20 lg:mb-30">
             <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
-                <div class="group relative size-full flex flex-col justify-center items-center bg-white cursor-pointer" x-on:click="playing = true" x-show="!playing">
-                    <x-icon-ozu class="absolute size-[55%] text-violet-200 group-hover:scale-110 transition duration-300" />
-                    <x-button size="lg" variant="dark" aria-label="Lancer la vidéo" x-on:click="$refs.video.play()">
+                <div class="group relative isolate size-full flex flex-col justify-center items-center bg-white" x-on:click="playing = true; $refs.video.play()" x-show="!playing">
+                    <x-icon-ozu class="absolute -z-10 size-[55%] text-violet-200 group-hover:scale-110 transition duration-300" />
+                    <x-button size="lg" variant="dark" aria-label="Lancer la vidéo">
+                        <span class="absolute inset-0"></span>
                         <x-icon-play class="-ml-3 size-8" />
                         Découvrir Ozu en une minute
                     </x-button>
                 </div>
-                <video x-show="playing" controls x-ref="video" x-cloak>
+                <video class="size-full" x-show="playing" controls x-ref="video" preload="none" x-cloak>
                     <source src="https://do3eutfoa8i0h.cloudfront.net/ozu-presentation.mp4" type="video/mp4">
                 </video>
 {{--                <template x-if="playing">--}}
