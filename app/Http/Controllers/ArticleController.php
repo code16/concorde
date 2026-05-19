@@ -9,7 +9,7 @@ class ArticleController extends Controller
     public function index()
     {
         return view('pages.article-list', [
-            'articles' => Article::orderBy('publication_date', 'desc')->get(),
+            'articles' => Article::orderBy('publication_date', 'desc')->with('cover')->get(),
         ]);
     }
 

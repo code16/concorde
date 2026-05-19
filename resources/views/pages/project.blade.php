@@ -3,6 +3,7 @@
     <x-title>
         {!! $project->title !!}
     </x-title>
+    <x-meta.description :content="$project->heading_text ?: $project->content" />
     <x-slot:header>
         <x-header :variant="$project->color ? 'theme' : 'light'" />
     </x-slot:header>

@@ -56,7 +56,7 @@
         <div class="relative">
             <div class="flex items-center gap-x-6 h-21.5 px-5 pr-7.5 md:pr-5 py-4 md:px-10">
                 <div class="flex-1 flex">
-                    <a class="relative z-10 block transition duration-300 origin-left lg:@stuck-top:scale-75 lg:in-data-stuck-top:scale-75" href="{{ route('home') }}">
+                    <a class="relative z-10 block transition duration-300 origin-left lg:@stuck-top:scale-75 lg:in-data-stuck-top:scale-75" href="{{ route('home') }}" aria-label="Page d’accueil Code 16">
                         <span class="absolute -inset-2"></span>
                         <x-icon-logo class="h-[22px] lg:h-[28px] text-white" />
                     </a>
