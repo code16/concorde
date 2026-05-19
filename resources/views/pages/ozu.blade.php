@@ -10,27 +10,25 @@
         <x-slot:title>
             Grâce à Ozu, <br>nous traitons les petits projets comme les grands
         </x-slot:title>
-        <div class="mt-6">
-            <x-button href="#" class="bg-white text-eggplant hover:bg-violet-400 rounded-full px-6 py-3">
-                <x-button-arrow />
-                Parlons de votre projet
-            </x-button>
-        </div>
-        <div class="h-16 md:h-24"></div>
+{{--        <div class="mt-6">--}}
+{{--            <x-button href="#" variant="white">--}}
+{{--                <x-icon-arrow-right class="-ml-1 size-5" />--}}
+{{--                Parlons de votre projet--}}
+{{--            </x-button>--}}
+{{--        </div>--}}
+        <div class="h-16 md:h-40"></div>
     </x-hero>
-    <div class="container relative z-10">
-        <div class="-mt-16 md:-mt-24 max-w-3xl mx-auto mb-20 lg:mb-30">
+    <div class="container relative">
+        <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 mb-20 lg:mb-30">
             <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
                 <div class="relative size-full flex flex-col justify-center items-center isolate" x-on:click="playing = true" x-show="!playing">
                     <div class="absolute h-auto -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-[70%]">
                         <x-icon-ozu class="text-violet-400/20" />
                     </div>
-                    <button class="flex items-center font-bold text-eggplant p-4 gap-4 cursor-pointer rounded-full bg-white hover:bg-violet-400 transition" aria-label="Lancer la vidéo">
-                        <x-icon-play class="size-10" />
-                        <span class="pr-4">
-                            Ozu en une minute
-                        </span>
-                    </button>
+                    <x-button variant="white" size="lg" aria-label="Lancer la vidéo">
+                        <x-icon-play class="-ml-3 size-8" />
+                        Ozu en une minute
+                    </x-button>
                 </div>
                 <template x-if="playing">
                     <div class="size-full *:size-full">
@@ -203,8 +201,8 @@
                     <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
                         Un projet à développer ?<br>Parlons-en.
                     </p>
-                    <x-button href="#" class="bg-white text-eggplant hover:bg-violet-400 rounded-full px-6 py-3">
-                        <x-button-arrow />
+                    <x-button href="#" variant="white" size="lg">
+                        <x-icon-arrow-right class="-ml-1 size-5" />
                         Parlons de votre projet
                     </x-button>
                 </div>
