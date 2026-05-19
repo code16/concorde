@@ -1,17 +1,17 @@
 
 <x-layout theme-primary="var(--color-blue-800)">
     <x-title>
-        Notre offre Ozu
+        Ozu, traiter les petits projets comme les grands
     </x-title>
     <x-slot:header>
         <x-header variant="light" />
     </x-slot:header>
     <x-hero variant="light">
         <x-slot:title>
-            Grâce à Ozu, <br>nous traitons les petits projets comme les grands
+            Grâce à Ozu,<br>nous traitons les petits projets comme les grands
         </x-slot:title>
         <div class="mt-6">
-            <x-button href="#" variant="link-white">
+            <x-button href="mailto:contact@code16.fr" variant="link-white">
                 <x-button-arrow variant="dark" />
 {{--                <x-icon-arrow-right class="-ml-1 size-5" />--}}
                 Parlons de votre projet
@@ -51,10 +51,9 @@
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                     @foreach([
-                        'Rapide, stable et sécurisé' => 'Le site est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la très grande majorité des attaques.',
+                        'Rapide, stable et sécurisé' => 'Un site statique est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la grande majorité des attaques.',
                         'Gestion de contenu sur mesure' => 'Vos clients peuvent gérer leur contenu en autonomie avec un dashboard moderne et pensé pour être simple d’utilisation.',
                         'Maintenance technique complète' => 'Nous appliquons même garantie de maintenance que sur les gros projets, assurant continuité de service et évolutivité.',
-
                     ] as $title => $description)
                         <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
                             <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-purple-50 [&_.accent]:fill-violet-400 inset-ring inset-ring-violet-100 rounded-xl">
@@ -104,7 +103,6 @@
                                     Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
                                 </p>
                             </div>
-
                         </div>
                     </div>
                 </section>
@@ -142,7 +140,7 @@
                                     Ozu est 100% européen
                                 </h3>
                                 <p class="text-neutral-600 max-w-prose">
-                                    L'infrastructure Ozu ne dépend pas de solutions hors Union Européenne : le CMS et les données sont localisées en Suisse, les sites sont hébergés en France, tout comme les sauvegardes ; les services automatisés de suivi de production et de remontée des anomalies sont tout aussi européens.
+                                    L’infrastructure d’Ozu ne dépend pas de fournisseurs hors Union Européenne&nbsp;: le CMS, les données, le site, les sauvegardes et les services automatisés de suivi de production et de remontée des anomalies sont tous assurés par des prestataires européens et localisés en Europe.
                                 </p>
                             </div>
                         </div>
@@ -155,7 +153,7 @@
                         Comparer
                     </x-slot:surtitle>
                     <x-slot:title>
-                        Ozu face aux alternatives
+                        En quoi Ozu est-il différent<br>d’autres solutions ?
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -165,14 +163,14 @@
                         </x-slot:title>
                         <ul class="space-y-4">
                             @foreach([
-                                'Performances bien supérieures grâce à l\'hébergement statique',
+                                'Performances bien supérieures grâce à l’hébergement statique',
                                 'Sécurité renforcée : aucune base de données exposée, aucun plugin vulnérable',
-                                'Aucune mise à jour WordPress ou d\'extensions à gérer',
+                                'Aucune mise à jour WordPress ou d’extensions à gérer',
                                 'Design 100% sur mesure, sans thèmes ni page builders',
                                 'Coût total maîtrisé sur la durée',
                             ] as $point)
                                 <li class="flex gap-3 items-start">
-                                    <x-icon-circle-check class="size-5 fill-violet-400 text-purple-50 shrink-0 mt-0.5" />
+                                    <x-icon-circle-check class="size-5 fill-violet-600 text-purple-50 shrink-0 mt-0.5" />
                                     <span class="text-neutral-600 text-base">{{ $point }}</span>
                                 </li>
                             @endforeach
@@ -184,13 +182,13 @@
                         </x-slot:title>
                         <ul class="space-y-4">
                             @foreach([
-                                'Liberté de design absolue, sans les contraintes de l\'éditeur visuel',
+                                'Liberté de design absolue, sans les contraintes de l’éditeur visuel',
                                 'Hébergement et données en France, sans dépendance à un SaaS américain',
                                 'Évolutivité totale : le projet peut évoluer vers des fonctionnalités dynamiques avancées',
                                 'CMS configuré précisément selon les besoins de chaque client',
                             ] as $point)
                                 <li class="flex gap-3 items-start">
-                                    <x-icon-circle-check class="size-5 fill-violet-400 text-purple-50 shrink-0 mt-0.5" />
+                                    <x-icon-circle-check class="size-5 fill-violet-600 text-purple-50 shrink-0 mt-0.5" />
                                     <span class="text-neutral-600 text-base">{{ $point }}</span>
                                 </li>
                             @endforeach
@@ -202,10 +200,10 @@
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Use cases
+                        Cas d’utilisation
                     </x-slot:surtitle>
                     <x-slot:title>
-                        De nombreux projets<br>sont compatibles avec Ozu
+                        De nombreux types de projets<br>sont parfaitement adaptés à Ozu
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -315,7 +313,9 @@
                         </x-slot:title>
                     </x-section-header>
                     <p class="mt-7 text-white/50 max-w-2xl">
-                        Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
+                        Ozu est également une plateforme technique proposant un outillage complet qui permet à Code 16 de réduire le temps de développement,
+                        et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets
+                        ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
                     </p>
                     <div class="mt-10 grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] rounded-2xl bg-white/10 inset-ring inset-ring-white/20">
                         <x-pricing-card>
@@ -323,11 +323,11 @@
                                 Développement
                             </x-slot:title>
                             <p>
-                                Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
+                                Développement et intégration sur mesure, avec l’engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
                             </p>
                             <x-slot:price>
                                 <p>
-                                    <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
+                                    <span class="text-3xl font-light font-heading">650€</span> <span class="text-sm">HT / jour</span>
                                 </p>
                             </x-slot:price>
                         </x-pricing-card>
@@ -337,7 +337,7 @@
                                 Maintenance
                             </x-slot:title>
                             <p>
-                                Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
+                                Hébergement, sauvegardes quotidiennes, maintenance de l’infrastructure, maintenance et suivi du projet, comptes CMS client.
                             </p>
                             <x-slot:price>
                                 <p>
@@ -350,9 +350,9 @@
                 <section class="md:px-12.5 lg:px-17.5">
                     <div class="px-10 py-12 lg:py-16 flex flex-col items-center gap-10 text-center">
                         <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
-                            Un projet à développer ?<br>Parlons-en.
+                            Vous avez un projet&nbsp;?<br>Parlons-en.
                         </p>
-                        <x-button href="#" variant="white" size="lg">
+                        <x-button href="mailto:contact@code16.fr" variant="white" size="lg">
                             <x-button-arrow class="-ml-3" />
                             Parlons de votre projet
                         </x-button>
