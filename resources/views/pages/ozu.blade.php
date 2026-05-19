@@ -10,12 +10,13 @@
         <x-slot:title>
             Grâce à Ozu, <br>nous traitons les petits projets comme les grands
         </x-slot:title>
-{{--        <div class="mt-6">--}}
-{{--            <x-button href="#" variant="white">--}}
+        <div class="mt-6">
+            <x-button href="#" variant="link-white">
+                <x-button-arrow variant="dark" />
 {{--                <x-icon-arrow-right class="-ml-1 size-5" />--}}
-{{--                Parlons de votre projet--}}
-{{--            </x-button>--}}
-{{--        </div>--}}
+                Parlons de votre projet
+            </x-button>
+        </div>
         <div class="h-16 md:h-40"></div>
     </x-hero>
     <div class="container relative">
@@ -195,14 +196,15 @@
                         </x-slot:price>
                     </x-pricing-card>
                 </div>
+
             </section>
             <section class="md:px-12.5 lg:px-17.5">
-                <div class="rounded-2xl bg-eggplant px-10 py-12 lg:py-16 flex flex-col items-center gap-6 text-center">
+                <div class="rounded-2xl bg-eggplant px-10 py-12 lg:py-16 flex flex-col items-center gap-10 text-center">
                     <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
                         Un projet à développer ?<br>Parlons-en.
                     </p>
                     <x-button href="#" variant="white" size="lg">
-                        <x-icon-arrow-right class="-ml-1 size-5" />
+                        <x-button-arrow class="-ml-3" />
                         Parlons de votre projet
                     </x-button>
                 </div>
