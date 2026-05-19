@@ -3,7 +3,7 @@
     'variant' => 'default',
 ])
 
-<div class="grid place-content-center size-6 transition group-hover/btn:bg-violet-400 group-hover/btn:text-eggplant rounded-full {{
+<div class="shrink-0 grid place-content-center size-6 transition group-hover/btn:bg-violet-400 group-hover/btn:text-eggplant rounded-full {{
     match($variant) {
         'external' => '-rotate-45 bg-neutral-200 text-eggplant group-hover/btn:-rotate-45',
         'back' => '-rotate-180 text-white bg-eggplant group-hover/btn:-rotate-135',

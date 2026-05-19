@@ -9,6 +9,7 @@
         'link' => 'underline-offset-2 underline decoration-transparent hover:decoration-current/30',
         'link-white' => 'underline-offset-2 text-white underline decoration-current/30 hover:decoration-current/60',
         'white' => 'bg-white text-eggplant hover:bg-violet-400 rounded-full',
+        'dark' => 'bg-eggplant text-white hover:bg-violet-400 rounded-full',
         default => '',
     }
 }} {{

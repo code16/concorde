@@ -22,9 +22,9 @@
     <div class="container relative">
         <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 mb-20 lg:mb-30">
             <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
-                <div class="relative size-full flex flex-col justify-center items-center bg-white cursor-pointer" x-on:click="playing = true" x-show="!playing">
-                    <x-icon-ozu class="absolute size-[55%] text-violet-200" />
-                    <x-button size="lg" class="relative bg-eggplant text-white hover:bg-violet-400 rounded-full" aria-label="Lancer la vidéo" x-on:click="$refs.video.play()">
+                <div class="group relative size-full flex flex-col justify-center items-center bg-white cursor-pointer" x-on:click="playing = true" x-show="!playing">
+                    <x-icon-ozu class="absolute size-[55%] text-violet-200 group-hover:scale-110 transition duration-300" />
+                    <x-button size="lg" variant="dark" aria-label="Lancer la vidéo" x-on:click="$refs.video.play()">
                         <x-icon-play class="-ml-3 size-8" />
                         Découvrir Ozu en une minute
                     </x-button>
@@ -85,6 +85,13 @@
                 <section class="md:px-12.5 lg:px-17.5">
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
+                            <div class="md:order-1 md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
+                                <x-icon-ozu-tailor-made class="w-full" />
+                                {{--                                <div class="absolute inset-6 rounded-3xl border-[1.5px] border-violet-200/70"></div>--}}
+                                {{--                                <div class="absolute inset-12 rounded-2xl border-[1.5px] border-violet-300/70"></div>--}}
+                                {{--                                <div class="absolute inset-[4.5rem] rounded-xl border-[1.5px] border-violet-400/70"></div>--}}
+                                {{--                                <x-icon-ozu class="relative size-20 text-violet-400/25" />--}}
+                            </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <div class="flex items-center gap-0.5">
                                     <x-icon-arrow-right-sm class="size-5 text-violet-400" />
@@ -97,12 +104,7 @@
                                     Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
                                 </p>
                             </div>
-                            <div class="md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
-                                <div class="absolute inset-6 rounded-2xl border border-violet-200/70"></div>
-                                <div class="absolute inset-12 rounded-2xl border border-violet-300/70"></div>
-                                <div class="absolute inset-[4.5rem] rounded-xl border border-violet-400/70"></div>
-                                <x-icon-ozu class="relative size-20 text-violet-400/25" />
-                            </div>
+
                         </div>
                     </div>
                 </section>
@@ -110,11 +112,26 @@
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
                             <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
-                                @foreach(range(0, 11) as $i)
-                                    <div class="absolute size-2.5 rounded-full bg-yellow-400/80"
-                                        style="transform: rotate({{ $i * 30 }}deg) translateY(-56px)"></div>
-                                @endforeach
-                                <div class="relative size-12 rounded-full bg-blue-700/10 ring-2 ring-blue-700/20"></div>
+                                <svg viewBox="-64 -64 128 128" class="size-32" aria-hidden="true">
+                                    <circle cx="0" cy="-56" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="28" cy="-48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="48.4974" cy="-28" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="56" cy="0" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="48.4974" cy="28" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="28" cy="48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="0" cy="56" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="-28" cy="48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="-48.4974" cy="28" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="-56" cy="0" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="-48.4974" cy="-28" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="-28" cy="-48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
+                                    <circle cx="0" cy="0" r="24" fill="#1d4ed8" fill-opacity="0.1" stroke="#1d4ed8" stroke-opacity="0.2" stroke-width="2" />
+                                </svg>
+{{--                                @foreach(range(0, 11) as $i)--}}
+{{--                                    <div class="absolute size-2.5 rounded-full bg-yellow-400/80"--}}
+{{--                                        style="transform: rotate({{ $i * 30 }}deg) translateY(-56px)"></div>--}}
+{{--                                @endforeach--}}
+{{--                                <div class="relative size-12 rounded-full bg-blue-700/10 ring-2 ring-blue-700/20"></div>--}}
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <div class="flex items-center gap-0.5">
@@ -192,14 +209,14 @@
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
-                    <article class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 p-4 flex flex-col gap-2">
-                            <div class="h-3.5 rounded-sm w-full" style="background:var(--color-violet-300)"></div>
-                            <div class="flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 30%, transparent)"></div>
+                            <div class="h-3.5 rounded-sm w-full border border-violet-300 bg-violet-100"></div>
+                            <div class="flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
                             <div class="flex gap-2">
-                                <div class="h-5 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
-                                <div class="h-5 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
-                                <div class="h-5 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
+                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
                             </div>
                         </div>
                         <div class="p-5">
@@ -207,64 +224,63 @@
                             <p class="mt-1 text-sm text-neutral-600">Présentation d'une activité, de services ou d'une entreprise avec un design soigné pour convaincre.</p>
                         </div>
                     </article>
-                    <article class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 flex flex-col items-center justify-center gap-2.5 p-6">
-                            <div class="w-3/4 h-5 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
-                            <div class="w-1/2 h-3 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 30%, transparent)"></div>
-                            <div class="mt-1 w-28 h-7 rounded-full" style="background:var(--color-violet-300)"></div>
+                            <div class="w-3/4 h-5 rounded-sm border border-violet-300 bg-violet-100"></div>
+                            <div class="w-1/2 h-3 rounded-sm border border-violet-300 bg-violet-100"></div>
+                            <div class="mt-1 w-28 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Landing page produit</h3>
                             <p class="mt-1 text-sm text-neutral-600">Mise en avant d’un produit ou d’une offre, optimisée pour capter l'attention et convertir.</p>
                         </div>
                     </article>
-                    <article class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 p-4 grid grid-cols-2 gap-2">
-                            <div class="rounded-sm" style="background:var(--color-violet-300)"></div>
-                            <div class="rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
-                            <div class="rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
-                            <div class="rounded-sm" style="background:var(--color-violet-300)"></div>
+                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Portfolio de projets</h3>
                             <p class="mt-1 text-sm text-neutral-600">Valorisation de réalisations ou d’un portfolio créatif dans une mise en page personnalisée.</p>
                         </div>
                     </article>
-                    <article class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 p-4 flex flex-col gap-2">
-                            <div class="flex-1 rounded-sm flex flex-col justify-center gap-2 px-3" style="background:color-mix(in oklch, var(--color-violet-300) 15%, transparent)">
-                                <div class="h-3 w-4/5 rounded-sm" style="background:var(--color-violet-300)"></div>
-                                <div class="h-2 w-3/5 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
+                            <div class="flex-1 rounded-sm flex flex-col justify-center gap-2 px-3 border border-violet-300">
+                                <div class="h-3 w-4/5 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="h-2 w-3/5 rounded-sm border border-violet-300 bg-violet-100"></div>
                             </div>
                             <div class="flex gap-1.5">
-                                <div class="flex-1 h-7 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 20%, transparent)"></div>
-                                <div class="w-20 h-7 rounded-full" style="background:var(--color-violet-300)"></div>
+                                <div class="flex-1 h-7 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="w-20 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
                             </div>
-                            <div class="flex gap-3">
-                                <div class="h-2 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 30%, transparent)"></div>
-                                <div class="h-2 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 30%, transparent)"></div>
-                                <div class="h-2 flex-1 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 30%, transparent)"></div>
-                            </div>
+{{--                            <div class="flex gap-3">--}}
+{{--                                <div class="h-2 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>--}}
+{{--                                <div class="h-2 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>--}}
+{{--                                <div class="h-2 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>--}}
+{{--                            </div>--}}
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Site de génération de lead</h3>
                             <p class="mt-1 text-sm text-neutral-600">Site de captation de contacts qualifiés grâce à des appels à l'action ciblés.</p>
                         </div>
                     </article>
-                    <article class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
+                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 flex overflow-hidden">
-                            <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4" style="background:var(--color-violet-300)">
-                                <div class="h-2 w-10 rounded-full bg-white/50"></div>
-                                <div class="h-8 w-12 rounded-md bg-white/75"></div>
-                                <div class="h-2 w-8 rounded-full bg-white/40"></div>
+                            <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4 border-r border-violet-300 bg-violet-100">
+                                <div class="h-2 w-10 rounded-full border border-violet-300 bg-violet-50"></div>
+                                <div class="h-8 w-12 rounded-md border border-violet-300 bg-violet-50"></div>
+                                <div class="h-2 w-8 rounded-full border border-violet-300 bg-violet-50"></div>
                             </div>
-                            <div class="w-px self-stretch my-3 border-l-2 border-dashed" style="border-color:color-mix(in oklch, var(--color-violet-300) 40%, transparent)"></div>
                             <div class="flex-1 p-4 flex flex-col justify-center gap-2.5">
-                                <div class="h-3 w-5/6 rounded-sm" style="background:var(--color-violet-300)"></div>
-                                <div class="h-2.5 w-2/3 rounded-sm" style="background:color-mix(in oklch, var(--color-violet-300) 50%, transparent)"></div>
+                                <div class="h-3 w-5/6 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="h-2.5 w-2/3 rounded-sm border border-violet-300 bg-violet-100"></div>
                                 <div class="mt-1 flex gap-2">
-                                    <div class="h-4 w-14 rounded-full" style="background:color-mix(in oklch, var(--color-violet-300) 60%, transparent)"></div>
-                                    <div class="h-4 w-10 rounded-full" style="background:color-mix(in oklch, var(--color-violet-300) 35%, transparent)"></div>
+                                    <div class="h-4 w-14 rounded-full border border-violet-300 bg-violet-100"></div>
+                                    <div class="h-4 w-10 rounded-full border border-violet-300 bg-violet-100"></div>
                                 </div>
                             </div>
                         </div>
@@ -273,70 +289,77 @@
                             <p class="mt-1 text-sm text-neutral-600">Programmation, agenda, lien billetterie : un site à l'image de l'événement, conçu pour mobiliser le public.</p>
                         </div>
                     </article>
-                    <div class="rounded-2xl bg-neutral-50 inset-ring inset-ring-neutral-200 flex flex-col p-6 gap-3 justify-center">
-                        <p class="text-base font-heading font-[350] text-neutral-700">
-                            Votre projet implique un compte client, des prises de commande ou un catalogue dynamique ? Ozu ne sera pas adapté, mais Code 16 si&nbsp;!
-                        </p>
-                        <x-button href="/projets" variant="link" class="text-neutral-600 text-sm">
-                            <x-button-arrow />
-                            Voir nos références de sites dynamiques
-                        </x-button>
+                    <div class="rounded-2xl bg-neutral-50 p-1.5 border border-neutral-200 flex flex-col">
+                        <div class="flex-1 rounded-xl border border-neutral-200 bg-white flex flex-col p-6 gap-6 justify-center">
+                            <p class="text-neutral-600">
+                                Votre projet implique un compte client, des prises de commande ou un catalogue dynamique ? Ozu ne sera pas adapté, mais Code 16 si&nbsp;!
+                            </p>
+                        </div>
+                        <div class="p-4">
+                            <x-button href="{{ route('projects.index') }}" variant="link" class="text-sm">
+                                <x-button-arrow />
+                                Voir nos références de sites dynamiques
+                            </x-button>
+                        </div>
                     </div>
                 </div>
             </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <x-section-header>
-                    <x-slot:surtitle>
-                        Tarification simple
-                    </x-slot:surtitle>
-                    <x-slot:title>
-                        Des délais réduits,<br>et une facture plus légère
-                    </x-slot:title>
-                </x-section-header>
-                <p class="mt-7 text-neutral-600 max-w-2xl">
-                    Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
-                </p>
-                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
-                    <x-pricing-card>
+            <div class="rounded-3xl bg-eggplant text-white pt-12">
+                <section class="px-5 md:px-12.5 lg:px-17.5">
+                    <x-section-header>
+                        <x-slot:surtitle>
+                            Tarification simple
+                        </x-slot:surtitle>
                         <x-slot:title>
-                            Développement
+                            Des délais réduits,<br>et une facture plus légère
                         </x-slot:title>
-                        <p>
-                            Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
-                        </p>
-                        <x-slot:price>
-                            <p>
-                                <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
-                            </p>
-                        </x-slot:price>
-                    </x-pricing-card>
-                    <div class="border-l border-dashed border-l-neutral-200"></div>
-                    <x-pricing-card>
-                        <x-slot:title>
-                            Maintenance
-                        </x-slot:title>
-                        <p>
-                            Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
-                        </p>
-                        <x-slot:price>
-                            <p>
-                                <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
-                            </p>
-                        </x-slot:price>
-                    </x-pricing-card>
-                </div>
-            </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <div class="rounded-2xl bg-eggplant px-10 py-12 lg:py-16 flex flex-col items-center gap-10 text-center">
-                    <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
-                        Un projet à développer ?<br>Parlons-en.
+                    </x-section-header>
+                    <p class="mt-7 text-white/50 max-w-2xl">
+                        Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
                     </p>
-                    <x-button href="#" variant="white" size="lg">
-                        <x-button-arrow class="-ml-3" />
-                        Parlons de votre projet
-                    </x-button>
-                </div>
-            </section>
+                    <div class="mt-10 grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] rounded-2xl bg-white/10 inset-ring inset-ring-white/20">
+                        <x-pricing-card>
+                            <x-slot:title>
+                                Développement
+                            </x-slot:title>
+                            <p>
+                                Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
+                            </p>
+                            <x-slot:price>
+                                <p>
+                                    <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
+                                </p>
+                            </x-slot:price>
+                        </x-pricing-card>
+                        <div class="border-t md:border-l border-dashed border-white/20"></div>
+                        <x-pricing-card>
+                            <x-slot:title>
+                                Maintenance
+                            </x-slot:title>
+                            <p>
+                                Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
+                            </p>
+                            <x-slot:price>
+                                <p>
+                                    <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
+                                </p>
+                            </x-slot:price>
+                        </x-pricing-card>
+                    </div>
+                </section>
+                <section class="md:px-12.5 lg:px-17.5">
+                    <div class="px-10 py-12 lg:py-16 flex flex-col items-center gap-10 text-center">
+                        <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
+                            Un projet à développer ?<br>Parlons-en.
+                        </p>
+                        <x-button href="#" variant="white" size="lg">
+                            <x-button-arrow class="-ml-3" />
+                            Parlons de votre projet
+                        </x-button>
+                    </div>
+                </section>
+            </div>
+
         </div>
     </div>
 </x-layout>
