@@ -26,16 +26,19 @@
                     <div class="absolute h-auto -z-10 left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-[70%]">
                         <x-icon-ozu class="text-violet-400/20" />
                     </div>
-                    <x-button variant="white" size="lg" aria-label="Lancer la vidéo">
+                    <x-button variant="white" size="lg" aria-label="Lancer la vidéo" x-on:click="$refs.video.play()">
                         <x-icon-play class="-ml-3 size-8" />
                         Ozu en une minute
                     </x-button>
                 </div>
-                <template x-if="playing">
-                    <div class="size-full *:size-full">
-                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ENozagjU-TI?si=mbp3r38E73w1aFEN&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                </template>
+                <video x-show="playing" controls x-ref="video" x-cloak>
+                    <source src="https://do3eutfoa8i0h.cloudfront.net/ozu-presentation.mp4" type="video/mp4">
+                </video>
+{{--                <template x-if="playing">--}}
+{{--                    <div class="size-full *:size-full">--}}
+{{--                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ENozagjU-TI?si=mbp3r38E73w1aFEN&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>--}}
+{{--                    </div>--}}
+{{--                </template>--}}
             </div>
         </div>
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
@@ -80,30 +83,57 @@
                     @endforeach
                 </div>
             </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <div class="rounded-2xl overflow-hidden bg-white inset-ring inset-ring-neutral-200">
-                    <div class="grid grid-cols-1 md:grid-cols-5">
-                        <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
-                            <div class="flex items-center gap-0.5">
-                                <x-icon-arrow-right-sm class="size-5 text-violet-400" />
-                                <span class="text-sm font-semibold">Sur-mesure</span>
+            <div class="grid grid-cols-1 gap-y-10">
+                <section class="md:px-12.5 lg:px-17.5">
+                    <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
+                        <div class="grid grid-cols-1 md:grid-cols-5">
+                            <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
+                                <div class="flex items-center gap-0.5">
+                                    <x-icon-arrow-right-sm class="size-5 text-violet-400" />
+                                    <span class="text-sm font-semibold">Sur-mesure</span>
+                                </div>
+                                <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
+                                    Votre design, <br>intégralement respecté
+                                </h3>
+                                <p class="text-neutral-600 max-w-prose">
+                                    Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
+                                </p>
                             </div>
-                            <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
-                                Votre design, <br>intégralement respecté
-                            </h3>
-                            <p class="text-neutral-600 max-w-prose">
-                                Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
-                            </p>
-                        </div>
-                        <div class="md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
-                            <div class="absolute inset-6 rounded-2xl border border-violet-200/70"></div>
-                            <div class="absolute inset-12 rounded-2xl border border-violet-300/70"></div>
-                            <div class="absolute inset-[4.5rem] rounded-xl border border-violet-400/70"></div>
-                            <x-icon-ozu class="relative size-20 text-violet-400/25" />
+                            <div class="md:col-span-2 min-h-48 bg-purple-50 relative overflow-hidden flex items-center justify-center">
+                                <div class="absolute inset-6 rounded-2xl border border-violet-200/70"></div>
+                                <div class="absolute inset-12 rounded-2xl border border-violet-300/70"></div>
+                                <div class="absolute inset-[4.5rem] rounded-xl border border-violet-400/70"></div>
+                                <x-icon-ozu class="relative size-20 text-violet-400/25" />
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <section class="md:px-12.5 lg:px-17.5">
+                    <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
+                        <div class="grid grid-cols-1 md:grid-cols-5">
+                            <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
+                                @foreach(range(0, 11) as $i)
+                                    <div class="absolute size-2.5 rounded-full bg-yellow-400/80"
+                                        style="transform: rotate({{ $i * 30 }}deg) translateY(-56px)"></div>
+                                @endforeach
+                                <div class="relative size-12 rounded-full bg-blue-700/10 ring-2 ring-blue-700/20"></div>
+                            </div>
+                            <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
+                                <div class="flex items-center gap-0.5">
+                                    <x-icon-arrow-right-sm class="size-5 text-violet-400" />
+                                    <span class="text-sm font-semibold">Souveraineté</span>
+                                </div>
+                                <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
+                                    Ozu est 100% européen
+                                </h3>
+                                <p class="text-neutral-600 max-w-prose">
+                                    L'infrastructure Ozu ne dépend pas de solutions hors Union Européenne : le CMS et les données sont localisées en Suisse, les sites sont hébergés en France, tout comme les sauvegardes ; les services automatisés de suivi de production et de remontée des anomalies sont tout aussi européens.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
@@ -151,77 +181,9 @@
                             @endforeach
                         </ul>
                     </x-comparison-card>
+                </div>
+            </section>
 
-                </div>
-            </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <div class="rounded-2xl overflow-hidden bg-white inset-ring inset-ring-neutral-200">
-                    <div class="grid grid-cols-1 md:grid-cols-5">
-                        <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
-                            <div class="flex items-center gap-0.5">
-                                <x-icon-arrow-right-sm class="size-5 text-violet-400" />
-                                <span class="text-sm font-semibold">Souveraineté</span>
-                            </div>
-                            <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
-                                Ozu est 100% européen
-                            </h3>
-                            <p class="text-neutral-600 max-w-prose">
-                                L'infrastructure Ozu ne dépend pas de solutions hors Union Européenne : le CMS et les données sont localisées en Suisse, les sites sont hébergés en France, tout comme les sauvegardes ; les services automatisés de suivi de production et de remontée des anomalies sont tout aussi européens.
-                            </p>
-                        </div>
-                        <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
-                            @foreach(range(0, 11) as $i)
-                                <div class="absolute size-2.5 rounded-full bg-yellow-400/80"
-                                     style="transform: rotate({{ $i * 30 }}deg) translateY(-56px)"></div>
-                            @endforeach
-                            <div class="relative size-12 rounded-full bg-blue-700/10 ring-2 ring-blue-700/20"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="md:px-12.5 lg:px-17.5">
-                <x-section-header>
-                    <x-slot:surtitle>
-                        Tarification simple
-                    </x-slot:surtitle>
-                    <x-slot:title>
-                        Des délais réduits,<br>et une facture plus légère
-                    </x-slot:title>
-                </x-section-header>
-                <p class="mt-7 text-neutral-600 max-w-2xl">
-                    Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
-                </p>
-                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
-                    <x-pricing-card>
-                        <x-slot:title>
-                            Développement
-                        </x-slot:title>
-                        <p>
-                            Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
-                        </p>
-                        <x-slot:price>
-                            <p>
-                                <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
-                            </p>
-                        </x-slot:price>
-                    </x-pricing-card>
-                    <div class="border-l border-dashed border-l-neutral-200"></div>
-                    <x-pricing-card>
-                        <x-slot:title>
-                            Maintenance
-                        </x-slot:title>
-                        <p>
-                            Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
-                        </p>
-                        <x-slot:price>
-                            <p>
-                                <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
-                            </p>
-                        </x-slot:price>
-                    </x-pricing-card>
-                </div>
-
-            </section>
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
@@ -322,6 +284,48 @@
                             Voir nos références de sites dynamiques
                         </x-button>
                     </div>
+                </div>
+            </section>
+            <section class="md:px-12.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        Tarification simple
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Des délais réduits,<br>et une facture plus légère
+                    </x-slot:title>
+                </x-section-header>
+                <p class="mt-7 text-neutral-600 max-w-2xl">
+                    Ozu est aussi une plateforme technique proposant un outillage complet qui nous permet de réduire le temps de développement, et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
+                </p>
+                <div class="mt-10 grid grid-cols-[1fr_1px_1fr] rounded-2xl bg-white inset-ring inset-ring-neutral-200">
+                    <x-pricing-card>
+                        <x-slot:title>
+                            Développement
+                        </x-slot:title>
+                        <p>
+                            Développement et intégration sur mesure, avec l'engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
+                        </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">90€</span> <span class="text-sm">HT / heure</span>
+                            </p>
+                        </x-slot:price>
+                    </x-pricing-card>
+                    <div class="border-l border-dashed border-l-neutral-200"></div>
+                    <x-pricing-card>
+                        <x-slot:title>
+                            Maintenance
+                        </x-slot:title>
+                        <p>
+                            Hébergement, sauvegardes, maintenance de l'infrastructure, comptes CMS client
+                        </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
+                            </p>
+                        </x-slot:price>
+                    </x-pricing-card>
                 </div>
             </section>
             <section class="md:px-12.5 lg:px-17.5">
