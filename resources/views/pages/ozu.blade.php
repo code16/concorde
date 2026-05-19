@@ -114,12 +114,11 @@
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
-                        <div class="bg-eggplant px-7 py-5">
-                            <p class="text-violet-300 text-sm font-semibold mb-1">Ozu vs</p>
-                            <h3 class="text-white text-2xl font-heading font-[450]">WordPress</h3>
-                        </div>
-                        <ul class="p-7 space-y-4">
+                    <x-comparison-card>
+                        <x-slot:title>
+                            WordPress
+                        </x-slot:title>
+                        <ul class="space-y-4">
                             @foreach([
                                 'Performances bien supérieures grâce à l\'hébergement statique',
                                 'Sécurité renforcée : aucune base de données exposée, aucun plugin vulnérable',
@@ -133,13 +132,12 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
-                    <div class="rounded-2xl bg-white inset-ring inset-ring-neutral-200 overflow-hidden">
-                        <div class="bg-eggplant px-7 py-5">
-                            <p class="text-violet-300 text-sm font-semibold mb-1">Ozu vs</p>
-                            <h3 class="text-white text-2xl font-heading font-[450]">Webflow</h3>
-                        </div>
-                        <ul class="p-7 space-y-4">
+                    </x-comparison-card>
+                    <x-comparison-card>
+                        <x-slot:title>
+                            Webflow
+                        </x-slot:title>
+                        <ul class="space-y-4">
                             @foreach([
                                 'Liberté de design absolue, sans les contraintes de l\'éditeur visuel',
                                 'Hébergement et données en France, sans dépendance à un SaaS américain',
@@ -152,7 +150,8 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
+                    </x-comparison-card>
+
                 </div>
             </section>
             <section class="md:px-12.5 lg:px-17.5">
