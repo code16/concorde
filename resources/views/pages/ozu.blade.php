@@ -3,6 +3,9 @@
     <x-title>
         Ozu, traiter les petits projets comme les grands
     </x-title>
+    <x-slot:head-start>
+        @vite('resources/js/hls.js')
+    </x-slot:head-start>
     <x-slot:header>
         <x-header variant="light" />
     </x-slot:header>
@@ -20,24 +23,75 @@
         <div class="h-16 md:h-40"></div>
     </x-hero>
     <div class="container relative">
-        <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 mb-20 lg:mb-30">
-            <div class="aspect-16/9 overflow-clip bg-eggplant shadow-xl" x-data="{ playing: false, }">
-                <div class="group relative isolate size-full flex flex-col justify-center items-center bg-white" x-on:click="playing = true; $refs.video.play()" x-show="!playing">
-                    <x-icon-ozu class="absolute -z-10 size-[55%] text-violet-200 group-hover:scale-110 transition duration-300" />
-                    <x-button size="lg" variant="dark" aria-label="Lancer la vidéo">
-                        <span class="absolute inset-0"></span>
-                        <x-icon-play class="-ml-3 size-8" />
-                        Découvrir Ozu en une minute
-                    </x-button>
+        <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 pb-16 mb-20 lg:mb-30">
+            <div class="group @container-size relative aspect-16/9 isolate bg-eggplant shadow-xl"
+                x-data="{ playing: false, showing: false }"
+                :data-showing="showing"
+                :data-playing="playing"
+            >
+                <div class="size-full overflow-hidden">
+                    <div class="relative isolate size-full bg-violet-500 group-hover:scale-115 transition duration-300"
+                        x-on:click="showing = true; playing = true"
+                        x-show="!showing"
+                    >
+                        <img src="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}" alt="Ozu Video Cover" class="absolute inset-0 size-full object-cover" />
+                        <x-icon-ozu class="absolute top-[30%] md:top-1/2 left-1/2 -translate-1/2 size-[20%] text-white" />
+                    </div>
                 </div>
-                <video class="size-full" x-show="playing" controls x-ref="video" preload="none" x-cloak>
-                    <source src="https://do3eutfoa8i0h.cloudfront.net/ozu-presentation.mp4" type="video/mp4">
-                </video>
-{{--                <template x-if="playing">--}}
-{{--                    <div class="size-full *:size-full">--}}
-{{--                        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ENozagjU-TI?si=mbp3r38E73w1aFEN&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>--}}
+                <video class="absolute size-full inset-0" x-cloak x-show="showing"
+                    poster="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}"
+                    data-playlist="https://vz-c309594d-4f1.b-cdn.net/e83c368c-42bf-4058-bf15-0380d5405295/playlist.m3u8"
+                    @env('production')
+                        data-preload
+                    @endenv
+                    disablepictureinpicture
+                    x-on:play="playing = true"
+                    x-on:pause="playing = false; $el.controls = true"
+                    x-init="
+                        const video = $el;
+                        const playlistUrl = $el.getAttribute('data-playlist');
+                        if (Hls.isSupported()) {
+                            const hls = new Hls({
+                                autoStartLoad: $el.hasAttribute('data-preload'),
+                                maxBufferLength: 3,
+                                maxMaxBufferLength: 3,
+                                startLevel: 4,
+                            });
+                            hls.loadSource(playlistUrl);
+                            hls.attachMedia(video);
+                            video.addEventListener('play', () => {
+                                hls.config.maxBufferLength = 30;
+                                hls.config.maxMaxBufferLength = 30;
+                                hls.startLoad();
+                            }, { once: true });
+                        }
+                        // Fallback for browsers that support HLS natively (Safari)
+                        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                            video.src = playlistUrl;
+                        }
+                    "
+                    x-effect="playing ? $el.play() : $el.pause()"
+                    x-ref="video"
+                ></video>
+                <x-button class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-[15cqh] in-data-showing:translate-y-[calc(100%+1rem)]  transition duration-300 overflow-hidden px-5! [interpolate-size:allow-keywords] [transition-behavior:discrete] gap-0!"
+                    size="lg" variant="light"
+                    x-bind:data-variant="showing ? 'dark' : 'light'"
+                    aria-label="Lancer la vidéo"
+                    x-on:click="showing = true; playing = !playing"
+                    x-cloak
+                >
+                    <span class="absolute inset-0"></span>
+                    <x-icon-play class="size-8 in-data-playing:opacity-0 transition duration-300" />
+                    <x-icon-pause class="size-8 absolute left-1/2 top-1/2 -translate-1/2 opacity-0 in-data-playing:opacity-100 duration-300" />
+                    <span class="in-data-showing:opacity-0 in-data-showing:w-0 transition-[opacity,width] duration-300 whitespace-nowrap">
+                        <span class="px-3">
+                            Découvrir Ozu en une minute
+                        </span>
+                    </span>
+                </x-button>
+{{--                    <div class="absolute inset-0 opacity-0 in-data-playing:opacity-100">--}}
+{{--                        <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/665748/e83c368c-42bf-4058-bf15-0380d5405295?autoplay=false&loop=false&compactControls=true&muted=false&preload=false&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen></iframe></div>--}}
 {{--                    </div>--}}
-{{--                </template>--}}
             </div>
         </div>
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
@@ -90,7 +144,7 @@
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
                             <div class="md:order-1 md:col-span-2 overflow-hidden min-h-48 bg-purple-50 relative">
-                                <img class="absolute top-12 left-6 w-[700px] max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/figma-screen.png') }}" alt="">
+                                <img class="absolute top-12 left-6 w-[700px] max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/ozu/figma-screen.png') }}" alt="">
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <x-section-header>
@@ -116,7 +170,7 @@
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
                             <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/europe.jpg') }}" alt="">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/ozu/europe.jpg') }}" alt="">
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <x-section-header>
@@ -185,7 +239,8 @@
                     </div>
                     <div class="bg-purple-50 flex items-center justify-center p-4 lg:p-10">
                         <img class="w-full rounded-lg shadow-xl"
-                             src="{{ Vite::asset('resources/img/ozu-dashboard.png') }}"
+                             src="{{ Vite::asset('resources/img/ozu/sharp-dashboard.avif') }}"
+                            loading="lazy"
                              alt="Interface de gestion de contenu Sharp">
                     </div>
                 </div>
@@ -353,68 +408,68 @@
                     </div>
                 </div>
             </section>
-            <div class="rounded-3xl bg-eggplant text-white pt-12">
-                <section class="px-5 md:px-12.5 lg:px-17.5">
-                    <x-section-header>
-                        <x-slot:surtitle>
-                            <h2>
-                                Tarification simple
-                            </h2>
-                        </x-slot:surtitle>
-                        <x-slot:title>
-                            <p>
-                                Des délais réduits,<br>et une facture plus légère
-                            </p>
-                        </x-slot:title>
-                    </x-section-header>
-                    <p class="mt-7 text-white/50 max-w-2xl">
-                        Ozu est également une plateforme technique proposant un outillage complet qui permet à Code 16 de réduire le temps de développement,
-                        et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets
-                        ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
-                    </p>
-                    <div class="mt-10 grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] rounded-2xl bg-white/10 inset-ring inset-ring-white/20">
-                        <x-pricing-card>
-                            <x-slot:title>
-                                Développement
-                            </x-slot:title>
-                            <p>
-                                Développement et intégration sur mesure, avec l’engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
-                            </p>
-                            <x-slot:price>
-                                <p>
-                                    <span class="text-3xl font-light font-heading">650€</span> <span class="text-sm">HT / jour</span>
-                                </p>
-                            </x-slot:price>
-                        </x-pricing-card>
-                        <div class="border-t md:border-l border-dashed border-white/20"></div>
-                        <x-pricing-card>
-                            <x-slot:title>
-                                Maintenance
-                            </x-slot:title>
-                            <p>
-                                Hébergement, sauvegardes quotidiennes, maintenance de l’infrastructure, maintenance et suivi du projet, comptes CMS client.
-                            </p>
-                            <x-slot:price>
-                                <p>
-                                    <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
-                                </p>
-                            </x-slot:price>
-                        </x-pricing-card>
-                    </div>
-                </section>
-                <section class="md:px-12.5 lg:px-17.5">
-                    <div class="px-10 py-12 lg:py-16 flex flex-col items-center gap-10 text-center">
-                        <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
-                            Vous avez un projet&nbsp;?<br>Parlons-en.
-                        </p>
-                        <x-button href="mailto:contact@code16.fr" variant="white" size="lg">
-                            <x-button-arrow class="-ml-3" />
-                            Parlons de votre projet
-                        </x-button>
-                    </div>
-                </section>
-            </div>
 
+        </div>
+        <div class="mt-12 lg:mt-20 rounded-3xl bg-eggplant text-white pt-12 lg:pt-20">
+            <section class="px-5 md:px-12.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        <h2>
+                            Tarification simple
+                        </h2>
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        <p>
+                            Des délais réduits,<br>et une facture plus légère
+                        </p>
+                    </x-slot:title>
+                </x-section-header>
+                <p class="mt-7 text-white/50 max-w-2xl">
+                    Ozu est également une plateforme technique proposant un outillage complet qui permet à Code 16 de réduire le temps de développement,
+                    et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets
+                    ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
+                </p>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-[1fr_1px_1fr] rounded-2xl bg-white/10 inset-ring inset-ring-white/20">
+                    <x-pricing-card>
+                        <x-slot:title>
+                            Développement
+                        </x-slot:title>
+                        <p>
+                            Développement et intégration sur mesure, avec l’engagement de qualité Code 16 sur le respect du design, la performance, la prise en compte de l'accessibilité.
+                        </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">650€</span> <span class="text-sm">HT / jour</span>
+                            </p>
+                        </x-slot:price>
+                    </x-pricing-card>
+                    <div class="border-t md:border-l border-dashed border-white/20"></div>
+                    <x-pricing-card>
+                        <x-slot:title>
+                            Maintenance
+                        </x-slot:title>
+                        <p>
+                            Hébergement, sauvegardes quotidiennes, maintenance de l’infrastructure, maintenance et suivi du projet, comptes CMS client.
+                        </p>
+                        <x-slot:price>
+                            <p>
+                                <span class="text-3xl font-light font-heading">39€</span> <span class="text-sm">HT / mois</span>
+                            </p>
+                        </x-slot:price>
+                    </x-pricing-card>
+                </div>
+            </section>
+            <section class="md:px-12.5 lg:px-17.5">
+                <div class="px-10 py-12 lg:py-20 flex flex-col items-center gap-10 text-center">
+                    <p class="font-heading text-2.5xl lg:text-3xl font-[350] text-white">
+                        Vous avez un projet&nbsp;?<br>Parlons-en.
+                    </p>
+                    <x-button href="mailto:contact@code16.fr" variant="light" size="lg">
+                        <x-button-arrow class="-ml-3" />
+                        Parlons de votre projet
+                    </x-button>
+                </div>
+            </section>
         </div>
     </div>
 </x-layout>

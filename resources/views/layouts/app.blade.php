@@ -40,6 +40,7 @@
             <script src="https://cdn.usefathom.com/script.js" data-site="UYEFQCWU" defer></script>
         @endenv
 
+        {{ $headStart ?? null }}
         @vite([
             'resources/css/app.css',
             'resources/js/app.js',

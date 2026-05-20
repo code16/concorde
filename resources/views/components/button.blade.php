@@ -4,11 +4,11 @@
     'size' => '',
 ])
 
-<x-button-or-link class="group/btn inline-flex not-[&.static]:relative cursor-pointer items-center font-semibold text-[1rem]/[1.3125rem] transition {{
+<x-button-or-link class="group/btn inline-flex cursor-pointer items-center font-semibold text-[1rem]/[1.3125rem] transition {{
     match($variant) {
-        'link' => 'underline-offset-2 underline decoration-transparent hover:decoration-current/30',
-        'link-white' => 'underline-offset-2 text-white underline decoration-current/30 hover:decoration-current/60',
-        'white' => 'bg-white text-eggplant hover:bg-violet-900 rounded-full',
+        'link' => 'not-[&.static]:relative underline-offset-2 underline decoration-transparent hover:decoration-current/30',
+        'link-white' => 'not-[&.static]:relative underline-offset-2 text-white underline decoration-current/30 hover:decoration-current/60',
+        'light' => 'bg-white text-eggplant hover:bg-neutral-200 rounded-full data-[variant=dark]:bg-eggplant data-[variant=dark]:text-white data-[variant=dark]:hover:bg-violet-900',
         'dark' => 'bg-eggplant text-white hover:bg-violet-900 rounded-full',
         default => '',
     }
