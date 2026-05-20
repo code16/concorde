@@ -87,11 +87,6 @@
                         <div class="grid grid-cols-1 md:grid-cols-5">
                             <div class="md:order-1 md:col-span-2 overflow-hidden min-h-48 bg-purple-50 relative">
                                 <img class="absolute top-12 left-6 w-[700px] max-w-none" src="{{ Vite::asset('resources/img/figma-screen.png') }}">
-{{--                                <x-icon-ozu-tailor-made class="w-full" />--}}
-                                {{--                                <div class="absolute inset-6 rounded-3xl border-[1.5px] border-violet-200/70"></div>--}}
-                                {{--                                <div class="absolute inset-12 rounded-2xl border-[1.5px] border-violet-300/70"></div>--}}
-                                {{--                                <div class="absolute inset-[4.5rem] rounded-xl border-[1.5px] border-violet-400/70"></div>--}}
-                                {{--                                <x-icon-ozu class="relative size-20 text-violet-400/25" />--}}
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <div class="flex items-center gap-0.5">
@@ -99,7 +94,7 @@
                                     <span class="text-sm font-semibold">Sur-mesure</span>
                                 </div>
                                 <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
-                                    Votre design, <br>intégralement respecté
+                                    Votre design,<br>intégralement respecté
                                 </h3>
                                 <p class="text-neutral-600 max-w-prose">
                                     Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
@@ -112,26 +107,7 @@
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 md:grid-cols-5">
                             <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
-                                <svg viewBox="-64 -64 128 128" class="size-32" aria-hidden="true">
-                                    <circle cx="0" cy="-56" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="28" cy="-48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="48.4974" cy="-28" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="56" cy="0" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="48.4974" cy="28" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="28" cy="48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="0" cy="56" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="-28" cy="48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="-48.4974" cy="28" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="-56" cy="0" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="-48.4974" cy="-28" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="-28" cy="-48.4974" r="5" fill="#facc15" fill-opacity="0.8" />
-                                    <circle cx="0" cy="0" r="24" fill="#1d4ed8" fill-opacity="0.1" stroke="#1d4ed8" stroke-opacity="0.2" stroke-width="2" />
-                                </svg>
-{{--                                @foreach(range(0, 11) as $i)--}}
-{{--                                    <div class="absolute size-2.5 rounded-full bg-yellow-400/80"--}}
-{{--                                        style="transform: rotate({{ $i * 30 }}deg) translateY(-56px)"></div>--}}
-{{--                                @endforeach--}}
-{{--                                <div class="relative size-12 rounded-full bg-blue-700/10 ring-2 ring-blue-700/20"></div>--}}
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/europe.jpg') }}">
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
                                 <div class="flex items-center gap-0.5">
@@ -149,6 +125,49 @@
                     </div>
                 </section>
             </div>
+            <section class="md:px-12.5 lg:px-17.5">
+                <x-section-header>
+                    <x-slot:surtitle>
+                        Notre expertise CMS
+                    </x-slot:surtitle>
+                    <x-slot:title>
+                        Nous sommes des spécialistes<br>de la gestion de contenu
+                    </x-slot:title>
+                </x-section-header>
+                <div class="mt-10 rounded-2xl overflow-hidden border border-neutral-200">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="bg-white border-b md:border-b-0 md:border-r border-neutral-200 p-7 lg:p-12 flex flex-col gap-5">
+                            <p class="text-neutral-600 max-w-prose">
+                                Depuis des années, Code&nbsp;16 développe et maintient <a href="https://sharp.code16.fr" target="_blank" class="font-medium text-violet-700 underline underline-offset-2 hover:text-violet-900">Sharp</a>, un framework open source de gestion de contenu utilisé sur des centaines de projets. Cette expérience nous a appris ce qui fonctionne vraiment pour les équipes qui font vivre un site au quotidien.
+                            </p>
+                            <p class="text-neutral-600 max-w-prose">
+                                Nous savons qu’un CMS mal pensé génère de la frustration, des erreurs et finit par ne plus être utilisé. C’est pourquoi le dashboard Ozu est conçu avec soin&nbsp;: interface épurée, champs adaptés au contenu réel de chaque projet, sans fonctionnalité superflue. L’objectif&nbsp;: que chaque client soit autonome dès la livraison.
+                            </p>
+                        </div>
+                        <div class="bg-white border-neutral-200 p-7 lg:p-12 flex flex-col justify-center gap-6">
+                            <ul class="space-y-4">
+                                @foreach([
+                                    'Un CMS configuré précisément selon le contenu du site, sans champ inutile',
+                                    'Des interfaces pensées pour des utilisateurs non techniques',
+                                    'Une prise en main immédiate, sans formation longue ni documentation à lire',
+                                    'Une expérience forgée sur des années de développement de Sharp',
+                                ] as $point)
+                                    <li class="flex gap-3 items-start">
+                                        <x-icon-circle-check class="size-5 fill-violet-600 text-violet-50 shrink-0 mt-0.5" />
+                                        <span class="text-neutral-700 text-base">{{ $point }}</span>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 flex items-center justify-center p-8 lg:p-14" style="perspective: 1200px;">
+                        <img class="w-full rounded-lg shadow-2xl"
+                             style="transform: rotateX(8deg) rotateY(-4deg) rotateZ(1deg); transform-origin: center bottom;"
+                             src="{{ Vite::asset('resources/img/ozu-dashboard.png') }}"
+                             alt="Interface de gestion de contenu Sharp">
+                    </div>
+                </div>
+            </section>
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
