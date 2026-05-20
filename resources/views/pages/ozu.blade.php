@@ -44,19 +44,23 @@
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Pourquoi Ozu ?
+                        <h2>
+                            Pourquoi Ozu ?
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
-                        Les avantages d’un hébergement statique,<br>sans les inconvénients
+                        <p>
+                            Les avantages d’un hébergement statique,<br>sans les inconvénients
+                        </p>
                     </x-slot:title>
                 </x-section-header>
-                <div class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
+                <ul class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
                     @foreach([
                         'Rapide, stable et sécurisé' => 'Un site statique est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la grande majorité des attaques.',
                         'Gestion de contenu sur mesure' => 'Vos clients peuvent gérer leur contenu en autonomie avec un dashboard moderne et pensé pour être simple d’utilisation.',
                         'Maintenance technique complète' => 'Nous appliquons même garantie de maintenance que sur les gros projets, assurant continuité de service et évolutivité.',
                     ] as $title => $description)
-                        <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
+                        <li class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
                             <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-purple-50 [&_.accent]:fill-violet-400 inset-ring inset-ring-violet-100 rounded-xl">
                                 @if($loop->index === 0)
                                     <x-icon-approach-demanding class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#diamond]:-translate-y-[5%]" />
@@ -77,9 +81,9 @@
                                     {{ $description }}
                                 </p>
                             </div>
-                        </article>
+                        </li>
                     @endforeach
-                </div>
+                </ul>
             </section>
             <div class="grid grid-cols-1 gap-y-10">
                 <section class="md:px-12.5 lg:px-17.5">
@@ -89,13 +93,18 @@
                                 <img class="absolute top-12 left-6 w-[700px] max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/figma-screen.png') }}" alt="">
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
-                                <div class="flex items-center gap-0.5">
-                                    <x-icon-arrow-right-sm class="size-5 text-violet-400" />
-                                    <span class="text-sm font-semibold">Sur-mesure</span>
-                                </div>
-                                <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
-                                    Votre design,<br>intégralement respecté
-                                </h3>
+                                <x-section-header>
+                                    <x-slot:surtitle>
+                                        <h3>
+                                            Sur-mesure
+                                        </h3>
+                                    </x-slot:surtitle>
+                                    <x-slot:title>
+                                        <p>
+                                            Votre design,<br>intégralement respecté
+                                        </p>
+                                    </x-slot:title>
+                                </x-section-header>
                                 <p class="text-neutral-600 max-w-prose">
                                     Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
                                 </p>
@@ -110,13 +119,18 @@
                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/europe.jpg') }}" alt="">
                             </div>
                             <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
-                                <div class="flex items-center gap-0.5">
-                                    <x-icon-arrow-right-sm class="size-5 text-violet-400" />
-                                    <span class="text-sm font-semibold">Souveraineté</span>
-                                </div>
-                                <h3 class="font-heading text-2.5xl lg:text-3xl font-[350]">
-                                    Ozu est 100% européen
-                                </h3>
+                                <x-section-header>
+                                    <x-slot:surtitle>
+                                        <h3>
+                                            Souveraineté
+                                        </h3>
+                                    </x-slot:surtitle>
+                                    <x-slot:title>
+                                        <p>
+                                            Ozu est 100% européen
+                                        </p>
+                                    </x-slot:title>
+                                </x-section-header>
                                 <p class="text-neutral-600 max-w-prose">
                                     L’infrastructure d’Ozu ne dépend pas de fournisseurs hors Union Européenne&nbsp;: le CMS, les données, le site, les sauvegardes et les services automatisés de suivi de production et de remontée des anomalies sont tous assurés par des prestataires européens et localisés en Europe.
                                 </p>
@@ -128,10 +142,14 @@
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Notre expertise CMS
+                        <h2>
+                            Notre expertise CMS
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
-                        Nous sommes des spécialistes<br>de la gestion de contenu
+                        <p>
+                            Nous sommes des spécialistes<br>de la gestion de contenu
+                        </p>
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 rounded-2xl overflow-hidden border border-neutral-200">
@@ -175,10 +193,14 @@
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Comparer
+                        <h2>
+                            Comparer
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
-                        En quoi Ozu est-il différent<br>d’autres solutions ?
+                        <p>
+                            En quoi Ozu est-il différent<br>d’autres solutions ?
+                        </p>
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -225,10 +247,14 @@
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Cas d’utilisation
+                        <h2>
+                            Cas d’utilisation
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
-                        De nombreux types de projets<br>sont parfaitement adaptés à Ozu
+                        <p>
+                            De nombreux types de projets<br>sont parfaitement adaptés à Ozu
+                        </p>
                     </x-slot:title>
                 </x-section-header>
                 <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -331,10 +357,14 @@
                 <section class="px-5 md:px-12.5 lg:px-17.5">
                     <x-section-header>
                         <x-slot:surtitle>
-                            Tarification simple
+                            <h2>
+                                Tarification simple
+                            </h2>
                         </x-slot:surtitle>
                         <x-slot:title>
-                            Des délais réduits,<br>et une facture plus légère
+                            <p>
+                                Des délais réduits,<br>et une facture plus légère
+                            </p>
                         </x-slot:title>
                     </x-section-header>
                     <p class="mt-7 text-white/50 max-w-2xl">
