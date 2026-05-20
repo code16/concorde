@@ -160,9 +160,8 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="bg-purple-50 flex items-center justify-center p-8 lg:p-14" style="perspective: 1200px;">
-                        <img class="w-full rounded-lg shadow-2xl"
-                             style="transform: rotateX(8deg) rotateY(-4deg) rotateZ(1deg); transform-origin: center bottom;"
+                    <div class="bg-purple-50 flex items-center justify-center p-4 lg:p-10">
+                        <img class="w-full rounded-lg shadow-xl"
                              src="{{ Vite::asset('resources/img/ozu-dashboard.png') }}"
                              alt="Interface de gestion de contenu Sharp">
                     </div>
