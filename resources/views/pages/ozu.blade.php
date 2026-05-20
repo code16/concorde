@@ -138,10 +138,15 @@
                     <div class="grid grid-cols-1 md:grid-cols-2">
                         <div class="bg-white border-b md:border-b-0 md:border-r border-neutral-200 p-7 lg:p-12 flex flex-col gap-5">
                             <p class="text-neutral-600 max-w-prose">
-                                Depuis des années, Code&nbsp;16 développe et maintient <a href="https://sharp.code16.fr" target="_blank" class="font-medium text-violet-700 underline underline-offset-2 hover:text-violet-900">Sharp</a>, un framework open source de gestion de contenu utilisé sur des centaines de projets. Cette expérience nous a appris ce qui fonctionne vraiment pour les équipes qui font vivre un site au quotidien.
+                                Depuis des années, Code&nbsp;16 développe et maintient <a href="https://sharp.code16.fr" target="_blank" class="font-medium text-violet-700 underline underline-offset-2 hover:text-violet-900">Sharp</a>,
+                                un framework open source de gestion de contenu utilisé sur des centaines de projets.
                             </p>
                             <p class="text-neutral-600 max-w-prose">
-                                Nous savons qu’un CMS mal pensé génère de la frustration, des erreurs et finit par ne plus être utilisé. C’est pourquoi le dashboard Ozu est conçu avec soin&nbsp;: interface épurée, champs adaptés au contenu réel de chaque projet, sans fonctionnalité superflue. L’objectif&nbsp;: que chaque client soit autonome dès la livraison.
+                                Nous savons qu’un CMS mal pensé génère de la frustration et des erreurs&nbsp;: le dashboard Ozu est conçu avec soin,
+                                proposant dans une interface épurée des champs adaptés au contenu réel de chaque projet sans fonctionnalité superflue.
+                            </p>
+                            <p class="text-neutral-600 max-w-prose">
+                                L’objectif est que chaque client soit autonome dès la livraison.
                             </p>
                         </div>
                         <div class="bg-white border-neutral-200 p-7 lg:p-12 flex flex-col justify-center gap-6">
