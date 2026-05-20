@@ -7,8 +7,11 @@
         <x-header variant="light" />
     </x-slot:header>
     <x-hero variant="light">
+        <x-slot:surtitle>
+            Ozu : le statique sans compromis
+        </x-slot:surtitle>
         <x-slot:title>
-            Grâce à Ozu,<br>nous traitons les petits projets comme les grands
+            Nous traitons les petits projets comme les grands
         </x-slot:title>
         <div class="mt-6">
             <x-button href="mailto:contact@code16.fr" variant="link-white">
