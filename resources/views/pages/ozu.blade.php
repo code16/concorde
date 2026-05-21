@@ -87,7 +87,7 @@
                 <x-icon-pause class="size-8 absolute left-1/2 top-1/2 -translate-1/2 opacity-0 in-data-playing:opacity-100 duration-300" />
                 <span class="in-data-showing:opacity-0 in-data-showing:w-0 [interpolate-size:allow-keywords] transition-[opacity,width] duration-300 whitespace-nowrap">
                     <span class="px-3">
-                        Découvrir Ozu en une minute
+                        Découvrir Ozu <span class="max-[340px]:hidden">en une minute</span>
                     </span>
                 </span>
             </x-button>
@@ -389,7 +389,7 @@
                     <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
                         <div class="h-36 bg-violet-50 overflow-hidden grid grid-cols-1 justify-items-center">
                             <div class="w-full max-w-60 flex">
-                                <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4 border-r border-violet-300 bg-violet-100">
+                                <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4 border-x border-violet-300 bg-violet-100">
                                     <div class="h-2 w-10 rounded-full border border-violet-300 bg-violet-50"></div>
                                     <div class="h-8 w-12 rounded-md border border-violet-300 bg-violet-50"></div>
                                     <div class="h-2 w-8 rounded-full border border-violet-300 bg-violet-50"></div>
@@ -410,8 +410,11 @@
                         </div>
                     </li>
                     <li class="rounded-2xl bg-neutral-50 p-1.5 border border-neutral-200 flex flex-col">
-                        <div class="flex-1 rounded-xl border border-neutral-200 bg-white flex flex-col p-6 gap-6 justify-center">
-                            <p class="text-neutral-600">
+                        <div class="flex-1 rounded-xl border border-neutral-200 bg-white flex flex-col p-6 py-10 justify-center">
+{{--                            <h3 class="mb-1 text-lg font-heading font-[450]">--}}
+{{--                                Autres demandes--}}
+{{--                            </h3>--}}
+                            <p class="text-base text-neutral-600">
                                 Votre projet implique un compte client, des prises de commande ou un catalogue dynamique ? Ozu ne sera pas adapté, mais Code 16 si&nbsp;!
                             </p>
                         </div>
@@ -426,7 +429,7 @@
             </section>
 
         </div>
-        <div class="mt-12 lg:mt-20 rounded-3xl bg-eggplant text-white pt-12 lg:pt-20">
+        <div class="mt-16 lg:mt-20 rounded-3xl bg-eggplant text-white pt-16 lg:pt-20">
             <section class="px-5 md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
@@ -440,7 +443,7 @@
                         </p>
                     </x-slot:title>
                 </x-section-header>
-                <p class="mt-7 text-white/50 max-w-2xl">
+                <p class="mt-7 text-white/70 max-w-2xl">
                     Ozu est également une plateforme technique proposant un outillage complet qui permet à Code 16 de réduire le temps de développement,
                     et donc le montant global des projets. À titre d'exemple, le budget pour un site vitrine complet de présentation de projets
                     ou d'activité démarre à 3&nbsp;000&nbsp;€&nbsp;HT.
