@@ -25,32 +25,31 @@
         </div>
         <div class="h-16 md:h-40"></div>
     </x-hero>
-    <div class="container relative">
-        <div class="-mt-16 md:-mt-52 md:px-12.5 lg:px-17.5 pb-16 mb-20 lg:mb-30">
-            <div class="group @container-size relative aspect-16/9 isolate bg-eggplant shadow-xl"
-                x-data="{ playing: false, showing: false }"
-                :data-showing="showing"
-                :data-playing="playing"
-            >
-                <div class="size-full overflow-hidden">
-                    <div class="relative isolate size-full bg-violet-500 group-hover:scale-115 transition duration-300"
-                        x-on:click="showing = true; playing = true"
-                        x-show="!showing"
-                    >
-                        <img src="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}" alt="Ozu Video Cover" class="absolute inset-0 size-full object-cover" />
-                        <x-icon-ozu class="absolute top-[30%] md:top-1/2 left-1/2 -translate-1/2 size-[20%] text-white" />
-                    </div>
+    <div class="-mt-16 md:-mt-52 md:container md:px-12.5 lg:px-17.5 pb-15 mb-15 lg:mb-25">
+        <div class="group @container-size relative aspect-16/9 isolate bg-eggplant shadow-xl"
+            x-data="{ playing: false, showing: false }"
+            :data-showing="showing"
+            :data-playing="playing"
+        >
+            <div class="size-full overflow-hidden">
+                <div class="relative isolate size-full bg-violet-500 group-hover:scale-115 transition duration-300"
+                    x-on:click="showing = true; playing = true"
+                    x-show="!showing"
+                >
+                    <img src="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}" alt="Ozu Video Cover" class="absolute inset-0 size-full object-cover" />
+                    <x-icon-ozu class="absolute top-[30%] md:top-1/2 left-1/2 -translate-1/2 size-[20%] text-white" />
                 </div>
-                <video class="absolute size-full inset-0" x-cloak x-show="showing"
-                    poster="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}"
-                    data-playlist="https://vz-c309594d-4f1.b-cdn.net/e83c368c-42bf-4058-bf15-0380d5405295/playlist.m3u8"
-                    @env('production')
-                        data-preload
-                    @endenv
-                    disablepictureinpicture
-                    x-on:play="playing = true"
-                    x-on:pause="playing = false; $el.controls = true"
-                    x-init="
+            </div>
+            <video class="absolute size-full inset-0" x-cloak x-show="showing"
+                poster="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}"
+                data-playlist="https://vz-c309594d-4f1.b-cdn.net/e83c368c-42bf-4058-bf15-0380d5405295/playlist.m3u8"
+                @env('production')
+                    data-preload
+                @endenv
+                disablepictureinpicture
+                x-on:play="playing = true"
+                x-on:pause="playing = false; $el.controls = true"
+                x-init="
                         const video = $el;
                         const playlistUrl = $el.getAttribute('data-playlist');
                         if (Hls.isSupported()) {
@@ -73,30 +72,32 @@
                             video.src = playlistUrl;
                         }
                     "
-                    x-effect="playing ? $el.play() : $el.pause()"
-                    x-ref="video"
-                ></video>
-                <x-button class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-[15cqh] in-data-showing:translate-y-[calc(100%+1rem)]  transition duration-300 overflow-hidden px-5! [interpolate-size:allow-keywords] [transition-behavior:discrete] gap-0!"
-                    size="lg" variant="light"
-                    x-bind:data-variant="showing ? 'dark' : 'light'"
-                    aria-label="Lancer la vidéo"
-                    x-on:click="showing = true; playing = !playing"
-                    x-cloak
-                >
-                    <span class="absolute inset-0"></span>
-                    <x-icon-play class="size-8 in-data-playing:opacity-0 transition duration-300" />
-                    <x-icon-pause class="size-8 absolute left-1/2 top-1/2 -translate-1/2 opacity-0 in-data-playing:opacity-100 duration-300" />
-                    <span class="in-data-showing:opacity-0 in-data-showing:w-0 transition-[opacity,width] duration-300 whitespace-nowrap">
-                        <span class="px-3">
-                            Découvrir Ozu en une minute
-                        </span>
+                x-effect="playing ? $el.play() : $el.pause()"
+                x-ref="video"
+            ></video>
+            <x-button class="absolute bottom-0 left-1/2 -translate-x-1/2 -translate-y-[15cqh] in-data-showing:translate-y-[calc(100%+1rem)]  transition duration-300 overflow-hidden px-5! gap-0!"
+                size="lg" variant="light"
+                x-bind:data-variant="showing ? 'dark' : 'light'"
+                aria-label="Lancer la vidéo"
+                x-on:click="showing = true; playing = !playing"
+                x-cloak
+            >
+                <span class="absolute inset-0"></span>
+                <x-icon-play class="size-8 in-data-playing:opacity-0 transition duration-300" />
+                <x-icon-pause class="size-8 absolute left-1/2 top-1/2 -translate-1/2 opacity-0 in-data-playing:opacity-100 duration-300" />
+                <span class="in-data-showing:opacity-0 in-data-showing:w-0 [interpolate-size:allow-keywords] transition-[opacity,width] duration-300 whitespace-nowrap">
+                    <span class="px-3">
+                        Découvrir Ozu en une minute
                     </span>
-                </x-button>
-{{--                    <div class="absolute inset-0 opacity-0 in-data-playing:opacity-100">--}}
-{{--                        <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/665748/e83c368c-42bf-4058-bf15-0380d5405295?autoplay=false&loop=false&compactControls=true&muted=false&preload=false&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen></iframe></div>--}}
-{{--                    </div>--}}
-            </div>
+                </span>
+            </x-button>
+            {{--                    <div class="absolute inset-0 opacity-0 in-data-playing:opacity-100">--}}
+            {{--                        <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/665748/e83c368c-42bf-4058-bf15-0380d5405295?autoplay=false&loop=false&compactControls=true&muted=false&preload=false&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen></iframe></div>--}}
+            {{--                    </div>--}}
         </div>
+    </div>
+    <div class="container relative">
+
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
             <section class="md:px-12.5 lg:px-17.5">
                 <x-section-header>
@@ -111,45 +112,47 @@
                         </p>
                     </x-slot:title>
                 </x-section-header>
-                <ul class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
-                    @foreach([
-                        'Rapide, stable et sécurisé' => 'Un site statique est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la grande majorité des attaques.',
-                        'Gestion de contenu sur mesure' => 'Vos clients peuvent gérer leur contenu en autonomie avec un dashboard moderne et pensé pour être simple d’utilisation.',
-                        'Maintenance technique complète' => 'Nous appliquons même garantie de maintenance que sur les gros projets, assurant continuité de service et évolutivité.',
-                    ] as $title => $description)
-                        <li class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
-                            <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-purple-50 [&_.accent]:fill-violet-400 inset-ring inset-ring-violet-100 rounded-xl">
-                                @if($loop->index === 0)
-                                    <x-icon-approach-demanding class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#diamond]:-translate-y-[5%]" />
-                                    <x-icon-approach-demanding-mobile class="md:hidden size-full" />
-                                @elseif($loop->index === 1)
-                                    <x-icon-approach-autonomous class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#pastille]:translate-x-[5%]" />
-                                    <x-icon-approach-autonomous-mobile class="md:hidden size-full" />
-                                @elseif($loop->index === 2)
-                                    <x-icon-approach-maintenance class="max-md:hidden size-full **:transition **:duration-300 group-hover/item:[&_#wrench]:-translate-y-[5%]" />
-                                    <x-icon-approach-maintenance-mobile class="md:hidden size-full" />
-                                @endif
-                            </div>
-                            <div class="md:self-stretch p-2.5 md:pt-0 md:p-5 lg:pt-0 lg:p-7">
-                                <h3 class="text-2xl font-heading font-[450]">
-                                    {{ $title }}
-                                </h3>
-                                <p class="mt-1.25 text-base text-neutral-600">
-                                    {{ $description }}
-                                </p>
-                            </div>
-                        </li>
-                    @endforeach
+                <ul class="mt-10 grid grid-cols-1 auto-rows-fr lg:grid-cols-3 gap-2.5 lg:gap-3.75 lg:gap-5">
+                    <x-kpi-card illustration="demanding">
+                        <x-slot:title>
+                            Rapide, stable et sécurisé
+                        </x-slot:title>
+                        <p>
+                            Un site statique est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la grande majorité des attaques.
+                        </p>
+                    </x-kpi-card>
+                    <x-kpi-card illustration="autonomous">
+                        <x-slot:title>
+                            Gestion de contenu sur mesure
+                        </x-slot:title>
+                        <p>
+                            Vos clients peuvent gérer leur contenu en autonomie avec un dashboard moderne et pensé pour être simple d’utilisation.
+                        </p>
+                    </x-kpi-card>
+                    <x-kpi-card illustration="maintenance">
+                        <x-slot:title>
+                            Maintenance technique complète
+                        </x-slot:title>
+                        <p>
+                            Nous appliquons même garantie de maintenance que sur les gros projets, assurant continuité de service et évolutivité.
+                        </p>
+                    </x-kpi-card>
                 </ul>
             </section>
             <div class="grid grid-cols-1 gap-y-10">
                 <section class="md:px-12.5 lg:px-17.5">
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
-                        <div class="grid grid-cols-1 md:grid-cols-5">
-                            <div class="md:order-1 md:col-span-2 overflow-hidden min-h-48 bg-purple-50 relative">
-                                <img class="absolute top-12 left-6 w-[700px] max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/ozu/figma-screen.png') }}" alt="">
+                        <div class="grid grid-cols-1 lg:grid-cols-5">
+                            <div class=" lg:order-1 lg:col-span-2 border-b border-neutral-200 lg:border-b-0 overflow-hidden min-h-56 bg-purple-50 relative">
+                                <div class="absolute inset-0 top-12 left-12 @container-size">
+                                    <div class="absolute bottom-0 right-0 size-full max-w-[250cqh]">
+                                        <div class="contents lg:block absolute bottom-0 inset-x-0 aspect-100/65">
+                                            <img class="h-full max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/ozu/figma-screen.png') }}" alt="">
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
+                            <div class="lg:col-span-3 p-7 lg:p-12">
                                 <x-section-header>
                                     <x-slot:surtitle>
                                         <h3>
@@ -158,11 +161,11 @@
                                     </x-slot:surtitle>
                                     <x-slot:title>
                                         <p>
-                                            Votre design,<br>intégralement respecté
+                                            Votre design, <br>intégralement respecté
                                         </p>
                                     </x-slot:title>
                                 </x-section-header>
-                                <p class="text-neutral-600 max-w-prose">
+                                <p class="mt-5 text-neutral-600 max-w-prose">
                                     Ozu ne repose sur aucun thème, aucun constructeur de pages, aucun template : nous intégrons votre design pixel par pixel, avec une liberté totale sur les animations, les interactions et la mise en page. Le résultat final correspond exactement à ce qui a été conçu.
                                 </p>
                             </div>
@@ -171,11 +174,11 @@
                 </section>
                 <section class="md:px-12.5 lg:px-17.5">
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
-                        <div class="grid grid-cols-1 md:grid-cols-5">
-                            <div class="md:col-span-2 min-h-48 bg-blue-50 relative overflow-hidden flex items-center justify-center">
+                        <div class="grid grid-cols-1 lg:grid-cols-5">
+                            <div class="lg:col-span-2 min-h-56 bg-blue-50 relative overflow-hidden flex items-center justify-center">
                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/ozu/europe.jpg') }}" alt="">
                             </div>
-                            <div class="md:col-span-3 p-7 lg:p-12 flex flex-col justify-center gap-5">
+                            <div class="lg:col-span-3 p-7 lg:p-12">
                                 <x-section-header>
                                     <x-slot:surtitle>
                                         <h3>
@@ -188,7 +191,7 @@
                                         </p>
                                     </x-slot:title>
                                 </x-section-header>
-                                <p class="text-neutral-600 max-w-prose">
+                                <p class="mt-5 text-neutral-600 max-w-prose">
                                     L’infrastructure d’Ozu ne dépend pas de fournisseurs hors Union Européenne&nbsp;: le CMS, les données, le site, les sauvegardes et les services automatisés de suivi de production et de remontée des anomalies sont tous assurés par des prestataires européens et localisés en Europe.
                                 </p>
                             </div>
@@ -315,54 +318,62 @@
                         </p>
                     </x-slot:title>
                 </x-section-header>
-                <div class="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-5">
-                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
-                        <div class="h-36 bg-violet-50 p-4 flex flex-col gap-2">
-                            <div class="h-3.5 rounded-sm w-full border border-violet-300 bg-violet-100"></div>
-                            <div class="flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="flex gap-2">
-                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                <ul class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
+                        <div class="h-36 bg-violet-50 p-4 grid grid-cols-1 justify-items-center">
+                            <div class="flex flex-col w-full max-w-60 gap-2">
+                                <div class="h-3.5 rounded-sm w-full border border-violet-300 bg-violet-100"></div>
+                                <div class="flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="flex gap-2">
+                                    <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="h-5 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                </div>
                             </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Site vitrine et marketing</h3>
                             <p class="mt-1 text-sm text-neutral-600">Présentation d'une activité, de services ou d'une entreprise avec un design soigné pour convaincre.</p>
                         </div>
-                    </article>
-                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
-                        <div class="h-36 bg-violet-50 flex flex-col items-center justify-center gap-2.5 p-6">
-                            <div class="w-3/4 h-5 rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="w-1/2 h-3 rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="mt-1 w-28 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
+                    </li>
+                    <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
+                        <div class="h-36 bg-violet-50  p-4 grid grid-cols-1 justify-items-center">
+                            <div class="flex flex-col w-full max-w-60 items-center justify-center gap-2.5">
+                                <div class="w-3/4 h-5 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="w-1/2 h-3 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="mt-1 w-28 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
+                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Landing page produit</h3>
                             <p class="mt-1 text-sm text-neutral-600">Mise en avant d’un produit ou d’une offre, optimisée pour capter l'attention et convertir.</p>
                         </div>
-                    </article>
-                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
-                        <div class="h-36 bg-violet-50 p-4 grid grid-cols-2 gap-2">
-                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
-                            <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                    </li>
+                    <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
+                        <div class="h-36 bg-violet-50 p-4 grid grid-cols-1 justify-items-center">
+                            <div class="w-full max-w-60 grid grid-cols-2 gap-2">
+                                <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                                <div class="rounded-sm border border-violet-300 bg-violet-100"></div>
+                            </div>
                         </div>
                         <div class="p-5">
                             <h3 class="text-lg font-heading font-[450]">Portfolio de projets</h3>
                             <p class="mt-1 text-sm text-neutral-600">Valorisation de réalisations ou d’un portfolio créatif dans une mise en page personnalisée.</p>
                         </div>
-                    </article>
-                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
-                        <div class="h-36 bg-violet-50 p-4 flex flex-col gap-2">
-                            <div class="flex-1 rounded-sm flex flex-col justify-center gap-2 px-3 border border-violet-300">
-                                <div class="h-3 w-4/5 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="h-2 w-3/5 rounded-sm border border-violet-300 bg-violet-100"></div>
-                            </div>
-                            <div class="flex gap-1.5">
-                                <div class="flex-1 h-7 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="w-20 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
+                    </li>
+                    <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
+                        <div class="h-36 bg-violet-50 p-4  grid grid-cols-1 justify-items-center">
+                            <div class="w-full max-w-60 flex flex-col gap-2">
+                                <div class="flex-1 rounded-sm flex flex-col justify-center gap-2 px-3 border border-violet-300">
+                                    <div class="h-3 w-4/5 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="h-2 w-3/5 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                </div>
+                                <div class="flex gap-1.5">
+                                    <div class="flex-1 h-7 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="w-20 h-7 rounded-full border border-violet-300 bg-violet-100"></div>
+                                </div>
                             </div>
 {{--                            <div class="flex gap-3">--}}
 {{--                                <div class="h-2 flex-1 rounded-sm border border-violet-300 bg-violet-100"></div>--}}
@@ -374,20 +385,22 @@
                             <h3 class="text-lg font-heading font-[450]">Site de génération de lead</h3>
                             <p class="mt-1 text-sm text-neutral-600">Site de captation de contacts qualifiés grâce à des appels à l'action ciblés.</p>
                         </div>
-                    </article>
-                    <article class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
-                        <div class="h-36 bg-violet-50 flex overflow-hidden">
-                            <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4 border-r border-violet-300 bg-violet-100">
-                                <div class="h-2 w-10 rounded-full border border-violet-300 bg-violet-50"></div>
-                                <div class="h-8 w-12 rounded-md border border-violet-300 bg-violet-50"></div>
-                                <div class="h-2 w-8 rounded-full border border-violet-300 bg-violet-50"></div>
-                            </div>
-                            <div class="flex-1 p-4 flex flex-col justify-center gap-2.5">
-                                <div class="h-3 w-5/6 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="h-2.5 w-2/3 rounded-sm border border-violet-300 bg-violet-100"></div>
-                                <div class="mt-1 flex gap-2">
-                                    <div class="h-4 w-14 rounded-full border border-violet-300 bg-violet-100"></div>
-                                    <div class="h-4 w-10 rounded-full border border-violet-300 bg-violet-100"></div>
+                    </li>
+                    <li class="rounded-2xl bg-white border border-neutral-200 overflow-hidden">
+                        <div class="h-36 bg-violet-50 overflow-hidden grid grid-cols-1 justify-items-center">
+                            <div class="w-full max-w-60 flex">
+                                <div class="w-20 shrink-0 flex flex-col items-center justify-center gap-2 py-4 border-r border-violet-300 bg-violet-100">
+                                    <div class="h-2 w-10 rounded-full border border-violet-300 bg-violet-50"></div>
+                                    <div class="h-8 w-12 rounded-md border border-violet-300 bg-violet-50"></div>
+                                    <div class="h-2 w-8 rounded-full border border-violet-300 bg-violet-50"></div>
+                                </div>
+                                <div class="flex-1 p-4 flex flex-col justify-center gap-2.5">
+                                    <div class="h-3 w-5/6 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="h-2.5 w-2/3 rounded-sm border border-violet-300 bg-violet-100"></div>
+                                    <div class="mt-1 flex gap-2">
+                                        <div class="h-4 w-14 rounded-full border border-violet-300 bg-violet-100"></div>
+                                        <div class="h-4 w-10 rounded-full border border-violet-300 bg-violet-100"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -395,8 +408,8 @@
                             <h3 class="text-lg font-heading font-[450]">Site événementiel</h3>
                             <p class="mt-1 text-sm text-neutral-600">Programmation, agenda, lien billetterie : un site à l'image de l'événement, conçu pour mobiliser le public.</p>
                         </div>
-                    </article>
-                    <div class="rounded-2xl bg-neutral-50 p-1.5 border border-neutral-200 flex flex-col">
+                    </li>
+                    <li class="rounded-2xl bg-neutral-50 p-1.5 border border-neutral-200 flex flex-col">
                         <div class="flex-1 rounded-xl border border-neutral-200 bg-white flex flex-col p-6 gap-6 justify-center">
                             <p class="text-neutral-600">
                                 Votre projet implique un compte client, des prises de commande ou un catalogue dynamique ? Ozu ne sera pas adapté, mais Code 16 si&nbsp;!
@@ -408,8 +421,8 @@
                                 Voir nos références de sites dynamiques
                             </x-button>
                         </div>
-                    </div>
-                </div>
+                    </li>
+                </ul>
             </section>
 
         </div>
