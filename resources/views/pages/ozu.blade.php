@@ -425,7 +425,7 @@
             </section>
 
         </div>
-        <div class="mt-16 lg:mt-20 rounded-3xl bg-eggplant text-white pt-16 lg:pt-20">
+        <div class="mt-16 lg:mt-20 rounded-2xl bg-eggplant text-white pt-16 lg:pt-20">
             <section class="px-5 md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
