@@ -231,5 +231,32 @@ class DatabaseSeeder extends OzuSeeder
             'website_url' => 'https://comedie-colmar.com',
         ])
             ->create();
+
+        Project::factory([
+            'title' => 'Structure',
+            'tags' => ProjectTag::whereIn('label', ['Contenu'])->pluck('id'),
+            'has_show_page' => false,
+            'website_url' => 'https://www.frogarchitecture.com/',
+            'is_ozu' => true,
+        ])
+            ->create();
+
+        Project::factory([
+            'title' => 'Frög',
+            'tags' => ProjectTag::whereIn('label', ['Contenu'])->pluck('id'),
+            'has_show_page' => false,
+            'website_url' => 'https://www.frogarchitecture.com/',
+            'is_ozu' => true,
+        ])
+            ->create();
+
+        Project::factory([
+            'title' => 'Cnb',
+            'tags' => ProjectTag::whereIn('label', ['Contenu'])->pluck('id'),
+            'has_show_page' => false,
+            'website_url' => 'https://www.cnbarchitectes.fr/',
+            'is_ozu' => true,
+        ])
+            ->create();
     }
 }

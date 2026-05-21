@@ -136,6 +136,9 @@ class Project extends Model
                 OzuField::makeText('accent_color')
                     ->setLabel('Accent color (hex)')
                     ->setHelpMessage('Optional')
+            )
+            ->addCustomField(
+                OzuField::makeCheck('is_ozu', 'Is Ozu project')
             );
     }
 }

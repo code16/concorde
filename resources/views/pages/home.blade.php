@@ -39,11 +39,15 @@
             <section id="projects" class="flex flex-col md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Projets
+                        <h2>
+                            Projets
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
-                        Découvrez nos projets à la une,
-                        <br>reflet de la diversité de nos missions.
+                        <p>
+                            Découvrez nos projets à la une,
+                            <br>reflet de la diversité de nos missions.
+                        </p>
                     </x-slot:title>
                     <x-slot:actions>
                         <x-button href="{{ route('projects.index') }}" variant="link">
@@ -62,46 +66,46 @@
                 <section class="md:px-12.5 lg:px-17.5">
                     <x-section-header vertical>
                         <x-slot:surtitle>
-                            Notre approche
+                            <h2>
+                                Notre approche
+                            </h2>
                         </x-slot:surtitle>
                         <x-slot:title>
-                            Là où nous faisons la différence.
+                            <p>
+                                Là où nous faisons la différence.
+                            </p>
                         </x-slot:title>
                         <x-slot:heading-text>
                             Nous construisons des projets solides et évolutifs, avec une exigence constante sur la qualité.
                         </x-slot:heading-text>
                     </x-section-header>
 
-                    <div class="mt-10 grid grid-cols-1 auto-rows-fr md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5" >
-                        @foreach([
-                            'Exigence' => 'Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.',
-                            'Suivi' => 'Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.',
-                            'Autonomie' => 'Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.',
-                        ] as $title => $description)
-                            <article class="group/item flex flex-row md:flex-col gap-x-1 min-[23rem]:gap-x-3.75 md:gap-6.25 lg:gap-8.75 p-2 rounded-2xl  bg-white inset-ring inset-ring-neutral-200">
-                                <div class="self-stretch shrink-0 w-20 min-[23rem]:w-25 md:w-full md:h-30 lg:h-40 bg-violet-50 inset-ring inset-ring-violet-100 rounded-xl">
-                                    @if($loop->index === 0)
-                                        <x-icon-approach-demanding class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#diamond]:-translate-y-[5%]" />
-                                        <x-icon-approach-demanding-mobile class="md:hidden size-full" />
-                                    @elseif($loop->index === 1)
-                                        <x-icon-approach-maintenance class="max-md:hidden size-full **:transition **:duration-300 group-hover/item:[&_#wrench]:-translate-y-[5%]" />
-                                        <x-icon-approach-maintenance-mobile class="md:hidden size-full" />
-                                    @elseif($loop->index === 2)
-                                        <x-icon-approach-autonomous class="max-md:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#pastille]:translate-x-[5%]" />
-                                        <x-icon-approach-autonomous-mobile class="md:hidden size-full" />
-                                    @endif
-                                </div>
-                                <div class="md:self-stretch p-2.5 md:pt-0 md:p-5 lg:pt-0 lg:p-7">
-                                    <h3 class="text-2xl font-heading font-[450]">
-                                        {{ $title }}
-                                    </h3>
-                                    <p class="mt-1.25 text-base text-neutral-600">
-                                        {{ $description }}
-                                    </p>
-                                </div>
-                            </article>
-                        @endforeach
-                    </div>
+                    <ul class="mt-10 grid grid-cols-1 auto-rows-fr lg:grid-cols-3 gap-2.5 lg:gap-3.75 lg:gap-5">
+                        <x-kpi-card illustration="demanding">
+                            <x-slot:title>
+                                Exigence
+                            </x-slot:title>
+                            <p>
+                                Nous concevons chaque projet avec la même rigueur pour livrer en confiance un code propre, maîtrisé et capable d’évoluer.
+                            </p>
+                        </x-kpi-card>
+                        <x-kpi-card illustration="maintenance">
+                            <x-slot:title>
+                                Suivi
+                            </x-slot:title>
+                            <p>
+                                Nous assurons la maintenance technique de nos réalisations et les faisons évoluer au rythme des besoins.
+                            </p>
+                        </x-kpi-card>
+                        <x-kpi-card illustration="autonomous">
+                            <x-slot:title>
+                                Autonomie
+                            </x-slot:title>
+                            <p>
+                                Nous gardons la main sur l’ensemble des briques, du développement au déploiement, pour être autonome et réactifs.
+                            </p>
+                        </x-kpi-card>
+                    </ul>
                 </section>
                 <section class="xl:px-3">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-y-5 rounded-2.5xl pb-7.5 p-2.5 md:p-5 rounded-2xl bg-white inset-ring inset-ring-neutral-200">
@@ -131,18 +135,22 @@
                 <section class="md:px-7.5 lg:px-17.5">
                     <x-section-header>
                         <x-slot:surtitle>
-                            Frameworks
+                            <h2>
+                                Frameworks
+                            </h2>
                         </x-slot:surtitle>
                         <x-slot:title class="max-w-127">
-                            <span class="lg:hidden">
+                            <p class="lg:hidden">
                                 Des outils conçus pour accélérer vos projets.
-                            </span>
-                            <span class="max-lg:hidden">
+                            </p>
+                            <p class="max-lg:hidden">
                                 Des outils conçus pour accélérer et optimiser vos projets.
-                            </span>
+                            </p>
                         </x-slot:title>
                         <x-slot:heading-text>
-                            Nous avons développé des outils pour enrichir l’écosystème Laravel et offrir aux développeurs des bases solides pour leurs applications.
+                            <p>
+                                Nous avons développé des outils pour enrichir l’écosystème Laravel et offrir aux développeurs des bases solides pour leurs applications.
+                            </p>
                         </x-slot:heading-text>
                     </x-section-header>
                     <div class="mt-7.5 md:mt-10 grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-5">
@@ -183,13 +191,19 @@
                 <section class="md:px-7.5 lg:px-17.5">
                     <x-section-header vertical>
                         <x-slot:surtitle>
-                            L’équipe
+                            <h2>
+                                L’équipe
+                            </h2>
                         </x-slot:surtitle>
                         <x-slot:title>
-                            Une équipe experte à taille humaine
+                            <p>
+                                Une équipe experte à taille humaine
+                            </p>
                         </x-slot:title>
                         <x-slot:heading-text>
-                            Pour les projets d’envergure, nous sommes entourés de partenaires de confiance.
+                            <p>
+                                Pour les projets d’envergure, nous sommes entourés de partenaires de confiance.
+                            </p>
                         </x-slot:heading-text>
                     </x-section-header>
                     <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3.75 lg:gap-5">
@@ -213,10 +227,14 @@
                     <div x-data="{ atStart: false, atEnd: false }">
                         <x-section-header>
                             <x-slot:surtitle>
-                                Témoignages
+                                <h2>
+                                    Témoignages
+                                </h2>
                             </x-slot:surtitle>
                             <x-slot:title>
-                                Ils nous font confiance
+                                <p>
+                                    Ils nous font confiance
+                                </p>
                             </x-slot:title>
                             <x-slot:actions class="hidden md:flex gap-3.75" x-show="!atStart || !atEnd">
                                 <button class="relative grid place-content-center size-6 rounded-full text-white bg-eggplant disabled:bg-neutral-400 disabled:pointer-events-none hover:text-eggplant hover:bg-violet-400 transition"
@@ -286,10 +304,14 @@
             <section id="blog" class="flex flex-col md:px-7.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
-                        Blog
+                        <h2>
+                            Blog
+                        </h2>
                     </x-slot:surtitle>
                     <x-slot:title class="md:max-w-90 lg:max-w-138">
-                        Nos projets, nos outils, et tout ce qu’on aime partager avec vous.
+                        <p>
+                            Nos projets, nos outils, et tout ce qu’on aime partager avec vous.
+                        </p>
                     </x-slot:title>
                     <x-slot:actions>
                         <x-button href="{{ route('articles.index') }}" variant="link">
