@@ -16,14 +16,10 @@
         <x-slot:title>
             Nous traitons les petits projets comme les grands
         </x-slot:title>
-        <div class="mt-6">
-            <x-button href="mailto:contact@code16.fr" variant="link-white">
-                <x-button-arrow variant="dark" />
-{{--                <x-icon-arrow-right class="-ml-1 size-5" />--}}
-                Parlons de votre projet
-            </x-button>
-        </div>
-        <div class="h-16 md:h-40"></div>
+        <x-slot:heading-text>
+            Ozu fournit un CMS sur mesure, un cadre de développement et une infrastructure pour créer des sites <span class="text-purple-50">rapides</span>, <span class="text-purple-50">très sécurisés</span> et <span class="text-purple-50">faciles à maintenir</span>.
+        </x-slot:heading-text>
+        <div class="h-8 md:h-32"></div>
     </x-hero>
     <div class="-mt-16 md:-mt-52 md:container md:px-12.5 lg:px-17.5 pb-15 mb-15 lg:mb-25">
         <div class="group @container-size relative aspect-16/9 isolate bg-eggplant shadow-xl"
