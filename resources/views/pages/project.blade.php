@@ -60,7 +60,9 @@
             <section class="flex flex-col mt-20 md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:title>
-                        Projets similaires
+                        <h2>
+                            Projets similaires
+                        </h2>
                     </x-slot:title>
                     <x-slot:actions>
                         <x-button href="{{ route('projects.index') }}" variant="link">

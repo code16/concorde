@@ -42,7 +42,7 @@
     </div>
     <div class="mt-2 text-center text-neutral-600 text-xs">
         © {{ date('Y') }} Code 16 — built with
-        <a class="underline hover:text-eggplant" href="https://ozu.code16.fr" target="_blank">
+        <a class="underline hover:text-eggplant" href="/ozu" target="_blank">
             Ozu
         </a>
     </div>
