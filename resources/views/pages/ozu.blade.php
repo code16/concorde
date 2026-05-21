@@ -430,7 +430,7 @@
                 <x-section-header>
                     <x-slot:surtitle>
                         <h2>
-                            Tarification simple
+                            Tarification adaptée
                         </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
