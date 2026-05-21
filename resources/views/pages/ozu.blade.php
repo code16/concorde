@@ -143,7 +143,7 @@
                                 <div class="absolute inset-0 top-12 left-12 @container-size">
                                     <div class="absolute bottom-0 right-0 size-full max-w-[250cqh]">
                                         <div class="contents lg:block absolute bottom-0 inset-x-0 aspect-100/65">
-                                            <img class="h-full max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/ozu/figma-screen.png') }}" alt="">
+                                            <img class="h-full max-w-none drop-shadow-2xl" src="{{ Vite::asset('resources/img/ozu/figma-screen.avif') }}" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +172,7 @@
                     <div class="rounded-2xl overflow-hidden bg-white border border-neutral-200">
                         <div class="grid grid-cols-1 lg:grid-cols-5">
                             <div class="lg:col-span-2 min-h-56 bg-blue-50 relative overflow-hidden flex items-center justify-center">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/ozu/europe.jpg') }}" alt="">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ Vite::asset('resources/img/ozu/europe.avif') }}" alt="">
                             </div>
                             <div class="lg:col-span-3 p-7 lg:p-12">
                                 <x-section-header>
