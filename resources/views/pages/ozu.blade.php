@@ -461,7 +461,7 @@
                             Maintenance
                         </x-slot:title>
                         <p>
-                            Hébergement, sauvegardes quotidiennes, maintenance de l’infrastructure, maintenance et suivi du projet, comptes CMS client.
+                            Hébergement, sauvegardes quotidiennes, maintenance de l’infrastructure, maintenance et suivi du projet, comptes CMS&nbsp;client.
                         </p>
                         <x-slot:price>
                             <p>
