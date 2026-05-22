@@ -21,7 +21,7 @@
         </x-slot:heading-text>
         <div class="h-8 md:h-32"></div>
     </x-hero>
-    <div class="-mt-16 md:-mt-52 md:container md:px-12.5 lg:px-17.5 pb-15 mb-15 lg:mb-25">
+    <div class="-mt-16 md:-mt-52 md:container md:px-12.5 lg:px-17.5 pb-15 mb-15">
         <div class="group @container-size relative aspect-16/9 isolate bg-eggplant shadow-xl"
             x-data="{ playing: false, showing: false }"
             :data-showing="showing"
@@ -93,6 +93,15 @@
         </div>
     </div>
     <div class="container relative">
+
+        <div class="md:px-12.5 lg:px-17.5 mb-20 lg:mb-30 text-center max-w-3xl mx-auto">
+            <div class="flex justify-center mb-5">
+                <div class="h-0.5 w-12 rounded-full bg-violet-400"></div>
+            </div>
+            <p class="font-heading text-3xl lg:text-4xl font-[350]">
+                Avec <x-icon-ozu class="inline h-[0.85em] align-[-0.1em]" />, nous accompagnons les <span class="text-violet-600">agences de design</span> et les <span class="text-violet-600">graphistes</span> dans le développement rapide de sites de contenu performants et sur mesure.
+            </p>
+        </div>
 
         <div class="grid grid-cols-1 gap-y-20 lg:gap-y-30">
             <section class="md:px-12.5 lg:px-17.5">
@@ -425,12 +434,12 @@
             </section>
 
         </div>
-        <div class="mt-16 lg:mt-20 rounded-3xl bg-eggplant text-white pt-16 lg:pt-20">
+        <div class="mt-16 lg:mt-20 rounded-2xl bg-eggplant text-white pt-16 lg:pt-20">
             <section class="px-5 md:px-12.5 lg:px-17.5">
                 <x-section-header>
                     <x-slot:surtitle>
                         <h2>
-                            Tarification simple
+                            Tarification adaptée
                         </h2>
                     </x-slot:surtitle>
                     <x-slot:title>
