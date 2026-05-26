@@ -38,7 +38,7 @@
             </div>
             <video class="absolute size-full inset-0" x-cloak x-show="showing"
                 poster="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}"
-                data-playlist="https://vz-c309594d-4f1.b-cdn.net/e83c368c-42bf-4058-bf15-0380d5405295/playlist.m3u8"
+                data-playlist="https://concorde-1f83b.kxcdn.com/videos/ozu-presentation/playlist.m3u8"
                 @env('production')
                     data-preload
                 @endenv
@@ -87,9 +87,6 @@
                     </span>
                 </span>
             </x-button>
-            {{--                    <div class="absolute inset-0 opacity-0 in-data-playing:opacity-100">--}}
-            {{--                        <div style="position:relative;padding-top:56.25%;"><iframe src="https://player.mediadelivery.net/embed/665748/e83c368c-42bf-4058-bf15-0380d5405295?autoplay=false&loop=false&compactControls=true&muted=false&preload=false&responsive=true" loading="lazy" style="border:0;position:absolute;top:0;height:100%;width:100%;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen></iframe></div>--}}
-            {{--                    </div>--}}
         </div>
     </div>
     <div class="container relative">
