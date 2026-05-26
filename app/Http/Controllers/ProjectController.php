@@ -10,7 +10,9 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::orderBy('order')->where('is_ozu', false)->get();
+        $projects = Project::orderBy('order')
+            ->where(fn ($query) => $query->where('is_ozu', false)->orWhereNull('is_ozu'))
+            ->get();
         /** @var ProjectTag[]|Collection<int,ProjectTag> $tags */
         $tags = $projects->flatMap(fn (Project $project) => $project->tags)->unique('id')->sortBy('order');
 
