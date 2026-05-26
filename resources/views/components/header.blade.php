@@ -99,6 +99,9 @@
                                 <x-nav-item href="{{ route('home').'#team' }}" data-section="team">
                                     L’équipe
                                 </x-nav-item>
+                                <x-nav-item href="{{ route('ozu.index') }}" data-section="ozu">
+                                    Ozu
+                                </x-nav-item>
                                 <x-nav-item href="{{ route('articles.index') }}" data-section="blog" :current="request()->routeIs('articles.*')">
                                     Blog
                                 </x-nav-item>

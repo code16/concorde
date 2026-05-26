@@ -61,28 +61,6 @@
     </head>
     <body class="bg-neutral-100 text-eggplant font-sans antialiased bg-stone-50 text-base {{ $attributes->get('class') }}">
         <div class="relative flex flex-col py-2.5 min-h-screen">
-            @if($home ?? false)
-                <div class="mb-2 hidden min-[23rem]:block relative z-20 container">
-                    <div class="flex gap-6 py-1.25 px-5 md:px-10 rounded-2xl bg-violet-400">
-                        <p class="text-xs/5.5 font-semibold">
-                            <span class="md:hidden">
-                                Nos outils sur-mesure
-                            </span>
-                            <span class="max-md:hidden">
-                                Nos outils sur-mesure pour structurer et accélérer vos projets Laravel
-                            </span>
-                        </p>
-                        <div class="ml-auto flex gap-5">
-                            @foreach(\App\Models\Tool::all() as $tool)
-                                <a class="flex gap-0.5 items-start font-semibold text-xs/5.5" href="{{ $tool->website_url }}">
-                                    {{ $tool->title }}
-                                    <x-icon-arrow-up-right class="size-4 mt-1" />
-                                </a>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            @endif
             <div class="flex-1 relative flex flex-col">
                 @if($header ?? null)
                     {{ $header }}

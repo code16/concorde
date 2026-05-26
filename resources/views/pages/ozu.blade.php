@@ -96,7 +96,7 @@
                 <div class="h-0.5 w-12 rounded-full bg-violet-400"></div>
             </div>
             <p class="font-heading text-3xl lg:text-4xl font-[350]">
-                Avec <x-icon-ozu class="inline h-[0.85em] align-[-0.1em]" />, nous accompagnons les <span class="text-violet-600">agences de design</span> et les <span class="text-violet-600">graphistes</span> dans le développement rapide de sites de contenu performants et sur mesure.
+                Avec <x-icon-ozu class="inline h-[1em] align-[-0.1em]" />, nous accompagnons les <span class="text-violet-600">agences de design</span> et les <span class="text-violet-600">graphistes</span> dans le développement rapide de sites de contenu performants et sur mesure.
             </p>
         </div>
 
