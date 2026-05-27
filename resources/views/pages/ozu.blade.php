@@ -123,7 +123,7 @@
                             Un site statique est fait de fichiers pré-calculés, le rendant très performant et le mettant à l’abri de la grande majorité des attaques.
                         </p>
                     </x-kpi-card>
-                    <x-kpi-card illustration="autonomous">
+                    <x-kpi-card illustration="admin">
                         <x-slot:title>
                             Gestion de contenu sur mesure
                         </x-slot:title>
