@@ -10,6 +10,9 @@
         @elseif($illustration === 'autonomous')
             <x-icon-approach-autonomous class="max-lg:hidden size-full **:transition  **:duration-300 group-hover/item:[&_#pastille]:translate-x-[5%]" />
             <x-icon-approach-autonomous-mobile class="lg:hidden size-full" />
+        @elseif($illustration === 'admin')
+            <x-icon-approach-admin class="max-lg:hidden size-full **:transition **:duration-300 group-hover/item:[&_#cursor]:-translate-x-[5%]" />
+            <x-icon-approach-admin-mobile class="lg:hidden size-full" />
         @elseif($illustration === 'maintenance')
             <x-icon-approach-maintenance class="max-lg:hidden size-full **:transition **:duration-300 group-hover/item:[&_#wrench]:-translate-y-[5%]" />
             <x-icon-approach-maintenance-mobile class="lg:hidden size-full" />
