@@ -38,7 +38,7 @@
             </div>
             <video class="absolute size-full inset-0" x-cloak x-show="showing"
                 poster="{{ Vite::asset('resources/img/ozu/video-cover-bg.avif') }}"
-                data-playlist="https://concorde-1f83b.kxcdn.com/videos/ozu-presentation/playlist.m3u8"
+                data-playlist="https://concorde-1f83b.kxcdn.com/videos/CODE16-OZU_motion_V2b/playlist.m3u8"
                 @env('production')
                     data-preload
                 @endenv
@@ -46,28 +46,28 @@
                 x-on:play="playing = true"
                 x-on:pause="playing = false; $el.controls = true"
                 x-init="
-                        const video = $el;
-                        const playlistUrl = $el.getAttribute('data-playlist');
-                        if (Hls.isSupported()) {
-                            const hls = new Hls({
-                                autoStartLoad: $el.hasAttribute('data-preload'),
-                                maxBufferLength: 3,
-                                maxMaxBufferLength: 3,
-                                startLevel: 4,
-                            });
-                            hls.loadSource(playlistUrl);
-                            hls.attachMedia(video);
-                            video.addEventListener('play', () => {
-                                hls.config.maxBufferLength = 30;
-                                hls.config.maxMaxBufferLength = 30;
-                                hls.startLoad();
-                            }, { once: true });
-                        }
-                        // Fallback for browsers that support HLS natively (Safari)
-                        else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                            video.src = playlistUrl;
-                        }
-                    "
+                    const video = $el;
+                    const playlistUrl = $el.getAttribute('data-playlist');
+                    if (Hls.isSupported()) {
+                        const hls = new Hls({
+                            autoStartLoad: $el.hasAttribute('data-preload'),
+                            maxBufferLength: 3,
+                            maxMaxBufferLength: 3,
+                            startLevel: 2,
+                        });
+                        hls.loadSource(playlistUrl);
+                        hls.attachMedia(video);
+                        video.addEventListener('play', () => {
+                            hls.config.maxBufferLength = 30;
+                            hls.config.maxMaxBufferLength = 30;
+                            hls.startLoad();
+                        }, { once: true });
+                    }
+                    // Fallback for browsers that support HLS natively (Safari)
+                    else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                        video.src = playlistUrl;
+                    }
+                "
                 x-effect="playing ? $el.play() : $el.pause()"
                 x-ref="video"
             ></video>
